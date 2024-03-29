@@ -17,5 +17,7 @@
     </head>
     <body class="antialiased">
        <h1>Yoga Ganteng</h1>
+       <h4>dhika cah gatel</h4>
+       <h2>dhika ganteng</h2>
     </body>
 </html>
