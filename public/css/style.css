@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+    cursor: pointer;
+}
+
+/* START NAVBAR */
+nav {
+    font-size: 20px;
+    border-bottom: 2px solid #d9ad02;
+    box-shadow: 0 0 15px #d9ad02;
+    color: red;
+}
+.container .icon a:hover {
+    color: #d9ad02;
+    transition: 0.2s ease;
+}
+.container .navbar-nav a:hover {
+    color: #d9ad02;
+    transition: 0.2s ease;
+}
+.container a.act {
+    color: #d9ad02;
+}
+.navbar-nav {
+    margin-left: 30px;
+    letter-spacing: 1px;
+}
+/* END NAVBAR */
+
+/* START PRODUK */
+.main-txt h1 {
+    margin-bottom: 30px;
+}
+.main-txt h1 span {
+    color: #d9ad02;
+}
+.row .card {
+    margin: 5px 10px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+    transition: 0.8s all;
+    border-radius: 20px;
+}
+.row .card:hover {
+    scale: 1.1;
+    transition: 0.8s all;
+    box-shadow: 0px 3px 8px #5c1d0d;
+}
+.row .card img {
+    border-radius: 20px 20px 0 0;
+}
+.row .card h4 {
+    color: #d9ad02;
+}
+.row .card b {
+    color: #5c1d0d;
+}
+
+@media only screen and (max-width: 1023px) {
+    .row {
+        display: block;
+        width: 75%;
+        margin: auto;
+    }
+    .row .card:hover {
+        scale: unset;
+    }
+}
+/* END PRODUK */

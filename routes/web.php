@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SaranController;
+use App\Http\Controllers\User\ProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,7 @@ Route::get('/', function () {
 });                
 
 Route::get('/saran', [SaranController::class, 'saran'])->name('saran.saran');
+
+Route::controller(ProdukController::class)->group(function() {
+    Route::get('/menu', 'index')->name('menu.index');
+});
