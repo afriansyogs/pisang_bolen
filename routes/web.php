@@ -17,10 +17,14 @@ use App\Http\Controllers\User\ProdukController;
 
 Route::get('/', function () {
     return view('welcome');
-});                
+});
 
 Route::get('/saran', [SaranController::class, 'saran'])->name('saran.saran');
 
 Route::controller(ProdukController::class)->group(function() {
     Route::get('/menu', 'index')->name('menu.index');
+});
+
+Route::get('/login', function () {
+    return view('signIn');
 });
