@@ -26,5 +26,5 @@ Route::controller(ProdukController::class)->group(function() {
 });
 
 Route::get('/login', function () {
-    return view('signIn');
+    return view('Login&Register.signIn');
 });
