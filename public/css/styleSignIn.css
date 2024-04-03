@@ -1,5 +1,5 @@
 body {
-    background-image: url(BackgroundSignIn&Login1.jpeg);
+    background-image: url(../img/BackgroundSignIn&Login1.jpeg);
     background-size: cover;
     font-family: bolen;
 }
@@ -47,7 +47,7 @@ img {
 /* Media Query Handphone */
 @media screen and (max-width: 767px) {
     body {
-        background-image: url(BackgroundSignIn&Login2.jpeg);
+        background-image: url(../img/BackgroundSignIn&Login2.jpeg);
         background-size: cover;
         font-family: bolen;
     }
@@ -96,7 +96,7 @@ img {
 /* Ini Media Query Tablet */
 @media (min-width: 768px) and (max-width: 1023px) {
     body {
-        background-image: url(BackgroundSignIn&Login2.jpeg);
+        background-image: url(../img/BackgroundSignIn&Login2.jpeg);
         background-size: cover;
         font-family: bolen;
     }
@@ -141,7 +141,7 @@ img {
 /* Ini Media Query Laptop */
 @media (min-width: 1024px) and (max-width: 1439px) {
     body {
-        background-image: url(BackgroundSignIn&Login1.jpeg);
+        background-image: url(../img/BackgroundSignIn&Login1.jpeg);
         background-size: cover;
         font-family: bolen;
     }
