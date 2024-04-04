@@ -44,6 +44,21 @@ img {
     border-radius: 10px;
 }
 
+.login {
+    padding-top: 15px;
+    color: white;
+    padding-left: 200px;
+    transform: translateX(7%);
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
 /* Media Query Handphone */
 @media screen and (max-width: 767px) {
     body {

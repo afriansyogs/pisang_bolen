@@ -36,6 +36,9 @@
           <div class="tombol1">
             <button type="submit" class="tombolSignIn">SIGN IN</button>
           </div>
+          <div class="login">
+            <p>Apakah sudah mempunyai akun? <a href="login.blade.php">Lanjutkan Login</a></p>
+          </div>
         </div>
       </div>
     </div>
