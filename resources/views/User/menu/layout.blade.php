@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>| PRODUK |</title>
+    <title>| PISANG BOLEN |</title>
 
     <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -17,15 +17,18 @@
     
 <!-- NAVBAR -->
 <nav class="navbar p-3 navbar-expand-lg" style="background-color: rgba(217, 173, 2, 0.1);">
-    <div class="container">
+    <div class="container-fluid">
+        <div class="img">
+            <img src="img/logo_bolen.png" alt="" width="80px">
+        </div>
         <div class="icon justify-content-left">
-            <a class="navbar-brand" href="#profil">
+            <a class="navbar-brand" href="#profile">
             <i class="bi bi-person-circle"></i>
             </a>
             <a class="navbar-brand" href="#cart">
             <i class="bi bi-cart-fill"></i>
             </a>
-            <a class="navbar-brand" href="#heart">
+            <a class="navbar-brand" href="{{ route('fav.index') }}">
             <i class="bi bi-heart"></i>
             </a> 
         </div>
@@ -47,7 +50,7 @@
                     <a class="nav-link" href="#testimoni">Testimonial</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#saran">Saran</a>
+                    <a class="nav-link" href="{{ route('saran.saran') }}">Saran</a>
                 </li>
             </ul>        
             <form class="d-flex" role="search">

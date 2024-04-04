@@ -17,7 +17,7 @@
                 <p class="card-text">Perpaduan <b>Pisang</b> dan <b>Coklat</b> yang lumer dan dibalut dengan kulit yang krispi</p>
                 <h5>Rp. 100.000</h5>
                 <a href="#cart" class="btn btn-outline-primary mt-2"><i class="bi bi-cart-fill"></i></a>
-                <a href="#heart" class="btn btn-outline-danger mt-2"><i class="bi bi-heart-fill"></i></a>
+                <a href="{{ route('fav.index') }}" name="aksi" value="fav" class="btn btn-outline-danger mt-2"><i class="bi bi-heart-fill"></i></a>
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@
                 <p class="card-text">Perpaduan <b>Pisang</b> dan <b>Coklat Keju</b> yang lumer dan dibalut dengan kulit yang krispi</p>
                 <h5>Rp. 100.000</h5>
                 <a href="#cart" class="btn btn-outline-primary mt-2"><i class="bi bi-cart-fill"></i></a>
-                <a href="#heart" class="btn btn-outline-danger mt-2"><i class="bi bi-heart-fill"></i></a>
+                <a href="{{ route('fav.index') }}" name="aksi" value="fav" class="btn btn-outline-danger mt-2"><i class="bi bi-heart-fill"></i></a>
             </div>
         </div>
     </div>
@@ -41,7 +41,7 @@
                 <p class="card-text">Perpaduan <b>Pisang</b> dan <b>Keju</b> yang lumer dan dibalut dengan kulit yang krispi</p>
                 <h5>Rp. 100.000</h5>
                 <a href="#cart" class="btn btn-outline-primary mt-2"><i class="bi bi-cart-fill"></i></a>
-                <a href="heart" class="btn btn-outline-danger mt-2"><i class="bi bi-heart-fill"></i></a>
+                <a href="{{ route('fav.index') }}" name="aksi" value="fav" class="btn btn-outline-danger mt-2"><i class="bi bi-heart-fill"></i></a>
             </div>
         </div>
     </div>

@@ -15,15 +15,15 @@ nav {
     box-shadow: 0 0 15px #d9ad02;
     color: red;
 }
-.container .icon a:hover {
+.container-fluid .icon a:hover {
     color: #d9ad02;
     transition: 0.2s ease;
 }
-.container .navbar-nav a:hover {
+.container-fluid .navbar-nav a:hover {
     color: #d9ad02;
     transition: 0.2s ease;
 }
-.container a.act {
+.container-fluid a.act {
     color: #d9ad02;
 }
 .navbar-nav {
@@ -60,6 +60,12 @@ nav {
 .row .card b {
     color: #5c1d0d;
 }
+.container-fluid .img img {
+    margin-right: 70px;
+}
+.container-fluid .icon {
+    margin-right: 20px;
+}
 
 @media only screen and (max-width: 1023px) {
     .row {
@@ -70,5 +76,17 @@ nav {
     .row .card:hover {
         scale: unset;
     }
+    .container-fluid .img img, .container-fluid .icon {
+        margin-right: 0;
+    }
 }
 /* END PRODUK */
+
+/* FAVOURITE START */
+
+.row .carousel-inner .card:hover {
+    scale: unset;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+}
+
+/* FAVOURITE END */

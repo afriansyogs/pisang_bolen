@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SaranController;
 use App\Http\Controllers\User\ProdukController;
+use App\Http\Controllers\User\FavouriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,11 @@ Route::controller(ProdukController::class)->group(function() {
     Route::get('/menu', 'index')->name('menu.index');
 });
 
+Route::controller(FavouriteController::class)->group(function() {
+    Route::get('/fav', 'index')->name('fav.index');
+});
+
 Route::get('/SignIn', function () {
     return view('Login&Register.signIn');
 });
+
