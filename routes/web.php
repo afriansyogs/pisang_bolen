@@ -30,7 +30,11 @@ Route::controller(FavouriteController::class)->group(function() {
     Route::get('/fav', 'index')->name('fav.index');
 });
 
-Route::get('/SignIn', function () {
+Route::get('/signIn', function () {
     return view('Login&Register.signIn');
+});
+
+Route::get('/login', function () {
+    return view('Login&Register.login');
 });
 
