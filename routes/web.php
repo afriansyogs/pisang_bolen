@@ -25,6 +25,6 @@ Route::controller(ProdukController::class)->group(function() {
     Route::get('/menu', 'index')->name('menu.index');
 });
 
-Route::get('/login', function () {
+Route::get('/SignIn', function () {
     return view('Login&Register.signIn');
 });
