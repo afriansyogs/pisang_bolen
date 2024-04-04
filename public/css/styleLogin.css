@@ -25,6 +25,7 @@ img {
     background-color: rgba(0, 0, 0, 0.535);
     color: white;
     transform: translateX(5%);
+    margin-top: 70px;
 }
 
 .tombolSignIn {
@@ -113,7 +114,7 @@ a:hover {
 }
 
 /* Ini Media Query Tablet */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1023px) {
     body {
         background-image: url(../img/BackgroundSignIn&Login2.jpeg);
         background-size: cover;
@@ -158,7 +159,7 @@ a:hover {
 }
 
 /* Ini Media Query Laptop 1 */
-@media screen and (min-width: 1024px) and (max-width: 1439px) {
+@media (min-width: 1024px) and (max-width: 1439px) {
     body {
         background-image: url(../img/BackgroundSignIn&Login1.jpeg);
         background-size: cover;
@@ -209,11 +210,11 @@ a:hover {
         justify-content: center;
         align-items: center;
     }
-
+    
     a {
         text-decoration: none;
     }
-
+    
     a:hover {
         text-decoration: none;
     }
