@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,10 +9,9 @@ use Illuminate\View\View;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 
-class FavouriteController extends Controller
+class ProdukController extends Controller
 {
     public function index() {
-        return view('User/fav/favourite');
+        return view('Produk/User/Produk');
     }
 }
-

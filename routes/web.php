@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SaranController;
-use App\Http\Controllers\User\ProdukController;
-use App\Http\Controllers\User\FavouriteController;
+use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\User\TestiController;
 
 /*
@@ -24,11 +23,7 @@ Route::get('/', function () {
 Route::get('/saran', [SaranController::class, 'saran'])->name('saran.saran');
 
 Route::controller(ProdukController::class)->group(function() {
-    Route::get('/menu', 'index')->name('menu.index');
-});
-
-Route::controller(FavouriteController::class)->group(function() {
-    Route::get('/fav', 'index')->name('fav.index');
+    Route::get('/Produk', 'index')->name('Produk.index');
 });
 
 Route::get('/signIn', function () {

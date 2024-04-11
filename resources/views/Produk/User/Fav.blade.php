@@ -1,4 +1,4 @@
-@extends('User/menu/layout')
+@extends('Produk/layout')
 
 @section('content')
 
@@ -10,6 +10,7 @@
             <h1>MY <span>FAVOURITE</span></h1>
         </div>
     </div>
+
     <!-- <div class="col-4">
         <div class="card my-3">
             <img src="img/produk.jpg" class="card-img-top" alt="Bolen Jonegoroan">
