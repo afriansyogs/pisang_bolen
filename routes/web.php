@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SaranController;
 use App\Http\Controllers\User\ProdukController;
 use App\Http\Controllers\User\FavouriteController;
+use App\Http\Controllers\User\TestiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,6 @@ Route::get('/login', function () {
     return view('Login&Register.login');
 });
 
+Route::controller(TestiController::class)->group(function() {
+    Route::get('/testi', 'index')->name('testimoni.index');
+});
