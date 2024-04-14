@@ -1,0 +1,54 @@
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar{
+    /* font-weight: 400; */
+    backdrop-filter: blur(12px);
+}
+
+.nav_first_img {
+    object-fit:cover;
+    /* width: 15%; */
+    height: 65px;
+    filter: drop-shadow(0px 0px 3px rgb(255, 255, 255));
+} 
+
+.navbar-nav .nav-link {
+    font-weight: bolder;
+    color: rgb(255, 186, 36); 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.836);
+    -webkit-text-stroke: 0.5px black; 
+}
+
+.navbar-nav .nav-item.active .nav-link {
+    color: white; 
+}
+
+/* .navbar-nav .nav-item .nav-link {
+    transition: background-color 0.3s;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    background-color: #f8f9fa;
+} */
+
+.navbar-nav .nav-link:hover {
+    color: white;
+}
+
+.section_saran {
+    height: 100vh;
+    background-image: url('../img/wood.jpeg');
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+
+.section_test {
+    height: 100vh;
+    background-image: url('../img/bg.jpeg');
+    background-size: cover; 
+    background-repeat: no-repeat;
+}

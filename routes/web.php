@@ -17,10 +17,12 @@ use App\Http\Controllers\User\TestiController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('dasboard_user');
+}); 
 
-Route::get('/saran', [SaranController::class, 'saran'])->name('saran.saran');
+// Route::resource('/', \App\Http\Controllers\HomeController::class);
+
+Route::resource('/saran', \App\Http\Controllers\SaranController::class);
 
 Route::controller(ProdukController::class)->group(function() {
     Route::get('/Produk', 'index')->name('Produk.index');

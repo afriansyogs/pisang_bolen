@@ -1,0 +1,28 @@
+/* .footer_content h1 {
+    font-weight: bolder
+} */
+
+.icon-container .rounded-circle {
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.icon-container .rounded-circle:hover {
+    transform: translateY(-5px);
+}
+
+.label_saran {
+    font-weight: bolder;
+    /* font-family: "Dancing Script", cursive; */
+}
+
+.input_saran {
+    border: 2px solid #000000; 
+    /* padding: 2px 5px; */
+}
+
+.button_saran {
+    /* border: 1px solid #000000;  */
+    /* background-color: yellow; */
+    font-weight: 600;
+}
