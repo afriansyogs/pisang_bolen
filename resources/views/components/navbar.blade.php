@@ -11,14 +11,14 @@
                 <li class="nav-item mx-1 {{ \Route::is('dasboard') ? 'active' : '' }}">
                     <a class="nav-link rounded rounded-3" aria-current="page" href="/dasboard">Home</a>
                 </li>
-                <li class="nav-item mx-1 {{ \Route::is('menu.index') ? 'active' : '' }}">
-                    <a class="nav-link rounded rounded-3" href="{{ route('menu.index') }}">About</a>
-                </li>
-                <li class="nav-item mx-1 {{ \Route::is('saran.index') ? 'active' : '' }}">
-                    <a class="nav-link rounded rounded-3" href="{{ route('saran.index') }}">Contact</a>
-                </li>
                 <li class="nav-item mx-1">
-                    <a class="nav-link rounded rounded-3" href="Cerita4/oncerita4.html">Menu</a>
+                    <a class="nav-link rounded rounded-3" href="Cerita4/oncerita4.html">about</a>
+                </li>
+                <li class="nav-item mx-1 {{ \Route::is('Produk.index') ? 'active' : '' }}">
+                    <a class="nav-link rounded rounded-3" href="{{ route('Produk.index') }}">Menu</a>
+                </li>
+                <li class="nav-item mx-1 {{ \Route::is('testimoni.index') ? 'active' : '' }}">
+                    <a class="nav-link rounded rounded-3" href="{{ route('testimoni.index') }}">Testimoni</a>
                 </li>
             </ul>
         </div>
