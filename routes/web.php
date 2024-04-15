@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SaranController;
 use App\Http\Controllers\ProdukController;
-use App\Http\Controllers\SessionController;
 use App\Http\Controllers\User\TestiController;
 
 /*
@@ -33,8 +32,9 @@ Route::get('/signIn', function () {
     return view('Login&Register.signIn');
 });
 
-Route::get('/login', [SessionController::class, 'login']);
-Route::post('/sesi/login', [SessionController::class, 'login']);
+Route::get('/login', function () {
+    return view('Login&Register.login');
+});
 
 Route::controller(TestiController::class)->group(function() {
     Route::get('/testi', 'index')->name('testimoni.index');
