@@ -33,7 +33,7 @@ Route::get('/signIn', function () {
     return view('Login&Register.signIn');
 });
 
-Route::get('/sesi', [SessionController::class, 'login']);
+Route::get('/login', [SessionController::class, 'login']);
 Route::post('/sesi/login', [SessionController::class, 'login']);
 
 Route::controller(TestiController::class)->group(function() {
