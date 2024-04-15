@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SaranController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\User\TestiController;
 
 /*
@@ -18,7 +19,7 @@ use App\Http\Controllers\User\TestiController;
 
 Route::get('/', function () {
     return view('dasboard_user');
-}); 
+});
 
 // Route::resource('/', \App\Http\Controllers\HomeController::class);
 
@@ -32,9 +33,8 @@ Route::get('/signIn', function () {
     return view('Login&Register.signIn');
 });
 
-Route::get('/login', function () {
-    return view('Login&Register.login');
-});
+Route::get('/sesi', [SessionController::class, 'index']);
+Route::post('/sesi/login', [SessionController::class, 'login']);
 
 Route::controller(TestiController::class)->group(function() {
     Route::get('/testi', 'index')->name('testimoni.index');
