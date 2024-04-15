@@ -29,7 +29,7 @@ class SessionController extends Controller
         ];
 
         if(Auth::attempt($infoLogin)) {
-            return 'Sukses';
+            return redirect('dashboard_user')->with('success', 'Berhasil Login');
         } else {
             return redirect('sesi')->withErrors('Username dan Pssword yang dimasukkan tidak valid');
         }
