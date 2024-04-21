@@ -38,7 +38,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#home">Home</a>
+                    <a class="nav-link" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#aboutus">About Us</a>
@@ -47,10 +47,10 @@
                     <a class="nav-link act" href="{{ route('Produk.index') }}">Product</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#testimoni">Testimonial</a>
+                    <a class="nav-link" href="{{ route('testimoni.index') }}">Testimonial</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('saran.saran') }}">Saran</a>
+                    <a class="nav-link" href="">Saran</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">

@@ -4,19 +4,25 @@
 
 <div class="container">
 
-    {{-- <div class="col-10">
+    <div class="col-10">
         <a href="{{ route('Admin.admin') }}" class="btn btn-success btn-sm"> Produk</a> >>
-        <a href="{{ route('Admin.history') }}" class="btn btn-dark btn-sm"> History</a>
-    </div> --}}
+        <a href="{{ route('Admin.hapus', $products->slug_link) }}" class="btn btn-dark btn-sm"> History</a>
+    </div>
 
 
-    <form method="POST" action="{{ route('Admin.store') }}" enctype="multipart/form-data">
+    <div class="col">
+        <h5>Yakin ingin hapus data ?</h5>
+        <br>
+    </div>
+
+    <form method="POST" action="{{ route('Admin.softdelete', $products->slug_link) }}" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
 
         <div class="mb-3 row mt-5">
             <label for="foto" class="col-sm-2 col-form-label">Foto Produk</label>
             <div class="col-sm-10">
-                <input required type="file" name="foto_product" class="form-control @error('foto_product') is-invalid @enderror" id="foto" value="">
+                <input required type="file" name="foto_product" class="form-control @error('foto_product') is-invalid @enderror" id="foto" placeholder="ex: " value="">
                 @error('foto_product')
                 <div class="alert alert-danger mt-2">
                     {{ $message }}
@@ -38,7 +44,7 @@
         <div class="mb-3 row">
             <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
             <div class="col-sm-10">
-                <input required type="text" name="description_product" class="form-control @error('description_product') is-invalid @enderror" id="deskripsi" value="">
+                <input required type="text" name="description_product" class="form-control @error('description_product') is-invalid @enderror" id="deskripsi" placeholder="ex: " value="">
                 @error('description_product')
                 <div class="alert alert-danger mt-2">
                     {{ $message }}
@@ -49,7 +55,7 @@
         <div class="mb-3 row">
             <label for="harga" class="col-sm-2 col-form-label">Harga Produk</label>
             <div class="col-sm-10">
-                <input required type="text" name="harga_product" class="form-control @error('harga_product') is-invalid @enderror" id="harga" placeholder="ex: 100.000" value="">
+                <input required type="text" name="harga_product" class="form-control @error('harga_product') is-invalid @enderror" id="harga" placeholder="ex: Rp. 100.000" value="">
                 @error('harga_product')
                 <div class="alert alert-danger mt-2">
                     {{ $message }}
@@ -68,7 +74,7 @@
                 @enderror
             </div>
         </div>
-        <div class="form-group mb-3 row">
+        <div class="form-group  mb-3 row">
             <label for="status" class="font-weight-bold col-sm-2 col-form-label">Status Publish</label>
             <div class="col-sm-10">
                 <select required name="status_publish" id="status" class="form-control @error('status_publish') is-invalid @enderror">
@@ -83,17 +89,15 @@
                 @enderror
             </div>
         </div>
-
-        <div class="row mb-3 mt-5">
+        <div class="mb-3 row mt-5">
             <div class="col">
                     {{-- <button type="submit" name="aksi" value="edit" class="btn btn-success"><i class="bi bi-save"></i> Simpan</button> --}}
-                    <button type="submit" name="aksi" value="add" class="btn btn-primary"><i class="bi bi-plus-square"></i> Tambah</button>
-                    <button type="reset" name="aksi" value="reset" class="btn btn-secondary"><i class="bi bi-repeat"></i> Reset</button>
+                    <button type="submit" name="aksi" value="hapus" class="btn btn-primary"><i class="bi bi-plus-square"></i> Hapus</button>
                     <a href=" {{ route('Admin.admin') }} " type="button" class="btn btn-danger"><i class="bi bi-arrow-left-square"></i> Batal</a>
             </div>
         </div>
 
-    </form>
+  </form>
 
 
 </div>

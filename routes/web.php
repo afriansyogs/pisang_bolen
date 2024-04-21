@@ -25,8 +25,23 @@ Route::get('/', function () {
 Route::resource('/saran', \App\Http\Controllers\SaranController::class);
 
 Route::controller(ProdukController::class)->group(function() {
-    Route::get('/Produk', 'index')->name('Produk.index');
+    Route::get('Produk/', 'index')->name('Produk.index');
 });
+
+Route::controller(ProdukController::class)->group(function () {
+    Route::get('/Admin', 'admin')->name('Admin.admin');
+    Route::get('/Admin/history', 'history')->name('Admin.history');
+    Route::get('/Admin/create', 'create')->name('Admin.create');
+    Route::post('/Admin/kirim', 'store')->name('Admin.store');
+    Route::get('/Admin/edit/{slug_link}', 'edit')->name('Admin.edit');
+    Route::put('/Admin/update/{slug_link}', 'update')->name('Admin.update');
+    Route::get('/Admin/hapus/{slug_link}', 'hapus')->name('Admin.hapus');
+    Route::put('/Admin/softdelete/{slug_link}', 'softdelete')->name('Admin.softdelete');
+});
+
+// Route::controller(ProdukController::class)->group(function() {
+//     Route::get('Produk/', 'Fav')->name('Produk.Fav');
+// });
 
 Route::get('/signIn', function () {
     return view('Login&Register.signIn');
