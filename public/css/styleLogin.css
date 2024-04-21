@@ -28,7 +28,7 @@ img {
     margin-top: 70px;
 }
 
-.tombolSignIn {
+.tombolLogin {
     color: black;
     font-size: 20px;
     margin: auto;
@@ -210,11 +210,11 @@ a:hover {
         justify-content: center;
         align-items: center;
     }
-    
+
     a {
         text-decoration: none;
     }
-    
+
     a:hover {
         text-decoration: none;
     }

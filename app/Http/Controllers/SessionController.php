@@ -2,36 +2,68 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
 
 class SessionController extends Controller
 {
-
-    function index() {
+    public function index() {
         return view('Login&Register.login');
     }
 
-    function login(Request $request) {
-        Session::flash('username', $request->username);
+    public function login_proses(Request $request) {
         $request->validate([
-            'username'=>'required',
-            'password'=>'required'
-        ], [
-            'username.required'=>'Username wajib di isi',
-            'password.required'=>'Password wajib di isi'
+            'username' => 'required',
+            'password' => 'required',
         ]);
 
-        $infoLogin = [
-            'username'=>$request->username,
-            'password'=>$request->password
+        $data = [
+            'name' => $request->username,
+            'password' => $request->password,
         ];
 
-        if(Auth::attempt($infoLogin)) {
-            return redirect('dashboard_user')->with('success', 'Berhasil Login');
+        if(Auth::attempt($data)) {
+            return redirect()->route('dashboard_user');
         } else {
-            return redirect('sesi')->withErrors('Username dan Pssword yang dimasukkan tidak valid');
+            return redirect()->route('login')-> with('failed', 'Incorrect Username or Password');
+        }
+    }
+
+    public function logout() {
+        Auth::logout();
+        return redirect()->route('login')->with('success', 'You have Successfully Logout');
+    }
+
+    public function register() {
+        return view('Login&Register.register');
+    }
+
+    public function register_proses(Request $request) {
+        $request->validate([
+            'username' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8|confirmed',
+        ], [
+            'password.confirmed' => 'Confirm password does not match',
+        ]);
+
+        $data['name'] = $request->username;
+        $data['email'] = $request->email;
+        $data['password'] = Hash::make($request->password);
+
+        User::create($data);
+
+        $login = [
+            'name' => $request->username,
+            'password' => $request->password,
+        ];
+
+        if(Auth::attempt($login)) {
+            return redirect()->route('dashboard_user');
+        } else {
+            return redirect()->route('register')-> with('failed', 'Incorrect Username, Email or Password');
         }
     }
 }

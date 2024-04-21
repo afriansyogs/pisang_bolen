@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SaranController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\User\TestiController;
 
 /*
@@ -43,13 +45,12 @@ Route::controller(ProdukController::class)->group(function () {
 //     Route::get('Produk/', 'Fav')->name('Produk.Fav');
 // });
 
-Route::get('/signIn', function () {
-    return view('Login&Register.signIn');
-});
+Route::get('/register', [SessionController::class, 'register'])->name('register');
+Route::post('/register-proses', [SessionController::class, 'register_proses'])->name('register-proses');
 
-Route::get('/login', function () {
-    return view('Login&Register.login');
-});
+Route::get('/login', [SessionController::class, 'index'])->name('login');
+Route::post('/login-proses', [SessionController::class, 'login_proses'])->name('login-proses');
+Route::get('/logout', [SessionController::class, 'logout'])->name('logout');
 
 Route::controller(TestiController::class)->group(function() {
     Route::get('/testi', 'index')->name('testimoni.index');
