@@ -25,7 +25,7 @@ class SessionController extends Controller
         ];
 
         if(Auth::attempt($data)) {
-            return redirect()->route('dashboard_user');
+            return redirect('/');
         } else {
             return redirect()->route('login')-> with('failed', 'Incorrect Username or Password');
         }
@@ -61,7 +61,7 @@ class SessionController extends Controller
         ];
 
         if(Auth::attempt($login)) {
-            return redirect()->route('dashboard_user');
+            return redirect('/');
         } else {
             return redirect()->route('register')-> with('failed', 'Incorrect Username, Email or Password');
         }
