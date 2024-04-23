@@ -13,7 +13,8 @@ use App\Models\Product;
 class ProdukController extends Controller
 {
 
-    public function index() {
+    public function index()
+    {
         return view('Produk/User/Produk');
     }
 
@@ -21,22 +22,26 @@ class ProdukController extends Controller
     //     return view('Produk/User/Fav');
     // }
 
-    public function admin() {
+    public function admin()
+    {
         $products = Product::all();
         return view('Produk/Admin/AdmProduk', compact('products'));
     }
 
-    public function history() {
+    public function history()
+    {
         $products = Product::latest()->get();
         return view('Produk/Admin/HistoryProduk', compact('products'));
-       }
+    }
 
-    public function create() {
+    public function create()
+    {
         return view('Produk/Admin/AddProduk');
-       }
+    }
 
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         // Validasi data
         $request->validate([
             'foto_product' => 'image|mimes:jpeg,png,jpg',
@@ -52,17 +57,13 @@ class ProdukController extends Controller
             // 'slug_link' => 'required|unique:products,slug_link',
         ]);
 
-        if ($request->hasFile('foto_product')) {
-            $imagePath = $request->file('foto_product')->store('images');
-            $imageUrl = asset('storage/' . $imagePath);
-        } else {
-            $imageUrl = null;
-        }
+        $image = $request->file('foto_product');
+        $image->storeAs('public/product', $image->hashName());
 
         $slug = Str::slug($request->slug_link, '_');
 
         $products = new Product([
-            'foto_product' => $imageUrl,
+            'foto_product' => $image->hashName(),
             'variant_product' => $request->input('variant_product'),
             'description_product' => $request->input('description_product'),
             'harga_product' => $request->input('harga_product'),
@@ -77,23 +78,25 @@ class ProdukController extends Controller
     }
 
 
-       public function edit(string $slug_link) {
+    public function edit(string $slug_link)
+    {
 
         $products = Product::where('slug_link', '=', $slug_link)->firstorfail();
         return view('Produk/Admin/EditProduk', compact('products'));
-       }
+    }
 
 
-       public function update(Request $request, string $slug_link) {
+    public function update(Request $request, string $slug_link)
+    {
 
-        $foto = Str::of($request -> foto_product);
-        $var = Str::of($request -> variant_product);
-        $desc = Str::of($request -> description_product);
-        $hrg = Str::of($request -> harga_product);
-        $jml = Str::of($request -> jumlah_product)
-        ->rtrim() //buang spasi berlebih
-        ->stripTags() //menghilangkan code html dan
-        ->title(); //semua awalan kata jadi kapital
+        $foto = Str::of($request->foto_product);
+        $var = Str::of($request->variant_product);
+        $desc = Str::of($request->description_product);
+        $hrg = Str::of($request->harga_product);
+        $jml = Str::of($request->jumlah_product)
+            ->rtrim() //buang spasi berlebih
+            ->stripTags() //menghilangkan code html dan
+            ->title(); //semua awalan kata jadi kapital
         $slug = Str::slug($request->slug_link, '_');
         $products = Product::where('slug_link', $slug_link)->firstorfail();
         $products->update([
@@ -107,26 +110,28 @@ class ProdukController extends Controller
         ]);
 
         return redirect()->route('Admin.admin')->with(['success' => 'Berhasil mengubah data produk !']);
-     }
+    }
 
 
-     public function hapus(string $slug_link) {
+    public function hapus(string $slug_link)
+    {
 
         $products = Product::where('slug_link', '=', $slug_link)->firstorfail();
         return view('Produk/Admin//HapusProduk', compact('products'));
-       }
+    }
 
 
-       public function softdelete(Request $request, string $slug_link) {
+    public function softdelete(Request $request, string $slug_link)
+    {
 
-        $foto = Str::of($request -> foto_product);
-        $var = Str::of($request -> variant_product);
-        $desc = Str::of($request -> description_product);
-        $hrg = Str::of($request -> harga_product);
-        $jml = Str::of($request -> jumlah_product)
-        ->rtrim() //buang spasi berlebih
-        ->stripTags() //menghilangkan code html dan
-        ->title(); //semua awalan kata jadi kapital
+        $foto = Str::of($request->foto_product);
+        $var = Str::of($request->variant_product);
+        $desc = Str::of($request->description_product);
+        $hrg = Str::of($request->harga_product);
+        $jml = Str::of($request->jumlah_product)
+            ->rtrim() //buang spasi berlebih
+            ->stripTags() //menghilangkan code html dan
+            ->title(); //semua awalan kata jadi kapital
         $slug = Str::slug($request->slug_link, '_');
         $products = Product::where('slug_link', $slug_link)->firstorfail();
         $products->update([
@@ -140,5 +145,5 @@ class ProdukController extends Controller
         ]);
 
         return redirect()->route('Admin.admin')->with(['success' => 'Berhasil menghapus produk !']);
-     }
+    }
 }
