@@ -1,4 +1,4 @@
-@extends('Produk/layout')
+@extends('Produk/Admin/Layout')
 
 @section('content')
 
@@ -9,11 +9,11 @@
         <a href="{{ route('Admin.history') }}" class="btn btn-dark btn-sm"> History</a>
     </div> --}}
 
-
+<div class="col-12">
     <form method="POST" action="{{ route('Admin.store') }}" enctype="multipart/form-data">
         @csrf
 
-        <div class="mb-3 row mt-5">
+        <div class="form-group mb-3 row mt-5">
             <label for="foto" class="col-sm-2 col-form-label">Foto Produk</label>
             <div class="col-sm-10">
                 <input required type="file" name="foto_product" class="form-control @error('foto_product') is-invalid @enderror" id="foto" value="">
@@ -24,7 +24,7 @@
                 @enderror
             </div>
         </div>
-        <div class="mb-3 row mt-3">
+        <div class="form-group mb-3 row mt-3">
             <label for="variant" class="col-sm-2 col-form-label">Variant</label>
             <div class="col-sm-10">
                 <input required type="text" name="variant_product" class="form-control @error('variant_product') is-invalid @enderror" id="variant" placeholder="ex: Coklat" value="">
@@ -35,7 +35,7 @@
                 @enderror
             </div>
         </div>
-        <div class="mb-3 row">
+        <div class="form-group mb-3 row">
             <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
             <div class="col-sm-10">
                 <input required type="text" name="description_product" class="form-control @error('description_product') is-invalid @enderror" id="deskripsi" value="">
@@ -46,7 +46,7 @@
                 @enderror
             </div>
         </div>
-        <div class="mb-3 row">
+        <div class="form-group mb-3 row">
             <label for="harga" class="col-sm-2 col-form-label">Harga Produk</label>
             <div class="col-sm-10">
                 <input required type="text" name="harga_product" class="form-control @error('harga_product') is-invalid @enderror" id="harga" placeholder="ex: 100.000" value="">
@@ -57,7 +57,7 @@
                 @enderror
             </div>
         </div>
-        <div class="mb-3 row">
+        <div class="form-group mb-3 row">
             <label for="jumlah" class="col-sm-2 col-form-label">Jumlah Produk</label>
             <div class="col-sm-10">
                 <input required type="number" name="jumlah_product" class="form-control @error('jumlah_product') is-invalid @enderror" id="jumlah" placeholder="ex: 300" value="">
@@ -86,14 +86,14 @@
 
         <div class="row mb-3 mt-5">
             <div class="col">
-                    {{-- <button type="submit" name="aksi" value="edit" class="btn btn-success"><i class="bi bi-save"></i> Simpan</button> --}}
-                    <button type="submit" name="aksi" value="add" class="btn btn-primary"><i class="bi bi-plus-square"></i> Tambah</button>
-                    <button type="reset" name="aksi" value="reset" class="btn btn-secondary"><i class="bi bi-repeat"></i> Reset</button>
-                    <a href=" {{ route('Admin.admin') }} " type="button" class="btn btn-danger"><i class="bi bi-arrow-left-square"></i> Batal</a>
+                <button type="submit" value="add" class="btn btn-primary"><i class="bi bi-plus-square"></i> Tambah</button>
+                <button type="reset" value="reset" class="btn btn-secondary"><i class="bi bi-repeat"></i> Reset</button>
+                <a href="{{ route('Admin.admin') }}" type="button" class="btn btn-danger"><i class="bi bi-arrow-left-square"></i> Batal</a>
             </div>
         </div>
 
     </form>
+</div>
 
 
 </div>

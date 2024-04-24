@@ -1,4 +1,4 @@
-@extends('Produk/layout')
+@extends('Produk/Admin/Layout')
 
 @section('content')
 
@@ -21,7 +21,7 @@
     </div>
 
 
-    <div class="col">
+    <div class="col-3">
         @foreach ($products as $pdk )
         <div class="card my-3">
             <img src="{{ asset('storage/product/' . $pdk->foto_product) }}" class="card-img-top" alt="Bolen Jonegoroan">
@@ -30,10 +30,10 @@
                 <p class="card-text"> {{ $pdk->description_product }} </p>
                 <h5> {{ $pdk->harga_product }} </h5>
                 <p> {{ $pdk->jumlah_product }} </p>
-                <p> {{ $pdk->status_publish }} </p>
+                {{-- <p> {{ $pdk->status_publish }} </p> --}}
 
-                <a href="{{route('Admin.edit', $pdk->slug_link)}}" name="aksi" value="edit" class="btn btn-outline-success mt-2"><i class="bi bi-pencil-square"></i></a>
-                <a href="{{route('Admin.hapus', $pdk->slug_link)}}" name="aksi" value="hapus" class="btn btn-outline-danger mt-2"><i class="bi bi-trash3"></i></a>
+                <a href="{{route('Admin.edit', $pdk->slug_link)}}" value="edit" class="btn btn-outline-success mt-2"><i class="bi bi-pencil-square"></i></a>
+                <a href="{{route('Admin.hapus', $pdk->slug_link)}}" value="hapus" class="btn btn-outline-danger mt-2"><i class="bi bi-trash3"></i></a>
             </div>
         </div>
     </div>
