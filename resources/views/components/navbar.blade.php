@@ -8,17 +8,17 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav fs-5 font-weight-bold border-dark">
-                <li class="nav-item mx-1 {{ \Route::is('dasboard') ? 'active' : '' }}">
-                    <a class="nav-link rounded rounded-3" aria-current="page" href="/dasboard">Home</a>
+                <li class="nav-item  mx-1 {{ \Route::is('dasboard.index') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('dasboard.index') }}">Home</a>
                 </li>
                 <li class="nav-item mx-1">
-                    <a class="nav-link rounded rounded-3" href="Cerita4/oncerita4.html">about</a>
+                    <a class="nav-link" href="Cerita4/oncerita4.html">about</a>
                 </li>
                 <li class="nav-item mx-1 {{ \Route::is('Produk.index') ? 'active' : '' }}">
-                    <a class="nav-link rounded rounded-3" href="{{ route('Produk.index') }}">Menu</a>
+                    <a class="nav-link" href="{{ route('Produk.index') }}">Menu</a>
                 </li>
                 <li class="nav-item mx-1 {{ \Route::is('testimoni.index') ? 'active' : '' }}">
-                    <a class="nav-link rounded rounded-3" href="{{ route('testimoni.index') }}">Testimoni</a>
+                    <a class="nav-link" href="{{ route('testimoni.index') }}">Testimoni</a>
                 </li>
             </ul>
         </div>

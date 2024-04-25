@@ -6,7 +6,7 @@ use App\Http\Controllers\SaranController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\User\TestiController;
-
+use App\Http\Controllers\DasboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,11 +18,15 @@ use App\Http\Controllers\User\TestiController;
 |
 */
 
-Route::get('/', function () {
-    return view('dasboard_user');
-});
+// Route::get('/', function () {
+//     return view('dasboard_user');
+// });
 
-// Route::resource('/', \App\Http\Controllers\HomeController::class);
+// Route::resource('/', \App\Http\Controllers\DasboardController::class);
+
+Route::resource('/', \App\Http\Controllers\DasboardController::class)->names([
+    'index' => 'dasboard.index',
+]);
 
 Route::resource('/saran', \App\Http\Controllers\SaranController::class);
 
