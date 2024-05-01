@@ -18,8 +18,8 @@ use App\Http\Controllers\DasboardController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('dasboard_user');
+// Route::get('/dasbhoard_admin', function () {
+//     return view('admin/dasbhoard_admin');
 // });
 
 // Route::resource('/', \App\Http\Controllers\DasboardController::class);
@@ -28,7 +28,7 @@ Route::resource('/', \App\Http\Controllers\DasboardController::class)->names([
     'index' => 'dasboard.index',
 ]);
 
-Route::resource('/saran', \App\Http\Controllers\SaranController::class);
+Route::resource('/dasbhoard_admin', \App\Http\Controllers\SaranController::class);
 
 Route::controller(ProdukController::class)->group(function() {
     Route::get('Produk/', 'index')->name('Produk.index');

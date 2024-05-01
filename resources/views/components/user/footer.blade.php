@@ -43,8 +43,8 @@
                         <div class="text-start">
                             <label for="saran" class="ms-5 label_saran text-warning fs-5">Berikan Masukan Tentang Website ini </label>
                         </div>
-                        <input type="text" class="input_saran w-75 py-1 px-1 mx-0" name="saran" id="saran" placeholder="Masukan Saran Anda" required>
-                        <button type="submit" class="button_saran py-1 px-2 bg-warning">Kirim</button>
+                        <input type="text" class="input_saran w-75 py-1 px-1 mx-0 rounded" name="saran" id="saran" placeholder="Masukan Saran Anda" required>
+                        <button type="submit" class="button_saran py-1 px-2 bg-warning rounded">Kirim</button>
                     </div>
                 </form>
             </div>
