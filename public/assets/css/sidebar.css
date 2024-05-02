@@ -102,12 +102,9 @@ a.sidebar_link:hover {
     border-left: 3px solid #3b7ddd;
 }
 
-.active {
-    color: red;
-}
-
 .sidebar_nav .sidebar_item.active .sidebar_link {
     background-color: rgba(255, 255, 255, .075);
+    border-left: 3px solid #3b7ddd;
 }
 
 
