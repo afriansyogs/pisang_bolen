@@ -59,3 +59,5 @@ Route::get('/logout', [SessionController::class, 'logout'])->name('logout');
 Route::controller(TestiController::class)->group(function() {
     Route::get('/testi', 'index')->name('testimoni.index');
 });
+
+Route::resource('/posts', \App\Http\Controllers\PostController::class);
