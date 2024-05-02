@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,32 +18,43 @@
     <link rel="stylesheet" href="{{ asset('/assets/css/footer.css') }}">
 
 </head>
+
 <body>
-<x-navbar />
-<section class="dasboard w-100">
-    
-    <div class="container_dasboard h-100">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="text text-white mt-5 ms-5 pt-5">
-                    <h1 class="">BOLEN</h1>
-                    <h1 class="">JONEGOROAN</h1>
-                    <h5 class="">Rasa coklat dan kejunya yang lumer bisa bikin ketagihan loh, Penasaran rasanya gimana? Rasakan sendiri sensasinya!</h5>
+    <x-navbar />
+
+    <section class="dasboard w-100">
+        <div class="container_dasboard h-100">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="text text-white mt-5 ms-5 pt-5">
+
+                        @if (session('success'))
+                        <div id="closeAlert" class="alert alert-success alert-dismissible fade show text position-absolute end-0 z-2 me-5" role="alert">
+                            <strong>Saran terkirim!</strong> Terimakasi sudah memberi saran
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        @endif
+
+                        <h1 class="">BOLEN</h1>
+                        <h1 class="">JONEGOROAN</h1>
+                        <h5 class="">Rasa coklat dan kejunya yang lumer bisa bikin ketagihan loh, Penasaran rasanya gimana? Rasakan sendiri sensasinya!</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="content_img text-center mx-auto">
-                    <img src="{{ asset('assets/img/bolen-obj.png') }}" class="img-fluid" alt="Gambar">
+                <div class="col-lg-6">
+                    <div class="content_img text-center mx-auto">
+                        <img src="{{ asset('assets/img/bolen-obj.png') }}" class="img-fluid" alt="Gambar">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </section>
     <!-- <section class="section1 w-full"></section> -->
     @component('components.user.footer')
-@endcomponent
+    @endcomponent
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="{{ asset('assets/js/saran.js') }}"></script>
 
 </body>
+
 </html>

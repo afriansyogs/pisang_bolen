@@ -83,27 +83,28 @@ class ProdukController extends Controller
                 'slug_link' => 'unique:products,slug_link',
             ]);
 
-            $image = $request->file('foto_product');
-            $image->storeAs('public/product', $image->hashName());
+            // $image = $request->file('foto_product');
+            // $image->storeAs('public/product', $image->hashName());
+            $imageName = time().'.'.$request->foto_product->extension();
+            $request->foto_product->move(public_path('storage/images/'), $imageName);
 
             $slug = Str::slug($request->variant_product, '_');
 
             Product::create([
-            'foto_product' => $image->hashName(),
-            'variant_product' => $request->variant_product,
-            'description_product' => $request->description_product,
-            'harga_product' => $request->harga_product,
-            'jumlah_product' => $request->jumlah_product,
-            'status_publish' => $request->status_publish,
-            'slug_link' => $slug,
+                //'foto_product' => $image->hashName(),
+                'foto_product' => $imageName,
+                'variant_product' => $request->variant_product,
+                'description_product' => $request->description_product,
+                'harga_product' => $request->harga_product,
+                'jumlah_product' => $request->jumlah_product,
+                'status_publish' => $request->status_publish,
+                'slug_link' => $slug,
             ]);
 
             // direct to index
-            return redirect()->route('Admin.admin')->with(['success' => 'Berhasil menambahkan produk !']);
+            return redirect()->route('Admin.admin')->with(['success' => 'Berhasil menambahkan produk !'])->with('image',$imageName);
         }
 
-
-//EDIT
         public function edit(string $slug_link) {
             $products = Product::where('slug_link', '=', $slug_link)->firstorfail();
             return view('Produk/Admin/EditProduk', compact('products'));
@@ -120,14 +121,17 @@ class ProdukController extends Controller
                 'slug_link' => 'unique:products,slug_link',
             ]);
 
-            $image = $request->file('foto_product');
-            $image->storeAs('public/product', $image->hashName());
+            // $image = $request->file('foto_product');
+            // $image->storeAs('public/product', $image->hashName());
+            $imageName = time().'.'.$request->foto_product->extension();
+            $request->foto_product->move(public_path('storage/images/'), $imageName);
 
             $slug = Str::slug($request->variant_product, '_');
 
             $products = Product::where('slug_link', $slug_link)->firstorfail();
             $products->update([
-                'foto_product' => $image->hashName(),
+                //'foto_product' => $image->hashName(),
+                'foto_product' => $imageName,
                 'variant_product' => $request->variant_product,
                 'description_product' => $request->description_product,
                 'harga_product' => $request->harga_product,
@@ -136,38 +140,18 @@ class ProdukController extends Controller
                 'slug_link' => $slug,
             ]);
 
-            return redirect()->route('Admin.admin')->with(['success' => 'Berhasil memperbarui produk !']);
-        }
-
-
-
-
-
-// HAPUS
-
-    public function hapus(string $slug_link) {
-        $products = Product::where('slug_link', '=', $slug_link)->firstorfail();
-        return view('Produk/Admin//HapusProduk', compact('products'));
+            return redirect()->route('Admin.admin')->with(['success' => 'Berhasil memperbarui produk !'])->with('image',$imageName);
     }
 
-        public function softdelete(Request $request, string $Slug_link) {
 
+    public function hapus(string $slug_link) {
+        $products = Product::where('slug_link', '=', $slug_link)->withTrashed()->firstOrFail();
+        return view('Produk.Admin.HapusProduk', compact('products'));
+     }
 
-            $image = $request->file('foto_product');
-            $image->storeAs('public/product', $image->hashName());
-
-            $slug = Str::slug($request->variant_product, '_');
-
-            $products = Product::where('slug_link', $slug_link)->firstorfail();
-            $products->update([
-                'foto_product' => $image->hashName(),
-                'variant_product' => $request->variant_product,
-                'description_product' => $request->description_product,
-                'harga_product' => $request->harga_product,
-                'jumlah_product' => $request->jumlah_product,
-                'status_publish' => $request->status_publish,
-                'slug_link' => $slug,
-            ]);
+        public function softdelete(Request $request, string $slug_link) {
+            $products = Product::where('slug_link', $slug_link)->firstOrFail();
+            $products->delete();
 
         return redirect()->route('Admin.admin')->with(['success' => 'Berhasil menghapus produk !']);
     }
