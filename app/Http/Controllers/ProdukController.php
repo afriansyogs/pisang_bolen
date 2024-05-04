@@ -144,13 +144,13 @@ class ProdukController extends Controller
     }
 
 
-    public function hapus(string $slug_link) {
-        $products = Product::where('slug_link', '=', $slug_link)->withTrashed()->firstOrFail();
+    public function hapus($deleted_at) {
+        $products = Product::where('deleted_at', '=', $deleted_at)->withTrashed()->firstOrFail();
         return view('Produk.Admin.HapusProduk', compact('products'));
      }
 
-        public function softdelete(Request $request, string $slug_link) {
-            $products = Product::where('slug_link', $slug_link)->firstOrFail();
+        public function softdelete(Request $request, $deleted_at) {
+            $products = Product::findOrFail($deleted_at);
             $products->delete();
 
         return redirect()->route('Admin.admin')->with(['success' => 'Berhasil menghapus produk !']);
