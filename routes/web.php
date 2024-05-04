@@ -60,4 +60,4 @@ Route::controller(TestimoniController::class)->group(function() {
     Route::get('/testi', 'index')->name('testimoni.index');
 });
 
-Route::resource('/admtesti', \App\Http\Controllers\TestimoniController::class);
+Route::resource('/adminTesti', \App\Http\Controllers\TestimoniController::class);

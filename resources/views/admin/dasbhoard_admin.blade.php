@@ -34,8 +34,8 @@
                         <span>Profile</span>
                     </a>
                 </li>
-                <li class="sidebar_item">
-                    <a href="#" class="sidebar_link">
+                <li class="sidebar_item {{ \Route::is('adminTesti.index') ? 'active' : '' }}">
+                    <a href="{{ route('adminTesti.index') }}" class="sidebar_link">
                         <i class="fa-solid fa-user"></i>
                         <span>Task</span>
                     </a>
@@ -69,6 +69,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="{{ asset('assets/js/sidebar.js') }}"></script>
+    <script src="{{ asset('assets/js/alert.js') }}"></script>
+
 
 </body>
 

@@ -1,16 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-//import Model "Post
 use App\Models\Testimoni;
-
-//return type View
 use Illuminate\View\View;
-
-//return type redirectResponse
 use Illuminate\Http\RedirectResponse;
-
 use Illuminate\Http\Request;
 
 class TestimoniController extends Controller
@@ -22,10 +15,7 @@ class TestimoniController extends Controller
      */
     public function index(): View
     {
-        //get posts
         $testi = Testimoni::latest()->get();
-
-        //render view with posts
         return view('admin.testimoni.admTesti', compact('testi'));
     }
 
@@ -54,7 +44,7 @@ class TestimoniController extends Controller
             // 'content'   => 'required|min:10'
         ]);
 
-        //create post
+        
         Testimoni::create([
             'testi'     => $request->testi,
             // 'title'     => $request->title,
@@ -62,6 +52,6 @@ class TestimoniController extends Controller
         ]);
 
         //redirect to index
-        return redirect()->route('admin.testimoni.admTesti')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('adminTesti.index')->with(['successTesti' => 'Data Berhasil Disimpan!']);
     }
 }
