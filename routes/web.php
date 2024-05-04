@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SaranController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\SessionController;
-use App\Http\Controllers\User\TestimoniController;
+use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\DasboardController;
 /*
 |--------------------------------------------------------------------------
@@ -60,3 +60,4 @@ Route::controller(TestimoniController::class)->group(function() {
     Route::get('/testi', 'index')->name('testimoni.index');
 });
 
+Route::resource('/admtesti', \App\Http\Controllers\TestimoniController::class);
