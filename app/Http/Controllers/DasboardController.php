@@ -11,6 +11,6 @@ class DasboardController extends Controller
     {
         // $dasboard = Dasboard::latest()->get();
         // return view('dasboard_user', compact('dasboard'));
-        return view('dasboard_user');
+        return view('user/dasboard_user');
     }
 }

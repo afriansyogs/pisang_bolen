@@ -12,7 +12,7 @@ class SaranController extends Controller
     {
         
         $saran = Saran::latest()->get();
-        return view('saran.saranList', compact('saran'));
+        return view('admin.saran.saranList', compact('saran'));
     }
 
     public function store(Request $request)
