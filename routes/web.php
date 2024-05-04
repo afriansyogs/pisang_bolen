@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SaranController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\SessionController;
-use App\Http\Controllers\User\TestiController;
+use App\Http\Controllers\User\TestimoniController;
 use App\Http\Controllers\DasboardController;
 /*
 |--------------------------------------------------------------------------
@@ -56,8 +56,7 @@ Route::get('/login', [SessionController::class, 'index'])->name('login');
 Route::post('/login-proses', [SessionController::class, 'login_proses'])->name('login-proses');
 Route::get('/logout', [SessionController::class, 'logout'])->name('logout');
 
-Route::controller(TestiController::class)->group(function() {
+Route::controller(TestimoniController::class)->group(function() {
     Route::get('/testi', 'index')->name('testimoni.index');
 });
 
-Route::resource('/posts', \App\Http\Controllers\PostController::class);

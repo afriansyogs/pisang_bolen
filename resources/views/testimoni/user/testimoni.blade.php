@@ -1,4 +1,4 @@
-@extends('User/testi/layout2')
+@extends('testimoni/user/layout2')
 
 @section('content')
 

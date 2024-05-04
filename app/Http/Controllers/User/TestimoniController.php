@@ -9,9 +9,9 @@ use Illuminate\View\View;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 
-class TestiController extends Controller
+class TestimoniController extends Controller
 {
     public function index() {
-        return view('User/testi/testimoni');
+        return view('testimoni/user/testimoni');
     }
 }
