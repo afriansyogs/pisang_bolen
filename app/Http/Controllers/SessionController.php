@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class SessionController extends Controller
 {
     public function index() {
-        return view('Login&Register.login');
+        return view('user.Login&Register.login');
     }
 
     public function login_proses(Request $request) {
@@ -37,7 +37,7 @@ class SessionController extends Controller
     }
 
     public function register() {
-        return view('Login&Register.register');
+        return view('user.Login&Register.register');
     }
 
     public function register_proses(Request $request) {
