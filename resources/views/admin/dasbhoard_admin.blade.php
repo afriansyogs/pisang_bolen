@@ -24,7 +24,7 @@
                     <i class="fa-solid fa-house-chimney"></i>
                 </button>
                 <div class="sidebar_logo">
-                    <a href="#">CodzSword</a>
+                    <a href="#">Admin Bolen</a>
                 </div>
             </div>
             <ul class="sidebar_nav">
