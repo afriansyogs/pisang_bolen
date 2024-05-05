@@ -13,8 +13,8 @@
             @endif
 
             <div>
-                <h3 class="text-center my-4">Tutorial Laravel 10 untuk Pemula</h3>
-                <h5 class="text-center"><a href="https://santrikoding.com">www.santrikoding.com</a></h5>
+                <h3 class="text-center my-4">Admin Testimoni</h3>
+                
                 <hr>
             </div>
             <div class="card border-0 shadow-sm rounded">
@@ -35,8 +35,9 @@
                             @foreach ($testi as $testiList)
                             <tr>
                                 <td>{{ $testiList->testi }}</td>
-                                @endforeach
+                                
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
