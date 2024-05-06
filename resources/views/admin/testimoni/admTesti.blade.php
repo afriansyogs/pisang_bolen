@@ -1,4 +1,4 @@
-@extends('admin/dasbhoard_admin')
+@extends('admin/testimoni/LayoutTesti')
 
 @section('content')
 
@@ -19,22 +19,26 @@
             </div>
             <div class="card border-0 shadow-sm rounded">
                 <div class="card-body">
-                    <a href="{{ route('adminTesti.create') }}" class="btn btn-md btn-success mb-3">TAMBAH POST</a>
+                    <a href="{{ route('" class="btn btn-md btn-success mb-3">TAMBAH POST</a>
 
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col">GAMBAR</th>
                                 <th scope="col">JUDUL</th>
                                 <th scope="col">CONTENT</th>
-                                <th scope="col">AKSI</th>
+                                <th scope="col">HAPUS</th>
                             </tr>
                         </thead>
                         <tbody>
-
+                        
                             @foreach ($testi as $testiList)
                             <tr>
+                                
                                 <td>{{ $testiList->testi }}</td>
+                                <td>{{ $testiList->testi }}</td>
+                                <td>
+                                    <a href="" value="hapus" class="btn btn-outline-danger mt-2"><i class="bi bi-trash3"></i></a>
+                                </td>
                                 
                             </tr>
                             @endforeach

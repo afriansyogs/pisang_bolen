@@ -36,8 +36,8 @@
                         <span>Profile</span>
                     </a>
                 </li>
-                <li class="sidebar_item {{ \Route::is('adminTesti.index') ? 'active' : '' }}">
-                    <a href="{{ route('adminTesti.index') }}" class="sidebar_link">
+                <li class="sidebar_item {{ \Route::is('adminTesti.admin') ? 'active' : '' }}">
+                    <a href="{{ route('adminTesti.admin') }}" class="sidebar_link">
                         <i class="fa-solid fa-user"></i>
                         <span>Task</span>
                     </a>

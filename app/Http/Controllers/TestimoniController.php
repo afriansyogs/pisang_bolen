@@ -13,8 +13,11 @@ class TestimoniController extends Controller
      *
      * @return View
      */
-    public function index(): View
-    {
+    public function index() {
+        return view('testimoni/user/testimoni');
+    }
+
+    public function admin() {
         $testi = Testimoni::latest()->get();
         return view('admin.testimoni.admTesti', compact('testi'));
     }
@@ -28,6 +31,7 @@ class TestimoniController extends Controller
     {
         return view('admin.testimoni.formTesti');
     }
+    
 
     /**
      * store
@@ -54,4 +58,6 @@ class TestimoniController extends Controller
         //redirect to index
         return redirect()->route('adminTesti.index')->with(['successTesti' => 'Data Berhasil Disimpan!']);
     }
+
+   
 }

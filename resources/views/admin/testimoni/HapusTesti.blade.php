@@ -1,10 +1,15 @@
+@extends('admin/testimoni/LayoutTesti')
+
+@section('content')
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tambah Data Testimoni</title>
+    <title>Hapus Data Testimoni</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body style="background: lightgray">
@@ -20,15 +25,12 @@
 
                             
                             <div class="form-group">
-                                <label class="font-weight-bold">JUDUL</label>
-                                <input type="text" class="form-control @error('testi') is-invalid @enderror" name="testi" value="{{ old('testi') }}" placeholder="Masukkan Judul Post">
-                            
-                                <!-- error message untuk title -->
-                                @error('testi')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                            <form action="{{ route('admin.testimoni.destroy', $testimoni->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                            </form>
+
                             </div>
 
                             <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>
@@ -49,3 +51,4 @@
 </script>
 </body>
 </html>
+@endsection
