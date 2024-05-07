@@ -62,5 +62,7 @@ Route::controller(TestimoniController::class)->group(function() {
 
 Route::controller(TestimoniController::class)->group(function() {
     Route::get('/adminTesti', 'admin')->name('adminTesti.admin');
+    Route::get('/formTesti', 'create')->name('form.create');
+    Route::get('/storeTesti', 'store')->name('storetesti.store');
 });
 

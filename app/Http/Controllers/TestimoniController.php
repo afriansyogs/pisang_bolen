@@ -56,7 +56,7 @@ class TestimoniController extends Controller
         ]);
 
         //redirect to index
-        return redirect()->route('adminTesti.index')->with(['successTesti' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('adminTesti.admin')->with(['successTesti' => 'Data Berhasil Disimpan!']);
     }
 
    
