@@ -31,11 +31,11 @@ Route::resource('/', \App\Http\Controllers\DasboardController::class)->names([
 ]);
 
 Route::resource('/dasbhoard_admin', \App\Http\Controllers\SaranController::class);
-Route::delete('/dashboard_admin/softdelete/{id}', [SaranController::class, 'softDelete'])->name('dashboard_admin.softdelete');
-Route::get('/dashboard_admin/onlytrash', [SaranController::class, 'onlyTrashSaran'])->name('dashboard_admin.onlytrash');
-
-
-
+Route::controller(SaranController::class)->group(function() {
+    Route::get('/dashboard_admin/onlytrash', 'onlyTrashSaran')->name('dashboard_admin.onlytrash');
+    Route::delete('dashboard_admin/softdelete/{id}', 'softDelete')->name('dashboard_admin.softdelete');
+    Route::put('/dashboard_admin/restore/{id}', 'restore')->name('dashboard_admin.restore');
+});
 
 
 

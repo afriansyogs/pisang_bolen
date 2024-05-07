@@ -29,7 +29,13 @@
         </div>
         <p class="mb-0 fs-5 text-secondary mx-2">{{ $saranHistory->created_at }}</p>
         <p class="fs-4 mx-2">{{ $saranHistory->saran }}</p>
+        <form action="{{ route('dashboard_admin.restore', $saranHistory->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <button type="submit" class="btn btn-success">Restore</button>
+                    </form>
     </div>
+
     @endforeach
 </div>
 @endsection

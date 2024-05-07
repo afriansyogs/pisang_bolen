@@ -13,8 +13,11 @@
     <div class="d-flex justify-content-end me-3">
     <!-- Konten lain di sebelah kiri -->
     <a href="{{ route('dashboard_admin.onlytrash') }}" class="btn btn-warning ms-auto">
-        <i class="fa-solid fa-trash-arrow-up fa-lg"></i>
-    </a>
+    <div class=" mx-2">
+        <span class="fw-bolder fs-5">History</span>
+    <i class="fa-solid fa-clock-rotate-left fa-lg ms-1 "></i>
+    </div>
+</a>
 </div>
     
 

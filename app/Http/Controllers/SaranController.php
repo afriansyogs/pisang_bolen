@@ -46,4 +46,12 @@ class SaranController extends Controller
     return view('admin.saran.softDeleteSaran', compact('saranTrash'));
 }
 
+public function restore($id)
+{
+    $saran = Saran::withTrashed()->findOrFail($id);
+    $saran->restore(); 
+
+    return redirect()->route('dashboard_admin.onlytrash')->with('success', 'Data berhasil dipulihkan.');
+}
+
 }
