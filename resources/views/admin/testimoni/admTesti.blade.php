@@ -1,4 +1,4 @@
-@extends('admin/testimoni/LayoutTesti')
+@extends('admin/dasbhoard_admin')
 
 @section('content')
 
@@ -19,7 +19,7 @@
             </div>
             <div class="card border-0 shadow-sm rounded">
                 <div class="card-body">
-                    <a href="{{ route('form.create') }}" class="btn btn-md btn-success mb-3">TAMBAH POST</a>
+                    <a href="{{ route('adminTesti.create') }}" class="btn btn-md btn-success mb-3">TAMBAH POST</a>
 
                     <table class="table table-bordered">
                         <thead>
@@ -37,7 +37,10 @@
                                 <td>{{ $testiList->testi }}</td>
                                 <td>{{ $testiList->testi }}</td>
                                 <td>
-                                    <a href="" value="hapus" class="btn btn-outline-danger mt-2"><i class="bi bi-trash3"></i></a>
+                                    <a href="" value="hapus" class="btn btn-outline-danger mt-2">
+                                        <i class="fa-solid fa-trash fa-lg">
+                                            
+                                        </i></a>
                                 </td>
                                 
                             </tr>

@@ -7,6 +7,8 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\DasboardController;
+use App\Models\Saran;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +31,14 @@ Route::resource('/', \App\Http\Controllers\DasboardController::class)->names([
 ]);
 
 Route::resource('/dasbhoard_admin', \App\Http\Controllers\SaranController::class);
+Route::delete('/dashboard_admin/softdelete/{id}', [SaranController::class, 'softDelete'])->name('dashboard_admin.softdelete');
+Route::get('/dashboard_admin/onlytrash', [SaranController::class, 'onlyTrashSaran'])->name('dashboard_admin.onlytrash');
+
+
+
+
+
+
 
 Route::controller(ProdukController::class)->group(function() {
     Route::get('Produk/', 'index')->name('Produk.index');
@@ -56,13 +66,12 @@ Route::get('/login', [SessionController::class, 'index'])->name('login');
 Route::post('/login-proses', [SessionController::class, 'login_proses'])->name('login-proses');
 Route::get('/logout', [SessionController::class, 'logout'])->name('logout');
 
-Route::controller(TestimoniController::class)->group(function() {
-    Route::get('/testi', 'index')->name('testimoni.index');
-});
+
+
+Route::resource('/adminTesti', \App\Http\Controllers\TestimoniController::class);
 
 Route::controller(TestimoniController::class)->group(function() {
     Route::get('/adminTesti', 'admin')->name('adminTesti.admin');
-    Route::get('/formTesti', 'create')->name('form.create');
-    Route::get('/storeTesti', 'store')->name('storetesti.store');
+    Route::get('/userTesti', 'index')->name('userTesti.index');
 });
 

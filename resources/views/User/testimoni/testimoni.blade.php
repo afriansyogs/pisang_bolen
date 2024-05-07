@@ -1,4 +1,4 @@
-@extends('testimoni/user/layout2')
+@extends('admin/dasbhoard_admin')
 
 @section('content')
 

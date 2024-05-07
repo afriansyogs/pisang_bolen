@@ -12,8 +12,6 @@
     <script src="https://kit.fontawesome.com/f9189b0d8d.js" crossorigin="anonymous"></script>
     <!-- link css  -->
     <link rel="stylesheet" href="{{ asset('/assets/css/sidebar.css') }}">
-    <!-- link icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 
 </head>
@@ -36,8 +34,8 @@
                         <span>Profile</span>
                     </a>
                 </li>
-                <li class="sidebar_item {{ \Route::is('adminTesti.index') ? 'active' : '' }}">
-                    <a href="{{ route('adminTesti.index') }}" class="sidebar_link">
+                <li class="sidebar_item {{ \Route::is('adminTesti.admin') ? 'active' : '' }}">
+                    <a href="{{ route('adminTesti.admin') }}" class="sidebar_link">
                         <i class="fa-solid fa-user"></i>
                         <span>Task</span>
                     </a>

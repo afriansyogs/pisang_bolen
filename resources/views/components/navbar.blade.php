@@ -17,8 +17,8 @@
                 <li class="nav-item mx-1 {{ \Route::is('Produk.index') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('Produk.index') }}">Menu</a>
                 </li>
-                <li class="nav-item mx-1 {{ \Route::is('testimoni.index') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('testimoni.index') }}">Testimoni</a>
+                <li class="nav-item mx-1 {{ \Route::is('userTesti.index') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('userTesti.index') }}">Testimoni</a>
                 </li>
             </ul>
         </div>

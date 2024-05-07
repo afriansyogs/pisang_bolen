@@ -13,14 +13,15 @@ class TestimoniController extends Controller
      *
      * @return View
      */
-    public function index() {
-        return view('testimoni/user/testimoni');
+    public function index(): View {
+        return view('user/testimoni/testimoni');
     }
+    
 
     public function admin() {
         $testi = Testimoni::latest()->get();
         return view('admin.testimoni.admTesti', compact('testi'));
-    }
+    }    
 
     /**
      * create

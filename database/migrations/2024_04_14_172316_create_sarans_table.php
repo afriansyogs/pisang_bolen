@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama_user')->nullable();
             $table->text('saran');
             $table->date('tgl')->nullable();
+            $table->softDeletes()->nullable();
             $table->timestamps();
         });
     }
