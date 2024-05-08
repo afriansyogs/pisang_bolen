@@ -76,7 +76,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="form-group mb-3 row">
+            {{-- <div class="form-group mb-3 row">
                 <label for="status" class="font-weight-bold col-sm-2 col-form-label">Status Publish</label>
                 <div class="col-sm-10">
                     <select required name="status_publish" id="status" class="form-control @error('status_publish') is-invalid @enderror">
@@ -90,7 +90,7 @@
                     </div>
                     @enderror
                 </div>
-            </div>
+            </div> --}}
 
             <div class="row mb-3 mt-5">
                 <div class="col">

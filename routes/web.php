@@ -42,17 +42,23 @@ Route::controller(SaranController::class)->group(function() {
 
 Route::controller(ProdukController::class)->group(function() {
     Route::get('Produk/', 'index')->name('Produk.index');
-});
+    // Route::get('/User/fav/{slug_link}', 'fav')->namProduke('Produk.fav');
+    Route::put('/User/favourite/{slug_link}', 'favourite')->name('Produk.favourite');
+    Route::post('/User/unfav/{slug_link}', 'unfav')->name('Produk.unfav');
+    Route::get('/User/fav', 'fav')->name('Produk.fav');
+});\
 
 Route::controller(ProdukController::class)->group(function () {
     Route::get('/Admin', 'admin')->name('Admin.admin');
-    Route::get('/Admin/history', 'history')->name('Admin.history');
     Route::get('/Admin/create', 'create')->name('Admin.create');
     Route::post('/Admin/kirim', 'store')->name('Admin.store');
     Route::get('/Admin/edit/{slug_link}', 'edit')->name('Admin.edit');
     Route::put('/Admin/update/{slug_link}', 'update')->name('Admin.update');
     Route::get('/Admin/hapus/{slug_link}', 'hapus')->name('Admin.hapus');
     Route::put('/Admin/softdelete/{slug_link}', 'softdelete')->name('Admin.softdelete');
+    Route::get('/Admin/history', 'history')->name('Admin.history');
+    Route::post('/Admin/restore/{slug_link}', 'restore')->name('Admin.restore');
+    Route::delete('/Admin/permanent-delete/{id}', 'deletePermanent')->name('Admin.deletePermanent');
 });
 
 // Route::controller(ProdukController::class)->group(function() {

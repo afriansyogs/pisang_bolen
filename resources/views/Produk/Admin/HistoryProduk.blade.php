@@ -60,8 +60,21 @@
                     <td> {{ $pdk->harga_product }} </td>
                     <td> {{ $pdk->jumlah_product }} </td>
                     <td>
-                        <a href="{{route('Admin.edit', $pdk->slug_link)}}" value="edit" class="btn btn-outline-success mt-2"><i class="bi bi-pencil-square"></i></a>
-                        <a href="{{route('Admin.hapus', $pdk->slug_link)}}" value="hapus" class="btn btn-outline-danger mt-2"><i class="bi bi-trash3"></i></a>
+                        <form onsubmit="return confirm('Yakin ingin mempublish ini ?');" action="{{ route('Admin.restore', ['slug_link' => $pdk->slug_link]) }}" method="POST">
+                            @csrf
+                            @method('POST')
+                            <button type="submit" class="btn btn-primary btn-sm mt-2">
+                                <i class="bi bi-box-arrow-left"></i> Restore
+                            </button>
+                        </form>
+
+                        <form onsubmit="return confirm('Yakin ingin menghapus ini ?');" action="{{ route('Admin.deletePermanent', $pdk->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-outline-danger btn-sm mt-2">
+                                <i class="bi bi-trash3"></i> Delete Permanent
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
