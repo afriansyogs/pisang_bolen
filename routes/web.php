@@ -46,7 +46,7 @@ Route::controller(ProdukController::class)->group(function() {
     Route::put('/User/favourite/{slug_link}', 'favourite')->name('Produk.favourite');
     Route::post('/User/unfav/{slug_link}', 'unfav')->name('Produk.unfav');
     Route::get('/User/fav', 'fav')->name('Produk.fav');
-});\
+});
 
 Route::controller(ProdukController::class)->group(function () {
     Route::get('/Admin', 'admin')->name('Admin.admin');
