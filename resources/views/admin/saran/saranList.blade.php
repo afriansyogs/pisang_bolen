@@ -24,8 +24,7 @@
     @foreach ($saran as $saranList)
     <div class="w-full h-auto mx-3 my-4 bg-warning border border-dark rounded-3 ">
         <div class="my-2 mx-2 d-flex justify-content-between align-items-center">
-            <!-- <h1 class="mb-0">{{ $saranList->nama_user }}</h1> -->
-            <h1 class="mb-0">user</h1>
+            <h1 class="mb-0">{{ $saranList->name_user }}</h1>  
             <form onsubmit="return confirm('Apakah Anda Yakin Menghapus secara permanen ?');" action="{{ route('dashboard_admin.softdelete', $saranList->id) }}" method="POST">
                         @csrf
                         @method('DELETE')

@@ -36,17 +36,33 @@
                         </p>
                     </div>
                 </div>
-                
+
+                @if(auth()->check())
                 <form action="{{ route('dasbhoard_admin.store') }}" method="POST">
                     @csrf
                     <div class="text-center mb-1">
                         <div class="text-start">
                             <label for="saran" class="ms-5 label_saran text-warning fs-5">Berikan Masukan Tentang Website ini </label>
                         </div>
+                        <input type="hidden" name="id_user" value="{{ auth()->user()->id }}">
+                        <input type="hidden" name="name_user" value="{{ auth()->user()->name }}">
                         <input type="text" class="input_saran w-75 py-1 px-1 mx-0 rounded" name="saran" id="saran" placeholder="Masukan Saran Anda" required>
                         <button type="submit" class="button_saran py-1 px-2 bg-warning rounded">Kirim</button>
                     </div>
                 </form>
+                @else
+                <form action="" method="POST">
+                    @csrf
+                    <div class="text-center mb-1">
+                        <div class="text-start">
+                            <label for="saran" class="ms-5 label_saran text-warning fs-5">Berikan Masukan Tentang Website ini </label>
+                        </div>
+                        <input type="text" class="input_saran w-75 py-1 px-1 mx-0 rounded bg-white" name="saran" id="saran" placeholder="Masukan Saran Anda" required disabled>
+                        <a href="{{ route('login') }}" class="btn button_saran border-1 border-black btn-md btn-warning mb-1 py-1 px-2 bg-warning rounded">Kirim</a>
+                    </div>
+                </form>
+                @endif
+
             </div>
         </div>
     </div>

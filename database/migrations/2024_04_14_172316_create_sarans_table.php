@@ -12,9 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sarans', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('nama_user')->nullable();
-            $table->text('saran');
+            $table->id();
+            $table->string('name_user')->nullable(); // Memindahkan kolom sebelum foreign key
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+            $table->text('saran')->nullable();
             $table->date('tgl')->nullable();
             $table->softDeletes()->nullable();
             $table->timestamps();

@@ -21,6 +21,11 @@
     /* padding: 2px 5px; */
 }
 
+.input_saran[disabled] {
+    border: 2px solid #000000; 
+    cursor: not-allowed;
+}
+
 .button_saran {
     /* border: 1px solid #000000;  */
     /* background-color: yellow; */
