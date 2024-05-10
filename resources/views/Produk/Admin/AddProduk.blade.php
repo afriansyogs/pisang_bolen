@@ -1,5 +1,16 @@
-@extends('Produk/Admin/Layout')
+{{-- @extends('Produk/Admin/Layout') --}}
+@extends('Admin/dasbhoard_admin')
 
+<style>
+    .container {
+        /* border: 1px solid black; */
+        border-radius: 15px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+    }
+    .aksi .col {
+        margin-bottom: 15px;
+    }
+</style>
 @section('content')
 
 <div class="container">
@@ -9,7 +20,9 @@
         <a href="{{ route('Admin.history') }}" class="btn btn-dark btn-sm"> History</a>
     </div> --}}
 
-<div class="col-12">
+    <div class="col-12">
+
+    <br><br><center><h2>Tambah Produk</h2></center>
     <form method="POST" action="{{ route('Admin.store') }}" enctype="multipart/form-data">
         @csrf
 
@@ -84,7 +97,7 @@
             </div>
         </div> --}}
 
-        <div class="row mb-3 mt-5">
+        <div class="row mb-3 mt-5 aksi">
             <div class="col">
                 <button type="submit" value="add" class="btn btn-primary"><i class="bi bi-plus-square"></i> Tambah</button>
                 <button type="reset" value="reset" class="btn btn-secondary"><i class="bi bi-repeat"></i> Reset</button>
@@ -93,7 +106,7 @@
         </div>
 
     </form>
-</div>
+    </div>
 
 
 </div>

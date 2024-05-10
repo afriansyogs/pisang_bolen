@@ -39,13 +39,13 @@ Route::controller(SaranController::class)->group(function() {
 
 
 
-
+// Route::middleware('auth')->group(function () {
+//     Route::controller(ProdukController::class);
+// });
 Route::controller(ProdukController::class)->group(function() {
     Route::get('Produk/', 'index')->name('Produk.index');
-    // Route::get('/User/fav/{slug_link}', 'fav')->namProduke('Produk.fav');
-    Route::put('/User/favourite/{slug_link}', 'favourite')->name('Produk.favourite');
-    Route::post('/User/unfav/{slug_link}', 'unfav')->name('Produk.unfav');
-    Route::get('/User/fav', 'fav')->name('Produk.fav');
+    // Route::post('/Produk/Favorite/Add/{products}', 'addFavorite')->name('Produk.favorite');
+    // Route::delete('/Produk/Favorite/Remove{products}', 'Favorite')->name('Produk.removefavorite');
 });
 
 Route::controller(ProdukController::class)->group(function () {

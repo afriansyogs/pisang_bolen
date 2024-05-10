@@ -1,4 +1,5 @@
-@extends('Produk/Admin/Layout')
+{{-- @extends('Produk/Admin/Layout') --}}
+@extends('Admin/dasbhoard_admin')
 
 @section('content')
 
@@ -20,7 +21,7 @@
                 <label for="foto" class="col-sm-2 col-form-label">Foto Produk</label>
                 <div class="col-sm-10">
                     @if ($products->foto_product)
-                            <img src="{{ asset('storage/images/' . $products->foto_product) }}" alt="Bolen Jonegoroan" class="img-fluid" style="width: 500px;">
+                            <img src="{{ asset('storage/images/' . $products->foto_product) }}" alt="Bolen Jonegoroan" class="img-fluid" style="width: 300px;">
                         @else
                             <p>Tidak ada gambar yang tersedia</p>
                     @endif

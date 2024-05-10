@@ -7,13 +7,11 @@
     padding: 0;
 } */
 
-a {
+aside div a, ul li a {
     text-decoration: none;
-}
-
-li {
     list-style: none;
 }
+
 
 h1 {
     font-weight: 600;

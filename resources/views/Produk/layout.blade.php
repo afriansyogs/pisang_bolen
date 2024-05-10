@@ -44,10 +44,10 @@
                     <a class="nav-link" href="#aboutus">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link act" href="{{ route('Produk.index') }}">Product</a>
+                    <a class="nav-link act {{ \Route::is('userTesti.index') ? 'active' : '' }}" href="{{ route('Produk.index') }}">Product</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('testimoni.index') }}">Testimonial</a>
+                    <a class="nav-link {{ \Route::is('userTesti.index') ? 'active' : '' }}" href="{{ route('userTesti.index') }}">Testimonial</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">Saran</a>

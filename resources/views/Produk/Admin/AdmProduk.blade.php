@@ -1,5 +1,5 @@
-@extends('Produk/Admin/Layout')
-{{-- @extends('Admin/dasbhoard_admin') --}}
+{{-- @extends('Produk/Admin/Layout') --}}
+@extends('Admin/dasbhoard_admin')
 
 @section('content')
 
@@ -20,7 +20,7 @@
     </div>
 
     <div class="col-12">
-        <table id="example" class="table table-striped" style="width:100%">
+        <table id="example" class="table table-striped" style="width:100%" border="1px solid black">
             <thead>
                 <tr>
                     <th data-priority="1">No</th>
