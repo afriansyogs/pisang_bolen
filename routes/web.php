@@ -78,6 +78,11 @@ Route::resource('/adminTesti', \App\Http\Controllers\TestimoniController::class)
 
 Route::controller(TestimoniController::class)->group(function() {
     Route::get('/adminTesti', 'admin')->name('adminTesti.admin');
+    Route::get('/user', 'user')->name('user.user');
     Route::get('/userTesti', 'index')->name('userTesti.index');
+    Route::get('/history', 'onlyTrashTestimoni')->name('history.onlyTrashTestimoni');
+    Route::delete('userSoftDelete/softdelete/{id}', 'softDelete')->name('userSoftDelete.softdelete');
+    Route::put('/userSoftDelete/restore/{id}', 'restore')->name('userSoftDelete.restore');
+
 });
 

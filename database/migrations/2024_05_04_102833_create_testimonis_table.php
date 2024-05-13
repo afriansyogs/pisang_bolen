@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('testimonis', function (Blueprint $table) {
             $table->id();
             $table->text('testi');
+            $table->softDeletes()->nullable();
             $table->timestamps();
         });
     }

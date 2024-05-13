@@ -20,7 +20,6 @@
             <div class="card border-0 shadow-sm rounded">
                 <div class="card-body">
                     <a href="{{ route('adminTesti.create') }}" class="btn btn-md btn-success mb-3">TAMBAH POST</a>
-                    <a href="{{ route('history.onlyTrashTestimoni') }}" class="btn btn-warning ms-auto">HISTORY</a>
 
                     <table class="table table-bordered">
                         <thead>
@@ -32,7 +31,7 @@
                         </thead>
                         <tbody>
                         
-                            @foreach ($testi as $testiList)
+                            @foreach ($testiTrash as $testiList)
                             <tr>
                                 
                                 <td>{{ $testiList->testi }}</td>
@@ -44,12 +43,17 @@
                                         </i></a>
                                 </td>
                                 <td>
-                                <form onsubmit="return confirm('Apakah Anda Yakin Menghapus secara permanen ?');" action="{{ route('userSoftDelete.softdelete', $testiList->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm">
-                                <i class="fa-solid fa-trash fa-lg"></i>
-                                </button>
+                                <form action="{{ route('userSoftDelete.restore', $testiList->id) }}" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <button type="submit" class="btn btn-success">Restore</button>
+                                </form>
+                                </td>
+                                <td>
+                                <form onsubmit="return confirm('Apakah Anda Yakin Menghapus secara permanen ?');" action="{{ route('adminTesti.destroy', $testiList->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
                                 </form>
                                 </td>
                                 

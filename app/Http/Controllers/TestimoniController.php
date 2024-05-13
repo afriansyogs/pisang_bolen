@@ -59,6 +59,36 @@ class TestimoniController extends Controller
         //redirect to index
         return redirect()->route('adminTesti.admin')->with(['successTesti' => 'Data Berhasil Disimpan!']);
     }
+    
+    public function user() {
+        $testi = Testimoni::latest()->get();
+        return view('User.testimoni.testimoni', compact('testi'));
+    }
 
+    public function destroy($id): RedirectResponse {
+        $testi = Testimoni::withTrashed()->findOrFail($id);
+        $testi->forceDelete(); 
+        return redirect()->route('history.onlyTrashTestimoni')->with('success', 'Data berhasil dihapus secara permanen.');
+    }
+
+    public function softDelete($id) {
+        $testi = Testimoni::findOrFail($id);
+        $testi->delete(); 
+
+        return redirect()->route('adminTesti.admin')->with('success', 'Data berhasil dihapus secara lembut.');
+    }
+
+    public function onlyTrashTestimoni() :view {
+        $testiTrash = Testimoni::onlyTrashed()->latest()->get();
+
+        return view('admin.testimoni.softDeleteTestimoni', compact('testiTrash'));
+    }
+
+    public function restore($id) {
+        $testi = Testimoni::withTrashed()->findOrFail($id);
+        $testi->restore(); 
+
+        return redirect()->route('history.onlyTrashTestimoni')->with('success', 'Data berhasil dipulihkan.');
+    }
    
 }
