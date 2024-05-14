@@ -7,6 +7,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\DasboardController;
+use App\Http\Controllers\Profile;
 use App\Models\Saran;
 
 /*
@@ -72,7 +73,8 @@ Route::get('/login', [SessionController::class, 'index'])->name('login');
 Route::post('/login-proses', [SessionController::class, 'login_proses'])->name('login-proses');
 Route::get('/logout', [SessionController::class, 'logout'])->name('logout');
 
-
+Route::resource('/profile', \App\Http\Controllers\Profile::class);
+Route::get('/profileView', [Profile::class, 'show']);
 
 Route::resource('/adminTesti', \App\Http\Controllers\TestimoniController::class);
 

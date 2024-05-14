@@ -43,6 +43,7 @@ class SessionController extends Controller
     public function register_proses(Request $request) {
         $request->validate([
             'username' => 'required',
+            'nomor' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8|confirmed',
         ], [
@@ -50,8 +51,10 @@ class SessionController extends Controller
         ]);
 
         $data['name'] = $request->username;
+        $data['number'] = $request->nomor;
         $data['email'] = $request->email;
         $data['password'] = Hash::make($request->password);
+
 
         User::create($data);
 

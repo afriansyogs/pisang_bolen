@@ -4,7 +4,7 @@
     <title>Register Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styleSignIn.css">
+    <link rel="stylesheet" href="css/styleRegister.css">
   </head>
   <body>
     <div class="container">
@@ -20,6 +20,13 @@
                         <label for="username">Username:</label>
                         <input type="text" class="form-control" name="username" id="username" placeholder="Enter Username" value="{{ old('username') }}">
                         @error('username')
+                            <small>{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="nomor">Number Phone:</label>
+                        <input type="text" class="form-control" name="nomor" id="nomor" placeholder="Enter Number Phone" value="{{ old('nomor') }}" maxlength="15">
+                        @error('nomor')
                             <small>{{ $message }}</small>
                         @enderror
                     </div>
