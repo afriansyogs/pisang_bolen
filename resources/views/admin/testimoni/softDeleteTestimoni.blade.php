@@ -26,6 +26,7 @@
                             <tr>
                                 <th scope="col">JUDUL</th>
                                 <th scope="col">CONTENT</th>
+                                <th scope="col">RESTORE</th>
                                 <th scope="col">HAPUS</th>
                             </tr>
                         </thead>
@@ -36,12 +37,7 @@
                                 
                                 <td>{{ $testiList->testi }}</td>
                                 <td>{{ $testiList->testi }}</td>
-                                <td>
-                                    <a href="" value="hapus" class="btn btn-outline-danger mt-2">
-                                        <i class="fa-solid fa-trash fa-lg">
-                                            
-                                        </i></a>
-                                </td>
+                                
                                 <td>
                                 <form action="{{ route('userSoftDelete.restore', $testiList->id) }}" method="POST">
                                     @csrf

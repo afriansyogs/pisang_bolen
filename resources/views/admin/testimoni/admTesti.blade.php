@@ -20,12 +20,12 @@
             <div class="card border-0 shadow-sm rounded">
                 <div class="card-body">
                     <a href="{{ route('adminTesti.create') }}" class="btn btn-md btn-success mb-3">TAMBAH POST</a>
-                    <a href="{{ route('history.onlyTrashTestimoni') }}" class="btn btn-warning ms-auto">HISTORY</a>
+                    <a href="{{ route('history.onlyTrashTestimoni') }}" class="btn btn-primary mb-3 ">HISTORY</a>
 
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col">JUDUL</th>
+                                <th scope="col">NAMA</th>
                                 <th scope="col">CONTENT</th>
                                 <th scope="col">HAPUS</th>
                             </tr>
@@ -37,14 +37,9 @@
                                 
                                 <td>{{ $testiList->testi }}</td>
                                 <td>{{ $testiList->testi }}</td>
+                                
                                 <td>
-                                    <a href="" value="hapus" class="btn btn-outline-danger mt-2">
-                                        <i class="fa-solid fa-trash fa-lg">
-                                            
-                                        </i></a>
-                                </td>
-                                <td>
-                                <form onsubmit="return confirm('Apakah Anda Yakin Menghapus secara permanen ?');" action="{{ route('userSoftDelete.softdelete', $testiList->id) }}" method="POST">
+                                <form onsubmit="return confirm('Apakah Anda Yakin Menghapus Data ini ?');" action="{{ route('userSoftDelete.softdelete', $testiList->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm">

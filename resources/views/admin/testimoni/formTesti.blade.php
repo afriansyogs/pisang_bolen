@@ -24,8 +24,17 @@
 
                             
                             <div class="form-group">
-                                <label class="font-weight-bold">JUDUL</label>
-                                <input type="text" class="form-control @error('testi') is-invalid @enderror" name="testi" value="{{ old('testi') }}" placeholder="Masukkan Judul Post">
+                                <label class="font-weight-bold">NAMA</label>
+                                <input type="text" class="form-control @error('testi') is-invalid @enderror" name="testi" value="{{ old('testi') }}" placeholder="Masukkan Nama Anda">
+                            
+                                <!-- error message untuk title -->
+                                @error('testi')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                                <label class="font-weight-bold">CONTENT</label>
+                                <input type="text" class="form-control @error('testi') is-invalid @enderror" name="testi" value="{{ old('testi') }}" placeholder="Masukkan Content">
                             
                                 <!-- error message untuk title -->
                                 @error('testi')
