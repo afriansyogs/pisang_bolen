@@ -14,7 +14,7 @@
     </div><br>
     <div class="form-group">
         <h1>Number Phone</h1>
-        <h2>{{ $user->number }}</h2>
+        <h2>{{ $user->name }}</h2>
     </div><br>
     <div class="form-group">
         <h1>Email</h1>

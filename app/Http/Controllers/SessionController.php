@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class SessionController extends Controller
 {
     public function index() {
-        return view('user.Login&Register.login');
+        return view('user.LoginRegisterLogoutProfile.login');
     }
 
     public function login_proses(Request $request) {
@@ -37,7 +37,7 @@ class SessionController extends Controller
     }
 
     public function register() {
-        return view('user.Login&Register.register');
+        return view('user.LoginRegisterLogoutProfile.register');
     }
 
     public function register_proses(Request $request) {
@@ -64,7 +64,7 @@ class SessionController extends Controller
         ];
 
         if(Auth::attempt($login)) {
-            return redirect('/');
+            return redirect('/login ');
         } else {
             return redirect()->route('register')-> with('failed', 'Incorrect Username, Email or Password');
         }
