@@ -29,7 +29,7 @@ class SessionController extends Controller
         if(Auth::attempt($data, $remember)) {
             return redirect('/');
         } else {
-            return redirect()->route('login')-> with('failed', 'Incorrect Username or Password');
+            return redirect()->route('login')-> with('failed', 'The Account is Not Registered yet');
         }
     }
 
