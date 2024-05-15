@@ -9,6 +9,6 @@ class Profile extends Controller
 {
     public function index() {
         $user = Auth::user();
-        return view('User.Login&Register.profile', compact('user'));
+        return view('User.LoginRegisterLogoutProfile.profile', compact('user'));
     }
 }

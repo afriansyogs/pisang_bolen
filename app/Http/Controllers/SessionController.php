@@ -24,7 +24,9 @@ class SessionController extends Controller
             'password' => $request->password,
         ];
 
-        if(Auth::attempt($data)) {
+        $remember = true;
+
+        if(Auth::attempt($data, $remember)) {
             return redirect('/');
         } else {
             return redirect()->route('login')-> with('failed', 'Incorrect Username or Password');
@@ -64,7 +66,7 @@ class SessionController extends Controller
         ];
 
         if(Auth::attempt($login)) {
-            return redirect('/login ');
+            return redirect('/login');
         } else {
             return redirect()->route('register')-> with('failed', 'Incorrect Username, Email or Password');
         }
