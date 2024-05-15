@@ -74,7 +74,7 @@ Route::post('/login-proses', [SessionController::class, 'login_proses'])->name('
 Route::get('/logout', [SessionController::class, 'logout'])->name('logout');
 
 Route::resource('/profile', \App\Http\Controllers\Profile::class);
-Route::get('/profileView', [Profile::class, 'show']);
+Route::get('/profileView', [Profile::class, 'index'])->middleware('auth');
 
 Route::resource('/adminTesti', \App\Http\Controllers\TestimoniController::class);
 
