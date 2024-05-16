@@ -24,7 +24,7 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col">JUDUL</th>
+                                <th scope="col">NAMA</th>
                                 <th scope="col">CONTENT</th>
                                 <th scope="col">RESTORE</th>
                                 <th scope="col">HAPUS</th>
@@ -35,7 +35,7 @@
                             @foreach ($testiTrash as $testiList)
                             <tr>
                                 
-                                <td>{{ $testiList->testi }}</td>
+                                <td>{{ $testiList->name }}</td>
                                 <td>{{ $testiList->testi }}</td>
                                 
                                 <td>

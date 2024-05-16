@@ -17,83 +17,28 @@
 
 <body>
   <x-navbar />
-<div class="judul">
-  <h1>TESTIMONIAL</h1>
-</div>
-<div class="container-2">
-<div class="owl-carousel owl-theme">
-    <div class="item">
-      <div class="content">
-        <div class="img-area">
-          <img src="img/testi1.png" alt="">
-        </div>
-        <div class="text-content">
-          @foreach ($testi as $user)
-                <li>{{ $user->testi }}</li> 
-          @endforeach
-            
-            <h2>helga olivia</h2>
-        </div>
-      </div>
-    </div> 
+<div class="isi">
+  <div class="testi">
+    <h1>TESTIMONIAL</h1>
+  </div>
+  
 
+  <div class="container-2">
+  <div class="owl-carousel owl-theme">
+  @foreach ($testi as $user)  
     <div class="item">
       <div class="content">
-        <div class="img-area">
-          <img src="img/testi2.png" alt="">
-        </div>
-        <div class="text-content">
-          @foreach ($testi as $user)
-                <li>{{ $user->testi }}</li> 
-          @endforeach
-            
-            <h2>helga olivia</h2>
+          <div class="img-area">
+            <img src="img/testi1.png" alt="">
+          </div>
+          <div class="text-content">
+                  <li>{{ $user->testi }}</li> 
+              <h2>-Customer Bolen-</h2>
+          </div>
         </div>
       </div>
     </div>
-    <div class="item">
-      <div class="content">
-        <div class="img-area">
-          <img src="img/testi3.png" alt="">
-        </div>
-        <div class="text-content">
-          @foreach ($testi as $user)
-                <li>{{ $user->testi }}</li> 
-          @endforeach
-            
-            <h2>helga olivia</h2>
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <div class="content">
-        <div class="img-area">
-          <img src="img/testi3.png" alt="">
-        </div>
-        <div class="text-content">
-          @foreach ($testi as $user)
-                <li>{{ $user->testi }}</li> 
-          @endforeach
-            
-            <h2>helga olivia</h2>
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <div class="content">
-        <div class="img-area">
-          <img src="img/testi3.png" alt="">
-        </div>
-        <div class="text-content">
-          @foreach ($testi as $user)
-                <li>{{ $user->testi }}</li> 
-          @endforeach
-            
-            <h2>helga olivia</h2>
-        </div>
-      </div>
-    </div>
-    
+   @endforeach
     
     
 </div>
