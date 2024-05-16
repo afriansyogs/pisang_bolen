@@ -7,6 +7,7 @@
 </head>
 <body>
     @foreach ($users as $user)
+    <h1>data user</h1>
     <h1 class="mb-0">{{ $user->name }}</h1>
     <h1 class="mb-0">{{ $user->number }}</h1>
     <h1 class="mb-0">{{ $user->email }}</h1>  
