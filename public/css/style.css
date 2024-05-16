@@ -13,7 +13,6 @@ nav {
     font-size: 20px;
     border-bottom: 2px solid #d9ad02;
     box-shadow: 0 0 15px #d9ad02;
-    color: red;
 }
 .container-fluid .icon a:hover {
     color: #d9ad02;
@@ -45,6 +44,7 @@ nav {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
     transition: 0.8s all;
     border-radius: 20px;
+    /* height: 500px; */
 }
 .row .card:hover {
     scale: 1.1;
@@ -53,6 +53,8 @@ nav {
 }
 .row .card img {
     border-radius: 20px 20px 0 0;
+    /* height: 200px;
+    object-fit: cover; */
 }
 .row .card h4 {
     color: #d9ad02;
@@ -63,11 +65,40 @@ nav {
 .container-fluid .img img {
     margin-right: 70px;
 }
-.container-fluid .icon {
-    margin-right: 20px;
+.quantity-container {
+    align-items: center;
+    text-align: center;
+}
+.quantity-container input{
+    width: 20px;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+.quantity-container button {
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bolder;
+    border: 1px solid;
+}
+.quantity-container input {
+    background-color: transparent;
+}
+.quantity-container span:nth-child(2) {
+    background-color: transparent;
+    border: none;
 }
 
-@media only screen and (max-width: 1023px) {
+@media only screen and (max-width: 990px) {
     .row {
         display: block;
         width: 75%;
@@ -75,6 +106,9 @@ nav {
     }
     .row .card:hover {
         scale: unset;
+    }
+    .row .col-4 {
+        width: 100%;
     }
     .container-fluid .img img, .container-fluid .icon {
         margin-right: 0;
@@ -84,9 +118,9 @@ nav {
 
 /* FAVOURITE START */
 
-.row .carousel-inner .card:hover {
+/* .row .carousel-inner .card:hover {
     scale: unset;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
-}
+} */
 
 /* FAVOURITE END */

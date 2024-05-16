@@ -40,11 +40,9 @@ Route::controller(SaranController::class)->group(function() {
 
 
 
-// Route::middleware('auth')->group(function () {
-//     Route::controller(ProdukController::class);
-// });
 Route::controller(ProdukController::class)->group(function() {
     Route::get('Produk/', 'index')->name('Produk.index');
+    Route::get('Produk/show-detail/{id}', 'show')->name('Produk.show');
     // Route::post('/Produk/Favorite/Add/{products}', 'addFavorite')->name('Produk.favorite');
     // Route::delete('/Produk/Favorite/Remove{products}', 'Favorite')->name('Produk.removefavorite');
 });

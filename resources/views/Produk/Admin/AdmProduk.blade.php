@@ -46,6 +46,7 @@
                     <td>
                         <a href="{{route('Admin.edit', $pdk->slug_link)}}" value="edit" class="btn btn-outline-success mt-2"><i class="bi bi-pencil-square"></i></a>
                         <a href="{{route('Admin.hapus', $pdk->slug_link)}}" value="hapus" class="btn btn-outline-danger mt-2"><i class="bi bi-trash3"></i></a>
+                        {{-- <a href="{{ route('Produk.show', $pdk->id) }}" value="detail-produk" class="btn btn-outline-dark mt-2">Show Detail Produk</a> --}}
                     </td>
                 </tr>
                 @endforeach

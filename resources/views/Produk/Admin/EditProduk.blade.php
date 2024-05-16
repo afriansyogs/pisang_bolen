@@ -74,27 +74,12 @@
                 @enderror
             </div>
         </div>
-        {{-- <div class="form-group mb-3 row">
-            <label for="status" class="font-weight-bold col-sm-2 col-form-label">Status Publish</label>
-            <div class="col-sm-10">
-                <select required name="status_publish" id="status" class="form-control @error('status_publish') is-invalid @enderror">
-                    <option value=""></option>
-                    <option value="Draft {{ $products->status_publish == 'Draft' ? 'selected' : '' }}">Draft</option>
-                    <option value="Publish {{ $products->status_publish == 'Publish' ? 'selected' : '' }}">Publish</option>
-                </select>
-                @error('status_publish')
-                <div class="alert alert-danger mt-2">
-                    {{ $message }}
-                </div>
-                @enderror
-            </div>
-        </div> --}}
 
         <div class="row mb-3 mt-5">
             <div class="col">
                 <button type="submit" value="edit" class="btn btn-success"><i class="bi bi-save"></i> Simpan</button>
                 <button type="reset" value="reset" class="btn btn-secondary"><i class="bi bi-repeat"></i> Reset</button>
-                <a href="{{ route('Admin.admin') }}" type="button" class="btn btn-danger"><i class="bi bi-arrow-left-square"></i> Batal</a>
+                <a href="{{ route('Admin.admin') }}" type="button" class="btn btn-outline-danger"><i class="bi bi-arrow-left-square"></i> Batal</a>
             </div>
         </div>
 

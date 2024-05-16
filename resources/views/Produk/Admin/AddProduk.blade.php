@@ -1,16 +1,16 @@
 {{-- @extends('Produk/Admin/Layout') --}}
 @extends('Admin/dasbhoard_admin')
 
-<style>
+{{-- <style>
     .container {
         /* border: 1px solid black; */
         border-radius: 15px;
-        box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+        /* box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px; */
     }
     .aksi .col {
         margin-bottom: 15px;
     }
-</style>
+</style> --}}
 @section('content')
 
 <div class="container">
@@ -101,7 +101,7 @@
             <div class="col">
                 <button type="submit" value="add" class="btn btn-primary"><i class="bi bi-plus-square"></i> Tambah</button>
                 <button type="reset" value="reset" class="btn btn-secondary"><i class="bi bi-repeat"></i> Reset</button>
-                <a href="{{ route('Admin.admin') }}" type="button" class="btn btn-danger"><i class="bi bi-arrow-left-square"></i> Batal</a>
+                <a href="{{ route('Admin.admin') }}" type="button" class="btn btn-outline-danger"><i class="bi bi-arrow-left-square"></i> Batal</a>
             </div>
         </div>
 

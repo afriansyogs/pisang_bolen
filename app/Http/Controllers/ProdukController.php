@@ -18,10 +18,6 @@ class ProdukController extends Controller
         return view('Produk/User/Produk');
     }
 
-    // public function fav() {
-    //     return view('Produk/User/Fav');
-    // }
-
     public function admin() {
         $products = Product::all();
         return view('Produk/Admin/AdmProduk', compact('products'));
@@ -42,8 +38,6 @@ class ProdukController extends Controller
                 'slug_link' => 'unique:products,slug_link',
             ]);
 
-            // $image = $request->file('foto_product');
-            // $image->storeAs('public/product', $image->hashName());
             $imageName = time().'.'.$request->foto_product->extension();
             $request->foto_product->move(public_path('storage/images/'), $imageName);
 
@@ -80,8 +74,6 @@ class ProdukController extends Controller
                 'slug_link' => 'unique:products,slug_link',
             ]);
 
-            // $image = $request->file('foto_product');
-            // $image->storeAs('public/product', $image->hashName());
             $imageName = time().'.'.$request->foto_product->extension();
             $request->foto_product->move(public_path('storage/images/'), $imageName);
 
@@ -138,14 +130,21 @@ class ProdukController extends Controller
     }
 
 
-    public function addFavorite(Product $products) {
-        auth()->user()->favorites()->attach($products->id);
-        return response()->json(['success' => 'Berhasil menambahkan produk ke favorite !']);
-    }
+    // public function addFavorite(Product $products) {
+    //     auth()->user()->favorites()->attach($products->id);
+    //     return response()->json(['success' => 'Berhasil menambahkan produk ke favorite !']);
+    // }
 
-    public function removeFavorite(Product $products) {
-        auth()->user()->favorites()->detach($products->id);
-        return response()->json(['success' => 'Berhasil menghapus produk dari favorite !']);
+    // public function removeFavorite(Product $products) {
+    //     auth()->user()->favorites()->detach($products->id);
+    //     return response()->json(['success' => 'Berhasil menghapus produk dari favorite !']);
+    // }
+
+
+
+    public function show($id) {
+        $products = Product::findOrFail($id);
+        return view('Produk.User.DetailProduk', compact('products'));
     }
 
 
