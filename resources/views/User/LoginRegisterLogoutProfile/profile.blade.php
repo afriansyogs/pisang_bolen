@@ -1,28 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>Profile</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
-    <h1>Hi {{ Auth::user()->name }}</h1><br>
-        <div class="col-md-8">
-            <div class="form-group">
-                <h1>Name</h1>
-                <h2>{{ $user->name }}</h2>
-            </div><br>
-            <div class="form-group">
-                <h1>Number Phone</h1>
-                <h2>{{ $user->name }}</h2>
-            </div><br>
-            <div class="form-group">
-                <h1>Email</h1>
-                <h2>{{ $user->email }}</h2>
+    <div class="container">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+
+        <h1>Hi, {{ $user->name }}</h1>
+        <p>Welcome to your profile page.</p>
+
+        <button type="button" class="btn btn-primary" id="editProfileBtn">Edit Profile</button>
+
+        <div class="modal" id="editProfileModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit Profile</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form id="editProfileForm" method="POST" action="{{ route('profile-update') }}">
+                            @csrf
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <form id="logoutForm" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" class="btn btn-danger mt-3">Logout</button>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            // Open modal on button click
+            $("#editProfileBtn").click(function(){
+                $("#editProfileModal").modal('show');
+            });
+        });
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>

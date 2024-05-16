@@ -8,6 +8,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\DasboardController;
 use App\Http\Controllers\Profile;
+use App\Http\Controllers\ProfileController;
 use App\Models\Saran;
 
 /*
@@ -69,10 +70,11 @@ Route::post('/register-proses', [SessionController::class, 'register_proses'])->
 
 Route::get('/login', [SessionController::class, 'index'])->name('login');
 Route::post('/login-proses', [SessionController::class, 'login_proses'])->name('login-proses');
-Route::get('/logout', [SessionController::class, 'logout'])->name('logout');
 
-Route::resource('/profile', \App\Http\Controllers\Profile::class);
-Route::get('/profileView', [Profile::class, 'index'])->middleware('auth');
+Route::resource('/profile', \App\Http\Controllers\ProfileController::class);
+Route::get('/profileView', [ProfileController::class, 'index'])->middleware('auth')->name('profile-show');
+Route::post('/profile', [ProfileController::class, 'update'])->name('profile-update');
+Route::get('/logout', [ProfileController::class, 'logout'])->name('logout');
 
 Route::resource('/adminTesti', \App\Http\Controllers\TestimoniController::class);
 
