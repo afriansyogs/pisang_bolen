@@ -46,6 +46,7 @@ class SessionController extends Controller
         $request->validate([
             'username' => 'required',
             'nomor' => 'required',
+            'address' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8|confirmed',
         ], [
@@ -54,6 +55,7 @@ class SessionController extends Controller
 
         $data['name'] = $request->username;
         $data['number'] = $request->nomor;
+        $data['alamat'] = $request->address;
         $data['email'] = $request->email;
         $data['password'] = Hash::make($request->password);
 
