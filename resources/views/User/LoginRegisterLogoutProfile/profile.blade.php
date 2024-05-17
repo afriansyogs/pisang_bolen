@@ -13,9 +13,22 @@
             </div>
         @endif
 
-
         <h1>Hi, {{ $user->name }}</h1>
         <p>Welcome to your profile page.</p>
+        <div class="col-md-8">
+            <div>
+                <span>Name :</span>
+                <p style="margin-top: -5px">{{ $user->name }}</p>
+            </div>
+            <div>
+                <span>Address :</span>
+                <p style="margin-top: -5px">{{ $user->alamat }}</p>
+            </div>
+            <div>
+                <span>Email :</span>
+                <p style="margin-top: -5px">{{ $user->email }}</p>
+            </div>
+        </div>
 
         <button type="button" class="btn btn-primary" id="editProfileBtn">Edit Profile</button>
 
@@ -53,7 +66,6 @@
 
     <script>
         $(document).ready(function(){
-            // Open modal on button click
             $("#editProfileBtn").click(function(){
                 $("#editProfileModal").modal('show');
             });
