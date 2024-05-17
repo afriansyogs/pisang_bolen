@@ -21,6 +21,7 @@
                     <th>Number</th>
                     <th>Email</th>
                     <th>Umur</th>
+                    <th>hobby</th>
                 </tr>
             </thead>
             <tbody>
