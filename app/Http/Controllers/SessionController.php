@@ -13,6 +13,13 @@ class SessionController extends Controller
         return view('user.LoginRegisterLogoutProfile.login');
     }
 
+        public function dataUser() {
+            $users = User::all();
+            return view('admin.user.index',  ['users' => $users]);
+
+        }
+
+
     public function login_proses(Request $request) {
         $request->validate([
             'username' => 'required',

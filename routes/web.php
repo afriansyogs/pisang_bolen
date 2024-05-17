@@ -76,6 +76,9 @@ Route::get('/profileView', [ProfileController::class, 'index'])->middleware('aut
 Route::post('/profile', [ProfileController::class, 'update'])->name('profile-update');
 Route::get('/logout', [ProfileController::class, 'logout'])->name('logout');
 
+    Route::get('/userList', [SessionController::class, 'dataUser'])->name('userList');
+
+
 Route::resource('/adminTesti', \App\Http\Controllers\TestimoniController::class);
 
 Route::controller(TestimoniController::class)->group(function() {
