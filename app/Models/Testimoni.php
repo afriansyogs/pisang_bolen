@@ -11,6 +11,7 @@ class Testimoni extends Model
     use HasFactory,SoftDeletes;
 
     protected $fillable = [
-        'testi',
+        'testi', 
+        'name'
     ];
 }

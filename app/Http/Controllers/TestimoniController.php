@@ -44,15 +44,15 @@ class TestimoniController extends Controller
     {
         //validate form
         $this->validate($request, [
-            'testi'     => 'required',
-            // 'title'     => 'required|min:5',
+            'testi'     => 'required|min:5',
+            'name'     => 'required|min:5',
             // 'content'   => 'required|min:10'
         ]);
 
         
         Testimoni::create([
             'testi'     => $request->testi,
-            // 'title'     => $request->title,
+            'name'     => $request->name,
             // 'content'   => $request->content
         ]);
 

@@ -65,7 +65,7 @@
                     <a href="{{ route('adminTesti.admin') }}" class="sidebar_link">
                         {{-- <i class="fa-solid fa-user"></i> --}}
                         <i class="fa-solid fa-envelope"></i>
-                        <span>Task</span>
+                        <span>Testimoni</span>
                     </a>
                 </li>
                 <li class="sidebar_item {{ \Route::is('Admin.admin', 'Admin.create', 'Admin.edit', 'Admin.hapus', 'Admin.history') ? 'active' : '' }}">

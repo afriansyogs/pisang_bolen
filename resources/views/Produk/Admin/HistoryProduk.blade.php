@@ -9,7 +9,7 @@
 
     <div class="col-12">
         <div class="main-txt">
-            <h1>OUR <span>PRODUCTS</span></h1>
+            <h1>HISTORY <span>PRODUCTS</span></h1>
         </div>
     </div>
 

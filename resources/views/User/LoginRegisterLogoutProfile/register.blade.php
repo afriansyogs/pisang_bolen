@@ -24,6 +24,13 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label for="address">Address:</label>
+                        <input type="text" class="form-control" name="address" id="address" placeholder="Enter Address" value="{{ old('address') }}">
+                        @error('address')
+                            <small>{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class="form-group">
                         <label for="nomor">Number Phone:</label>
                         <input type="text" class="form-control" name="nomor" id="nomor" placeholder="Enter Number Phone" value="{{ old('nomor') }}" maxlength="15">
                         @error('nomor')

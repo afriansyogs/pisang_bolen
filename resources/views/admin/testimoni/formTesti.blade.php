@@ -24,8 +24,8 @@
 
                             
                             <div class="form-group">
-                                <label class="font-weight-bold">NAMA</label>
-                                <input type="text" class="form-control @error('testi') is-invalid @enderror" name="testi" value="{{ old('testi') }}" placeholder="Masukkan Nama Anda">
+                                <label class="font-weight-bold">CONTENT</label>
+                                <input type="text" class="form-control @error('testi') is-invalid @enderror" name="testi" value="{{ old('testi') }}" placeholder="Masukkan Content">
                             
                                 <!-- error message untuk title -->
                                 @error('testi')
@@ -33,11 +33,13 @@
                                         {{ $message }}
                                     </div>
                                 @enderror
-                                <label class="font-weight-bold">CONTENT</label>
-                                <input type="text" class="form-control @error('testi') is-invalid @enderror" name="testi" value="{{ old('testi') }}" placeholder="Masukkan Content">
+                            </div>
+                                <div class="form-group">
+                                <label class="font-weight-bold">NAMA</label>
+                                <input type="text" class="form-control @error('testi') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Masukkan Nama">
                             
                                 <!-- error message untuk title -->
-                                @error('testi')
+                                @error('name')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>

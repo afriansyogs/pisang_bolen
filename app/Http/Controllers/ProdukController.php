@@ -15,7 +15,8 @@ class ProdukController extends Controller
 {
 
     public function index() {
-        return view('Produk/User/Produk');
+        $products = Product::all();
+        return view('Produk/User/Produk', compact('products'));
     }
 
     public function admin() {
@@ -142,11 +143,8 @@ class ProdukController extends Controller
 
 
 
-    public function show($id) {
-        $products = Product::findOrFail($id);
-        return view('Produk.User.DetailProduk', compact('products'));
-    }
-
-
-
+        public function show($slug_link) {
+            $products = Product::where('slug_link', $slug_link)->first();
+            return view('Produk.User.DetailProduk', compact('products'));
+        }
 }
