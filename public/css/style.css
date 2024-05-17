@@ -51,10 +51,22 @@ nav {
     transition: 0.8s all;
     box-shadow: 0px 3px 8px #5c1d0d;
 }
+.row .card .card-body {
+    display: flex;
+    padding: 12px;
+    justify-content: space-between;
+    border-bottom: 1px solid;
+}
 .row .card img {
     border-radius: 20px 20px 0 0;
     /* height: 200px;
     object-fit: cover; */
+}
+.row .card .btn {
+    border-radius: 0 0 20px 20px;
+}
+.row .card a {
+   border: none;
 }
 .row .card h4 {
     color: #d9ad02;
