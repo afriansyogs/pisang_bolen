@@ -20,6 +20,7 @@
                     <th>Name</th>
                     <th>Number</th>
                     <th>Email</th>
+                    <th>Umur</th>
                 </tr>
             </thead>
             <tbody>
