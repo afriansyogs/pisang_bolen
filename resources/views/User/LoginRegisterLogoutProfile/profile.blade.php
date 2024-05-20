@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>User Profile</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styleProfile.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
     <div class="container">
-        @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-
         <h1>Hi, {{ $user->name }}</h1>
         <p>Welcome to your profile page.</p>
-        <div class="col-md-8">
+        <div class="col-8 contentProfile">
             <div>
                 <span>Name :</span>
                 <p style="margin-top: -5px">{{ $user->name }}</p>
@@ -28,9 +26,8 @@
                 <span>Email :</span>
                 <p style="margin-top: -5px">{{ $user->email }}</p>
             </div>
+            <button type="button" class="btn btn-primary" id="editProfileBtn">Edit Profile</button>
         </div>
-
-        <button type="button" class="btn btn-primary" id="editProfileBtn">Edit Profile</button>
 
         <div class="modal" id="editProfileModal">
             <div class="modal-dialog">
@@ -72,5 +69,17 @@
         });
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
+@if ($message = Session::get('success'))
+     <script>
+        Swal.fire('{{ $message }}');
+    </script>
+@endif
+
+@if ($message = Session::get('failed'))
+     <script>
+        Swal.fire('{{ $message }}');
+    </script>
+@endif
