@@ -11,22 +11,30 @@
 </head>
 <body>
     <div class="container">
-        <h1>Hi, {{ $user->name }}</h1>
-        <p>Welcome to your profile page.</p>
-        <div class="col-8 contentProfile">
+        <div class="d-flex justify-content-between align-items-start">
             <div>
-                <span>Name :</span>
-                <p style="margin-top: -5px">{{ $user->name }}</p>
+                <h1>Hi, {{ $user->name }}</h1>
+                <p>Welcome to your profile page.</p>
             </div>
-            <div>
-                <span>Address :</span>
-                <p style="margin-top: -5px">{{ $user->alamat }}</p>
+            <div class="col-4 contentProfile">
+                <div>
+                    <span>Name :</span>
+                    <p style="margin-top: -5px" class="profileData">{{ $user->name }}</p>
+                </div>
+                <div>
+                    <span>Number Phone :</span>
+                    <p style="margin-top: -5px" class="profileData">{{ $user->number }}</p>
+                </div>
+                <div>
+                    <span>Address :</span>
+                    <p style="margin-top: -5px" class="profileData">{{ $user->alamat }}</p>
+                </div>
+                <div>
+                    <span>Email :</span>
+                    <p style="margin-top: -5px" class="profileData">{{ $user->email }}</p>
+                </div>
+                <button type="button" class="btn btn-primary" id="editProfileBtn" style="font-size: 20px">Edit Profile</button>
             </div>
-            <div>
-                <span>Email :</span>
-                <p style="margin-top: -5px">{{ $user->email }}</p>
-            </div>
-            <button type="button" class="btn btn-primary" id="editProfileBtn">Edit Profile</button>
         </div>
 
         <div class="modal" id="editProfileModal">
@@ -57,7 +65,7 @@
 
         <form id="logoutForm" action="{{ route('logout') }}">
             @csrf
-            <button type="submit" class="btn btn-danger mt-3">Logout</button>
+            <button type="submit" class="btn btn-danger logout-button" style="font-size: 20px">Logout</button>
         </form>
     </div>
 
