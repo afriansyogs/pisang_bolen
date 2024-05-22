@@ -13,27 +13,26 @@
     <div class="container">
         <div class="d-flex justify-content-between align-items-start">
             <div>
-                <h1>Hi, {{ $user->name }}</h1>
-                <p>Welcome to your profile page.</p>
+                <h1 style="font-size: 60px">Hi, {{ $user->name }}</h1>
+                <p style="font-size: 20px">Welcome to your profile page.</p>
             </div>
             <div class="col-4 contentProfile">
                 <div>
                     <span>Name :</span>
-                    <p style="margin-top: -5px" class="profileData">{{ $user->name }}</p>
+                    <p style="margin-top: 5px" class="profileData">{{ $user->name }}</p>
                 </div>
                 <div>
                     <span>Number Phone :</span>
-                    <p style="margin-top: -5px" class="profileData">{{ $user->number }}</p>
+                    <p style="margin-top: 5px" class="profileData">{{ $user->number }}</p>
                 </div>
                 <div>
                     <span>Address :</span>
-                    <p style="margin-top: -5px" class="profileData">{{ $user->alamat }}</p>
+                    <p style="margin-top: 5px" class="profileData">{{ $user->alamat }}</p>
                 </div>
                 <div>
                     <span>Email :</span>
-                    <p style="margin-top: -5px" class="profileData">{{ $user->email }}</p>
+                    <p style="margin-top: 5px" class="profileData">{{ $user->email }}</p>
                 </div>
-                <button type="button" class="btn btn-primary" id="editProfileBtn" style="font-size: 20px">Edit Profile</button>
             </div>
         </div>
 
@@ -49,8 +48,16 @@
                         <form id="editProfileForm" method="POST" action="{{ route('profile-update') }}">
                             @csrf
                             <div class="form-group">
-                                <label for="name">Name:</label>
-                                <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}" required>
+                                <label for="username">Name:</label>
+                                <input type="text" class="form-control" id="username" name="username" value="{{ $user->name }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nomor">Number Phonel:</label>
+                                <input type="text" class="form-control" id="nomor" name="nomor" value="{{ $user->number }}" maxlength="15" onkeypress="return isNumberKey(event)" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address:</label>
+                                <input type="text" class="form-control" id="address" name="address" value="{{ $user->alamat }}" required>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email:</label>
@@ -64,8 +71,9 @@
         </div>
 
         <form id="logoutForm" action="{{ route('logout') }}">
+            <button type="button" class="btn btn-primary tombolEdit" id="editProfileBtn" style="font-size: 20px">Edit Profile</button>
             @csrf
-            <button type="submit" class="btn btn-danger logout-button" style="font-size: 20px">Logout</button>
+            <button type="submit" class="btn btn-danger tombolLogout" style="font-size: 20px">Logout</button>
         </form>
     </div>
 
@@ -91,3 +99,12 @@
         Swal.fire('{{ $message }}');
     </script>
 @endif
+
+<script>
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+</script>

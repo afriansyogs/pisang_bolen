@@ -32,7 +32,7 @@
                     </div>
                     <div class="form-group">
                         <label for="nomor">Number Phone:</label>
-                        <input type="text" class="form-control" name="nomor" id="nomor" placeholder="Enter Number Phone" value="{{ old('nomor') }}" maxlength="15">
+                        <input type="text" class="form-control" name="nomor" id="nomor" placeholder="Enter Number Phone" value="{{ old('nomor') }}" maxlength="15" onkeypress="return isNumberKey(event)" required>
                         @error('nomor')
                             <small>{{ $message }}</small>
                         @enderror
@@ -78,3 +78,12 @@
         Swal.fire('{{ $message }}');
     </script>
 @endif
+
+<script>
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+</script>

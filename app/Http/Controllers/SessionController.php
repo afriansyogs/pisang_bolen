@@ -13,12 +13,10 @@ class SessionController extends Controller
         return view('user.LoginRegisterLogoutProfile.login');
     }
 
-        public function dataUser() {
-            $users = User::all();
-            return view('admin.user.index',  ['users' => $users]);
-
-        }
-
+    public function dataUser() {
+        $users = User::all();
+        return view('admin.user.index', ['users' => $users]);
+    }
 
     public function login_proses(Request $request) {
         $request->validate([
@@ -33,10 +31,10 @@ class SessionController extends Controller
 
         $remember = true;
 
-        if(Auth::attempt($data, $remember)) {
+        if (Auth::attempt($data, $remember)) {
             return redirect('/');
         } else {
-            return redirect()->route('login')-> with('failed', 'The Account is Not Registered yet');
+            return redirect()->route('login')->with('failed', 'The Account is Not Registered yet');
         }
     }
 
@@ -52,20 +50,22 @@ class SessionController extends Controller
     public function register_proses(Request $request) {
         $request->validate([
             'username' => 'required',
-            'nomor' => 'required',
+            'nomor' => 'required|numeric',
             'address' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8|confirmed',
         ], [
             'password.confirmed' => 'Confirm password does not match',
+            'nomor.numeric' => 'The phone number must be a number',
         ]);
 
-        $data['name'] = $request->username;
-        $data['number'] = $request->nomor;
-        $data['alamat'] = $request->address;
-        $data['email'] = $request->email;
-        $data['password'] = Hash::make($request->password);
-
+        $data = [
+            'name' => $request->username,
+            'number' => $request->nomor,
+            'alamat' => $request->address,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ];
 
         User::create($data);
 
@@ -74,10 +74,10 @@ class SessionController extends Controller
             'password' => $request->password,
         ];
 
-        if(Auth::attempt($login)) {
-            return redirect('/login');
+        if (Auth::attempt($login)) {
+            return redirect('login');
         } else {
-            return redirect()->route('register')-> with('failed', 'Incorrect Username, Email or Password');
+            return redirect()->route('register')->with('failed', 'Incorrect Username, Email or Password');
         }
     }
 }
