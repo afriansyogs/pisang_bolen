@@ -34,10 +34,8 @@
                         
                             @foreach ($testi as $testiList)
                             <tr>
-                                
-                                <td>{{ $testiList->testi }}</td>
                                 <td>{{ $testiList->name }}</td>
-                               
+                                <td>{{ $testiList->testi }}</td>
                                 
                                 <td>
                                 <form onsubmit="return confirm('Apakah Anda Yakin Menghapus Data ini ?');" action="{{ route('userSoftDelete.softdelete', $testiList->id) }}" method="POST">

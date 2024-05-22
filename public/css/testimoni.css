@@ -5,7 +5,6 @@
     background-color: #d9ad02;
     width: 30%;
     margin-left: 35%;
-    border-radius: 20%;
 }
 
 h2{
@@ -14,7 +13,10 @@ h2{
 }
 
 .isi{
-    background-color: #000;
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(/img/produk.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
 }
 
 .content{
@@ -72,6 +74,9 @@ h2{
 }
 
 @media (max-width: 991px){
+    .testi{
+        margin-top: 10%;
+    }
     h1{
         margin-top: 20%;
     }
