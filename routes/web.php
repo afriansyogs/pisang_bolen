@@ -39,6 +39,7 @@ Route::controller(SaranController::class)->group(function() {
     Route::put('/dashboard_admin/restore/{id}', 'restore')->name('dashboard_admin.restore');
 });
 
+Route::resource('/cart', \App\Http\Controllers\CartController::class);
 
 
 Route::controller(ProdukController::class)->group(function() {
@@ -90,4 +91,3 @@ Route::controller(TestimoniController::class)->group(function() {
     Route::put('/userSoftDelete/restore/{id}', 'restore')->name('userSoftDelete.restore');
 
 });
-

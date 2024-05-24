@@ -97,7 +97,14 @@
                                 <p class="card-text mb-4">{{ $products->description_product }}</p>
                                 <hr>
                                 <h5 class="card-text mt-4 mb-3">{{ $products->harga_product }}</h5>
-                                <a href="" class="btn btn-outline-dark mt-3"><i class="bi bi-cart-fill"></i> Add to Cart</a>
+                        
+                                <form action="{{ route('cart.store') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id_product" value="{{ $products->id }}">
+                                    <input type="hidden" name="qty" value="1" min="1">
+                                    <button type="submit" class="btn btn-outline-dark mt-3"><i class="bi bi-cart-fill"></i> Add to Cart</button>
+                                </form>
+
                             </div>
                         </div>
                     </div>
