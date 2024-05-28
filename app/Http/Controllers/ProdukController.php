@@ -147,4 +147,13 @@ class ProdukController extends Controller
             $products = Product::where('slug_link', $slug_link)->first();
             return view('Produk.User.DetailProduk', compact('products'));
         }
+
+    public function search(Request $request) {
+        $query = $request->input('query');
+        $products = Product::where('variant_product', 'LIKE', "%{$query}%")
+                     ->orWhere('description_product', 'LIKE', "%{$query}%")
+                     ->get();
+
+        return view('Produk/User/Produk', compact('products'));
+    }
 }

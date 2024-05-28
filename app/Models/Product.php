@@ -30,4 +30,9 @@ class Product extends Model
 
     protected $table = 'products';
 
+    public function scopeSearch($query, $term)
+    {
+        return $query->where('variant_product', 'LIKE', "%{$term}%")
+                     ->orWhere('description_product', 'LIKE', "%{$term}%");
+    }
 }

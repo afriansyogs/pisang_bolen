@@ -45,6 +45,7 @@ Route::resource('/cart', \App\Http\Controllers\CartController::class);
 Route::controller(ProdukController::class)->group(function() {
     Route::get('Produk/', 'index')->name('Produk.index');
     Route::get('Produk/{slug_link}', 'show')->name('Produk.show');
+    Route::get('/search', 'search')->name('search');
     // Route::post('/Produk/Favorite/Add/{products}', 'addFavorite')->name('Produk.favorite');
     // Route::delete('/Produk/Favorite/Remove{products}', 'Favorite')->name('Produk.removefavorite');
 });

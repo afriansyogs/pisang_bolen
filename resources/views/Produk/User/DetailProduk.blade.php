@@ -38,17 +38,26 @@
         border-radius: unset;
         margin: auto;
     }
-    .card .row .btn {
-        width: 50%;
+    .row .card .btn {
+        border: 1px solid #442521;
+        width: 100%;
+        background-color: transparent;
+        color: black;
+    }
+    .row .card .btn:hover {
+        background-color: #442521;
+        color: #f1edd3;
     }
     .card .row .isi {
         align-content: center;
-        background-color: rgba(217, 173, 2, 0.1);
-        border: 2px dashed #d9ad02;
+        background-color: #f1edd3;
+        border: 2px dashed #442521;
     }
     .card .row .foto {
         align-content: center;
         justify-content: center;
+        padding: unset;
+        padding-right: 10px;
     }
 
 
@@ -97,7 +106,7 @@
                                 <p class="card-text mb-4">{{ $products->description_product }}</p>
                                 <hr>
                                 <h5 class="card-text mt-4 mb-3">{{ $products->harga_product }}</h5>
-                        
+
                                 <form action="{{ route('cart.store') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="id_product" value="{{ $products->id }}">

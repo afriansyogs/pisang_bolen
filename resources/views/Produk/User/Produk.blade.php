@@ -20,7 +20,7 @@
                 {{-- <p class="card-text">{{ $pdk->description_product }}</p> --}}
                 <h5>{{ $pdk->harga_product }}</h5>
             </div>
-            <a href="{{ route('Produk.show', $pdk->slug_link) }}" name="detail-produk" value="detail-produk" class="btn btn-outline-dark"></i>Show Details</a>
+            <a href="{{ route('Produk.show', $pdk->slug_link) }}" name="detail-produk" value="detail-produk" class="btn"></i>Show Details</a>
         </div>
     </div>
     @endforeach

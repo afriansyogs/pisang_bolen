@@ -57,8 +57,12 @@
                     <a class="nav-link" href="">Saran</a>
                 </li>
             </ul>
-            <form class="d-flex" role="search">
+            {{-- <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-dark" type="submit"><i class="bi bi-search"></i></button>
+            </form> --}}
+            <form action="{{ route('search') }} " class="d-flex" role="search" method="GET">
+                <input class="form-control me-2" type="text" name="query" placeholder="Search" aria-label="Search" value="{{ request('query') }}">
                 <button class="btn btn-outline-dark" type="submit"><i class="bi bi-search"></i></button>
             </form>
         </div>
