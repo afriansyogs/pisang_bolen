@@ -76,7 +76,13 @@ Route::get('/profileView', [ProfileController::class, 'index'])->middleware('aut
 Route::post('/profile', [ProfileController::class, 'update'])->name('profile-update');
 Route::get('/logout', [ProfileController::class, 'logout'])->name('logout');
 
-    Route::get('/userList', [SessionController::class, 'dataUser'])->name('userList');
+
+Route::get('/userList', [SessionController::class, 'dataUser'])->name('userList');
+Route::get('/user/create', [SessionController::class, 'create'])->name('user.create');
+Route::post('/user', [SessionController::class, 'store'])->name('user.store');
+Route::get('/user/{id}/edit', [SessionController::class, 'edit'])->name('user.edit');
+Route::put('/user/{id}', [SessionController::class, 'update'])->name('user.update');
+Route::delete('/user/{id}', [SessionController::class, 'destroy'])->name('user.destroy');
 
 
 Route::resource('/adminTesti', \App\Http\Controllers\TestimoniController::class);

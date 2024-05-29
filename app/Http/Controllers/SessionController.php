@@ -13,11 +13,61 @@ class SessionController extends Controller
         return view('user.LoginRegisterLogoutProfile.login');
     }
 
-        public function dataUser() {
-            $users = User::all();
-            return view('admin.user.index',  ['users' => $users]);
 
-        }
+
+    public function dataUser() {
+        $users = User::all();
+        return view('admin.user.index', ['users' => $users]);
+    }
+
+    public function create() {
+        return view('admin.user.create');
+    }
+
+    public function store(Request $request) {
+        $request->validate([
+            'name' => 'required',
+            'number' => 'required',
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+    
+        // Hash password before saving
+        $userData = $request->all();
+        $userData['password'] = bcrypt($request->password);
+    
+        User::create($userData);
+    
+        return redirect()->route('userList')->with('success', 'User created successfully.');
+    }
+    
+
+    public function edit($id) {
+        $user = User::find($id);
+        return view('admin.user.edit', compact('user'));
+    }
+
+    public function update(Request $request, $id) {
+        $request->validate([
+            'name' => 'required',
+            'number' => 'required',
+            'email' => 'required|email'
+        ]);
+
+        $user = User::find($id);
+        $user->update($request->all());
+
+        return redirect()->route('userList')->with('success', 'User updated successfully.');
+    }
+
+    public function destroy($id) {
+        $user = User::find($id);
+        $user->delete();
+
+        return redirect()->route('userList')->with('success', 'User deleted successfully.');
+    }
+
+    
 
 
     public function login_proses(Request $request) {
