@@ -11,39 +11,38 @@
 </head>
 <body>
     <div class="container">
-        <div class="d-flex justify-content-between align-items-start">
-            <div>
-                <h1 style="font-size: 60px">Hi, {{ $user->name }}</h1>
-                <p style="font-size: 20px">Welcome to your profile page.</p>
+        <div class="d-flex flex-column">
+            <div class="text-center">
+                <h1 style="font-size: 40px">Hi, {{ $user->name }}</h1>
+                <p style="font-size: 18px">Welcome to your profile page.</p>
             </div>
-            <div class="col-4 contentProfile">
+            <div class="contentProfile">
                 <div>
                     <span>Name :</span>
-                    <p style="margin-top: 5px" class="profileData">{{ $user->name }}</p>
+                    <p class="profileData">{{ $user->name }}</p>
                 </div>
                 <div>
                     <span>Number Phone :</span>
-                    <p style="margin-top: 5px" class="profileData">{{ $user->number }}</p>
+                    <p class="profileData">{{ $user->number }}</p>
                 </div>
                 <div>
                     <span>Address :</span>
-                    <p style="margin-top: 5px" class="profileData">{{ $user->alamat }}</p>
+                    <p class="profileData">{{ $user->alamat }}</p>
                 </div>
                 <div>
                     <span>Email :</span>
-                    <p style="margin-top: 5px" class="profileData">{{ $user->email }}</p>
+                    <p class="profileData">{{ $user->email }}</p>
                 </div>
             </div>
         </div>
 
-        <div class="modal" id="editProfileModal">
+        <div class="modal" id="editProfileModal" style="color: black">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Edit Profile</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
-
                     <div class="modal-body">
                         <form id="editProfileForm" method="POST" action="{{ route('profile-update') }}">
                             @csrf
@@ -52,7 +51,7 @@
                                 <input type="text" class="form-control" id="username" name="username" value="{{ $user->name }}" required>
                             </div>
                             <div class="form-group">
-                                <label for="nomor">Number Phonel:</label>
+                                <label for="nomor">Number Phone:</label>
                                 <input type="text" class="form-control" id="nomor" name="nomor" value="{{ $user->number }}" maxlength="15" onkeypress="return isNumberKey(event)" required>
                             </div>
                             <div class="form-group">
@@ -71,9 +70,9 @@
         </div>
 
         <form id="logoutForm" action="{{ route('logout') }}">
-            <button type="button" class="btn btn-primary tombolEdit" id="editProfileBtn" style="font-size: 20px">Edit Profile</button>
             @csrf
-            <button type="submit" class="btn btn-danger tombolLogout" style="font-size: 20px">Logout</button>
+            <button type="submit" class="btn btn-danger tombolLogout">Logout</button>
+            <button type="button" class="btn btn-primary tombolEdit" id="editProfileBtn">Edit Profile</button>
         </form>
     </div>
 
@@ -88,6 +87,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
+
 @if ($message = Session::get('success'))
      <script>
         Swal.fire('{{ $message }}');

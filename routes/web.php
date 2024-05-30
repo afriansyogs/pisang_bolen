@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminSessionController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SaranController;
@@ -77,6 +78,9 @@ Route::resource('/profile', \App\Http\Controllers\ProfileController::class);
 Route::get('/profileView', [ProfileController::class, 'index'])->middleware('auth')->name('profile-show');
 Route::post('/profile', [ProfileController::class, 'update'])->name('profile-update');
 Route::get('/logout', [ProfileController::class, 'logout'])->name('logout');
+
+Route::get('/loginAdmin', [AdminSessionController::class, 'index'])->name('loginAdmin');
+Route::post('/login-prosesAdmin', [AdminSessionController::class, 'login_prosesAdmin'])->name('login-prosesAdmin');
 
     Route::get('/userList', [SessionController::class, 'dataUser'])->name('userList');
 

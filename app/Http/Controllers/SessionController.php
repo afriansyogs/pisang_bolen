@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class SessionController extends Controller
 {
     public function index() {
-        return view('user.LoginRegisterLogoutProfile.login');
+        return view('user.LoginRegisterLogoutProfile.loginUser');
     }
 
     public function dataUser() {
@@ -34,13 +34,13 @@ class SessionController extends Controller
         if (Auth::attempt($data, $remember)) {
             return redirect('/');
         } else {
-            return redirect()->route('login')->with('failed', 'The Account is Not Registered yet');
+            return redirect()->route('loginUser')->with('failed', 'The Account is Not Registered yet');
         }
     }
 
     public function logout() {
         Auth::logout();
-        return redirect()->route('login')->with('success', 'You have Successfully Logout');
+        return redirect()->route('loginUser')->with('success', 'You have Successfully Logout');
     }
 
     public function register() {
@@ -75,7 +75,7 @@ class SessionController extends Controller
         ];
 
         if (Auth::attempt($login)) {
-            return redirect('login');
+            return redirect('loginUser');
         } else {
             return redirect()->route('register')->with('failed', 'Incorrect Username, Email or Password');
         }
