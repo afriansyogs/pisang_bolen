@@ -34,17 +34,13 @@ class SessionController extends Controller
         if (Auth::attempt($data, $remember)) {
             return redirect('/');
         } else {
-            return redirect()->route('loginUser')->with('failed', 'The Account is Not Registered yet');
+            return redirect()->route('login')->with('failed', 'The Account is Not Registered yet');
         }
     }
 
     public function logout() {
         Auth::logout();
-        return redirect()->route('loginUser')->with('success', 'You have Successfully Logout');
-    }
-
-    public function register() {
-        return view('user.LoginRegisterLogoutProfile.register');
+        return redirect()->route('login')->with('success', 'You have Successfully Logout');
     }
 
     public function register_proses(Request $request) {
@@ -75,7 +71,7 @@ class SessionController extends Controller
         ];
 
         if (Auth::attempt($login)) {
-            return redirect('loginUser');
+            return redirect('login');
         } else {
             return redirect()->route('register')->with('failed', 'Incorrect Username, Email or Password');
         }

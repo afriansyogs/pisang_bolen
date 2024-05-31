@@ -68,6 +68,9 @@ Route::controller(ProdukController::class)->group(function () {
 //     Route::get('Produk/', 'Fav')->name('Produk.Fav');
 // });
 
+
+
+// User Login, Register, Logout & Profile
 Route::get('/register', [SessionController::class, 'register'])->name('register');
 Route::post('/register-proses', [SessionController::class, 'register_proses'])->name('register-proses');
 
@@ -79,8 +82,12 @@ Route::get('/profileView', [ProfileController::class, 'index'])->middleware('aut
 Route::post('/profile', [ProfileController::class, 'update'])->name('profile-update');
 Route::get('/logout', [ProfileController::class, 'logout'])->name('logout');
 
+// Admin Login, Register & Logout
 Route::get('/loginAdmin', [AdminSessionController::class, 'index'])->name('loginAdmin');
 Route::post('/login-prosesAdmin', [AdminSessionController::class, 'login_prosesAdmin'])->name('login-prosesAdmin');
+Route::get('/logout', [AdminSessionController::class, 'logout'])->name('logout');
+
+
 
     Route::get('/userList', [SessionController::class, 'dataUser'])->name('userList');
 

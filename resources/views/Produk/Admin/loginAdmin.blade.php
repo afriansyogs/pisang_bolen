@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Login Page</title>
+    <title>Admin Login Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styleLogin.css">
+    <link rel="stylesheet" href="css/styleAdminLogin.css">
   </head>
   <body>
     <div class="container">
@@ -13,13 +13,21 @@
           <img src="../img/logo_bolen.png" alt="Logo Bolen Jonegoroan">
         </div>
         <div class="col-md-8">
-            <form action="{{ route('login-proses') }}" method="post">
+            <form action="{{ route('login-prosesAdmin') }}" method="post">
                 @csrf
                 <div class="containerForm">
                     <div class="form-group">
+                        <h1>Admin Login</h1>
                         <label for="username">Username:</label>
                         <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username">
                         @error('username')
+                            <small>{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" value="{{ old('email') }}">
+                        @error('email')
                             <small>{{ $message }}</small>
                         @enderror
                     </div>
@@ -33,9 +41,6 @@
                 </div>
                 <div class="tombol1">
                     <button type="submit" class="tombolLogin">LOGIN</button>
-                </div>
-                <div class="login">
-                    <p>Apakah belum mempunyai akun? <a href="/register">Silahkan Sign In</a></p>
                 </div>
             </form>
         </div>
