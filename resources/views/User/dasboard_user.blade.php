@@ -23,21 +23,23 @@
     <x-navbar />
 
     <section class="dasboard w-100">
-        <div class="container_dasboard h-100">
+        <div class="container h-100">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="text text-white mt-5 ms-5 pt-5">
-
+                        
                         @if (session('success'))
                         <div id="closeAlert" class="alert alert-success alert-dismissible fade show text position-absolute end-0 z-2 me-5" role="alert">
                             <strong>Saran terkirim!</strong> Terimakasi sudah memberi saran
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                         @endif
-
+                        
+                        <div class="content">
                         <h1 class="">BOLEN</h1>
                         <h1 class="">JONEGOROAN</h1>
                         <h5 class="">Rasa coklat dan kejunya yang lumer bisa bikin ketagihan loh, Penasaran rasanya gimana? Rasakan sendiri sensasinya!</h5>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6">

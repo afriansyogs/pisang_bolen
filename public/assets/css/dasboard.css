@@ -12,7 +12,7 @@ body {
 .text h1 {
     font-weight: bolder;
     text-shadow: 0px 0px 20px rgba(255, 204, 35, 0.87);
-    
+    /* font-size: 3rem; */
 }
 
 .text p {
@@ -22,8 +22,13 @@ body {
 
 .content_img {
     width: 80%;
+    margin-top: 12%;
     filter: drop-shadow(20px 14px 8px rgb(0, 0, 0));
     cursor: pointer;
+}
+
+.content {
+    margin-top: 15%;
 }
 
 .section1 {

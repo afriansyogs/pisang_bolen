@@ -24,6 +24,7 @@ class SaranController extends Controller {
                 'saran' => $request->saran,
                 'id_user' => auth()->user()->id, 
                 'name_user' => auth::user()->name,
+                'tgl' => now(),
             ]);
             $saran->save();
 

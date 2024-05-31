@@ -15,6 +15,7 @@ class Saran extends Model
     protected $fillable = [
         'nama_user',
         'saran',
+        'tgl',
         'id_user',
         'name_user',
     ];

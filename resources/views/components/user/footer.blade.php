@@ -1,13 +1,13 @@
 <footer class="footer w-full h-auto mt-auto py-3 bg-dark bottom-0">
     <div class="container">
-        <div class="mt-2 mb-3 text-center">
-            <h1 class="text-white">Pisang Bolen</h1>
+        <div class="mt-2 mb-4 text-center">
+            <h1 class="text-white ">PISANG BOLEN</h1>
         </div>
         <div class="row">
             <div class="col-md-6 text-center">
                 <div class="">
                     <div class="text-white mx-auto">
-                        <iframe class="rounded-4 text-center w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31680.907896799836!2d110.41579343969553!3d-6.995913762043988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708d8368087d5d%3A0xd599fb0ff9ece38c!2sunnes!5e0!3m2!1sid!2sid!4v1711825024794!5m2!1sid!2sid" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe class="rounded-4 text-center w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.4224167673055!2d111.75281151336098!3d-7.128176713928973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e777bac15c6cea3%3A0x25a564813257219b!2sBolen%20Jonegoroan!5e0!3m2!1sid!2sid!4v1717144711413!5m2!1sid!2sid" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>

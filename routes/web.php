@@ -40,7 +40,10 @@ Route::controller(SaranController::class)->group(function() {
     Route::put('/dashboard_admin/restore/{id}', 'restore')->name('dashboard_admin.restore');
 });
 
+
 Route::resource('/cart', \App\Http\Controllers\CartController::class);
+
+Route::resource('/payment', \App\Http\Controllers\PaymentController::class);
 
 
 Route::controller(ProdukController::class)->group(function() {
