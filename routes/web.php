@@ -74,11 +74,14 @@ Route::controller(ProdukController::class)->group(function () {
 
 
 // User Login, Register, Logout & Profile
-Route::get('/register', [SessionController::class, 'register'])->name('register');
-Route::post('/register-proses', [SessionController::class, 'register_proses'])->name('register-proses');
 
 Route::get('/login', [SessionController::class, 'index'])->name('login');
-Route::post('/login-proses', [SessionController::class, 'login_proses'])->name('login-proses');
+Route::post('/login', [SessionController::class, 'login_proses'])->name('login-proses');
+
+Route::get('/register', function() {return view('user.LoginRegisterLogoutProfile.registerUser');})->name('/register');
+Route::post('/register', [SessionController::class, 'register_proses'])->name('register-proses');
+Route::post('/logout', [SessionController::class, 'logout'])->name('logout');
+
 
 Route::resource('/profile', \App\Http\Controllers\ProfileController::class);
 Route::get('/profileView', [ProfileController::class, 'index'])->middleware('auth')->name('profile-show');

@@ -63,7 +63,7 @@
                     <button type="submit" class="tombolSignIn">SIGN IN</button>
                 </div>
                 <div class="login">
-                    <p>Apakah sudah mempunyai akun? <a href="/loginUser">Lanjutkan Login</a></p>
+                    <p>Apakah sudah mempunyai akun? <a href="/login">Lanjutkan Login</a></p>
                 </div>
             </form>
         </div>
