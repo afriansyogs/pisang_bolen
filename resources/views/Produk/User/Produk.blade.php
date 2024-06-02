@@ -1,7 +1,8 @@
-@extends('Produk/layout')
+{{-- @extends('Produk/layout') --}}
+@extends('Produk/navbar')
 
 @section('content')
-
+<br><br><br>
 <div class="row justify-content-center text-center">
 
     <div class="col-12">

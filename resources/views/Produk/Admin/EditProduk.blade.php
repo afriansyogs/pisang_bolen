@@ -22,7 +22,7 @@
                     @else
                         <p>Tidak ada gambar yang tersedia</p>
                 @endif
-                <input required type="file" name="foto_product" class="form-control @error('foto_product') is-invalid @enderror" id="foto" value="{{ asset('storage/images/' . $products->foto_product) }}">
+                <input type="file" name="foto_product" class="form-control @error('foto_product') is-invalid @enderror" id="foto" value="{{ asset('storage/images/' . $products->foto_product) }}">
                 @error('foto_product')
                 <div class="alert alert-danger mt-2">
                     {{ $message }}

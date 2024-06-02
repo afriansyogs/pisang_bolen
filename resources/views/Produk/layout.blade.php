@@ -15,12 +15,12 @@
     {{-- JS --}}
     {{-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script> --}}
-    <script src="assets/js/produk.js"></script>
 </head>
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar p-3 navbar-expand-lg" style="background-color: rgba(217, 173, 2, 0.1);">
+
+    <nav class="navbar p-3 navbar-expand-lg">
     <div class="container-fluid">
         <div class="img">
             <img src="img/logo_bolen.png" alt="" width="80px">
@@ -29,7 +29,7 @@
             <a class="navbar-brand" href="#profile">
             <i class="bi bi-person-circle"></i>
             </a>
-            <a class="navbar-brand" href="#cart">
+            <a class="navbar-brand" href="/cart">
             <i class="bi bi-cart-fill"></i>
             </a>
             {{-- <a class="navbar-brand" href="">
@@ -37,9 +37,9 @@
             </a> --}}
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{ route('dasboard.index') }}">Home</a>
@@ -51,20 +51,22 @@
                     <a class="nav-link act" href="{{ route('Produk.index') }}">Product</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('userTesti.index') }}">Testimonial</a>
+                    <a class="nav-link" href="{{ route('user.user') }}">Testimonial</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="">Saran</a>
-                </li>
+                </li> --}}
             </ul>
             {{-- <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-dark" type="submit"><i class="bi bi-search"></i></button>
             </form> --}}
-            <form action="{{ route('search') }} " class="d-flex" role="search" method="GET">
-                <input class="form-control me-2" type="text" name="query" placeholder="Search" aria-label="Search" value="{{ request('query') }}">
-                <button class="btn btn-outline-dark" type="submit"><i class="bi bi-search"></i></button>
-            </form>
+            <div class="search">
+                <form action="{{ route('search') }} " class="d-flex" role="search" method="GET">
+                    <input class="form-control me-2" type="text" name="query" placeholder="Search" aria-label="Search" value="{{ request('query') }}">
+                    <button class="btn" type="submit"><i class="bi bi-search"></i></button>
+                </form>
+            </div>
         </div>
     </div>
 </nav>

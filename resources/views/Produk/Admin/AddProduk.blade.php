@@ -1,16 +1,27 @@
 {{-- @extends('Produk/Admin/Layout') --}}
 @extends('Admin/dasbhoard_admin')
 
-{{-- <style>
-    .container {
-        /* border: 1px solid black; */
+<style>
+    /* .container {
+        /* border: 1px solid black; *
         border-radius: 15px;
-        /* box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px; */
+        /* box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px; *
     }
     .aksi .col {
         margin-bottom: 15px;
+    } */
+
+    .form-group input {
+        transition: 1s ease;
+        border: 1px solid #44252127;
     }
-</style> --}}
+    .form-group input:focus {
+        border: 1px solid #442521c6;
+        border-radius: 50px;
+        transition: 1s ease;
+        box-shadow: 0 0 0 0.2rem #d9ae0269;
+    }
+</style>
 @section('content')
 
 <div class="container">
@@ -22,7 +33,7 @@
 
     <div class="col-12">
 
-    <br><br><center><h2>Tambah Produk</h2></center>
+    <br><br><center><h2 style="color:  #442521;">Tambah Produk</h2></center>
     <form method="POST" action="{{ route('Admin.store') }}" enctype="multipart/form-data">
         @csrf
 

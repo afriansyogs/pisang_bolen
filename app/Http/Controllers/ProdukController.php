@@ -75,15 +75,15 @@ class ProdukController extends Controller
                 'slug_link' => 'unique:products,slug_link',
             ]);
 
-            $imageName = time().'.'.$request->foto_product->extension();
-            $request->foto_product->move(public_path('storage/images/'), $imageName);
+            // $imageName = time().'.'.$request->foto_product->extension();
+            // $request->foto_product->move(public_path('storage/images/'), $imageName);
 
             $slug = Str::slug($request->variant_product, '_');
 
             $products = Product::where('slug_link', $slug_link)->firstorfail();
             $products->update([
                 //'foto_product' => $image->hashName(),
-                'foto_product' => $imageName,
+                // 'foto_product' => $imageName,
                 'variant_product' => $request->variant_product,
                 'description_product' => $request->description_product,
                 'harga_product' => $request->harga_product,
@@ -92,7 +92,7 @@ class ProdukController extends Controller
                 'slug_link' => $slug,
             ]);
 
-            return redirect()->route('Admin.admin')->with(['success' => 'Berhasil memperbarui produk !'])->with('image',$imageName);
+            return redirect()->route('Admin.admin')->with(['success' => 'Berhasil memperbarui produk !']);
     }
 
 
