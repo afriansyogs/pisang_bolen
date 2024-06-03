@@ -11,7 +11,7 @@ class ProfileController extends Controller
     public function index() {
         $user = Auth::user();
         if ($user) {
-            return view('User.LoginRegisterLogoutProfile.profile', compact('user'));
+            return view('User.LoginRegisterLogoutProfile.profileUser', compact('user'));
         }
 
         return redirect()->route('login');
@@ -44,6 +44,6 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('loginUser')->with('success', 'You have successfully logged out.');
+        return redirect()->route('login')->with('success', 'You have successfully logged out.');
     }
 }
