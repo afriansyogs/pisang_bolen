@@ -1,14 +1,12 @@
 .testi{
     text-align: center;
-    color: #fff7d5;
     margin-top: 10%;
-    background-color: #d9ad02;
+    color: #d9ad02;
     width: 30%;
     margin-left: 35%;
 }
 
 h2{
-    font-size: 150%;
     text-align: center;
 }
 
@@ -16,6 +14,7 @@ h2{
     background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(/img/produk.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    margin-top: 10%;
     
 }
 
@@ -75,6 +74,9 @@ h2{
 
 @media (max-width: 991px){
     .testi{
+        margin-top: 10%;
+    }
+    .isi{
         margin-top: 10%;
     }
     h1{

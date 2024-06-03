@@ -32,7 +32,8 @@
                         </div>
                         <div class="text-content">
                             <li>{{ $user->testi }}</li> 
-                            <h2>{{ $user->name }}</h2>
+                            <br>
+                            <h4>- {{ $user->name }} -</h4>
                         </div>
                     </div>
                 </div>

@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="font-weight-bold">CONTENT</label>
-                                    <input type="text" class="form-control @error('testi') is-invalid @enderror" name="testi" value="{{ old('testi') }}" placeholder="Masukkan Content">
+                                    <input type="text" class="form-control @error('testi') is-invalid @enderror" name="testi" value="{{ old('testi') }}" placeholder="Masukkan Testimoni Anda">
                                 
                                     <!-- error message untuk title -->
                                     @error('testi')
