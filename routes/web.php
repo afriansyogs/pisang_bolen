@@ -89,9 +89,12 @@ Route::post('/profile', [ProfileController::class, 'update'])->name('profile-upd
 Route::get('/logout', [ProfileController::class, 'logout'])->name('logout');
 
 // Admin Login, Register & Logout
+Route::get('registerAdmin', [AdminSessionController::class, 'registerAdmin'])->name('registerAdmin');
+Route::post('registerAdmin', [AdminSessionController::class, 'register_prosesAdmin'])->name('registerAdminProcess');
+
 Route::get('/loginAdmin', [AdminSessionController::class, 'index'])->name('loginAdmin');
 Route::post('/login-prosesAdmin', [AdminSessionController::class, 'login_prosesAdmin'])->name('login-prosesAdmin');
-Route::get('/logout', [AdminSessionController::class, 'logout'])->name('logout');
+Route::get('/logoutAdmin', [AdminSessionController::class, 'logout'])->name('logoutAdmin');
 
 
 

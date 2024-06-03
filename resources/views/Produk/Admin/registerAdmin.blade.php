@@ -13,7 +13,7 @@
           <img src="img/logo_bolen.png" alt="Logo Bolen Jonegoroan">
         </div>
         <div class="col-md-8">
-            <form action="{{ route('register-prosesAdmin') }}" method="post">
+            <form action="{{ route('registerAdminProcess') }}" method="post">
                 @csrf
                 <div class="containerForm">
                     <div class="form-group">
