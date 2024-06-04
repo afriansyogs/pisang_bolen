@@ -46,7 +46,7 @@ class ProdukController extends Controller
 
             Product::create([
                 //'foto_product' => $image->hashName(),
-                'foto_product' => 'storage/images/'.$imageName,
+                'foto_product' => $imageName,
                 'variant_product' => $request->variant_product,
                 'description_product' => $request->description_product,
                 'harga_product' => $request->harga_product,
