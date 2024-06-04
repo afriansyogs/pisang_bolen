@@ -31,10 +31,10 @@ Route::get('/about', function () {
 // Route::resource('/', \App\Http\Controllers\DasboardController::class);
 
 Route::resource('/', \App\Http\Controllers\DasboardController::class)->names([
-    'index' => 'dasboard.index',
+    'index' => 'dashboard.index',
 ]);
 
-Route::resource('/dasbhoard_admin', \App\Http\Controllers\SaranController::class);
+Route::resource('/dashboard_admin', \App\Http\Controllers\SaranController::class);
 Route::controller(SaranController::class)->group(function() {
     Route::get('/dashboard_admin/onlytrash', 'onlyTrashSaran')->name('dashboard_admin.onlytrash');
     Route::delete('dashboard_admin/softdelete/{id}', 'softDelete')->name('dashboard_admin.softdelete');
@@ -73,6 +73,11 @@ Route::controller(ProdukController::class)->group(function () {
 // });
 
 
+
+// Middleware Admin
+Route::middleware(['admin'])->group(function () {
+    Route::get('/dashboard_admin', 'AdminSessionController@index')->name('dashboard_admin');
+});
 
 // User Login, Register, Logout & Profile
 Route::get('/register', function() {return view('user.LoginRegisterLogoutProfile.registerUser');})->name('/register');

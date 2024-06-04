@@ -22,7 +22,7 @@ class SaranController extends Controller {
 
             $saran = new Saran([
                 'saran' => $request->saran,
-                'id_user' => auth()->user()->id, 
+                'id_user' => auth()->user()->id,
                 'name_user' => auth::user()->name,
                 'tgl' => now(),
             ]);
@@ -34,19 +34,19 @@ class SaranController extends Controller {
         }
     }
 
-    
+
 
     public function destroy($id): RedirectResponse {
         $saran = Saran::withTrashed()->findOrFail($id);
-        $saran->forceDelete(); 
+        $saran->forceDelete();
         return redirect()->route('dashboard_admin.onlytrash')->with('success', 'Data berhasil dihapus secara permanen.');
     }
 
     public function softDelete($id) {
         $saran = Saran::findOrFail($id);
-        $saran->delete(); 
+        $saran->delete();
 
-        return redirect()->route('dasbhoard_admin.index')->with('success', 'Data berhasil dihapus secara lembut.');
+        return redirect()->route('dashboard_admin.index')->with('success', 'Data berhasil dihapus secara lembut.');
     }
 
     public function onlyTrashSaran() :view {
@@ -57,7 +57,7 @@ class SaranController extends Controller {
 
     public function restore($id) {
         $saran = Saran::withTrashed()->findOrFail($id);
-        $saran->restore(); 
+        $saran->restore();
 
         return redirect()->route('dashboard_admin.onlytrash')->with('success', 'Data berhasil dipulihkan.');
     }

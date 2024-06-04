@@ -38,7 +38,7 @@
                 </div>
 
                 @if(auth()->check())
-                <form action="{{ route('dasbhoard_admin.store') }}" method="POST">
+                <form action="{{ route('dashboard_admin.store') }}" method="POST">
                     @csrf
                     <div class="text-center mb-1">
                         <div class="text-start">

@@ -1,4 +1,4 @@
-@extends('admin/dasbhoard_admin')
+@extends('admin/dashboard_admin')
 
 @section('content')
 <!-- alert  -->

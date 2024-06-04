@@ -1,4 +1,4 @@
-@extends('admin/dasbhoard_admin')
+@extends('admin/dashboard_admin')
 
 @section('content')
 
@@ -14,7 +14,7 @@
 
             <div>
                 <h3 class="text-center my-4">Admin Testimoni</h3>
-                
+
                 <hr>
             </div>
             <div class="card border-0 shadow-sm rounded">
@@ -31,13 +31,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                        
+
                             @foreach ($testiTrash as $testiList)
                             <tr>
-                                
+
                                 <td>{{ $testiList->name }}</td>
                                 <td>{{ $testiList->testi }}</td>
-                                
+
                                 <td>
                                 <form action="{{ route('userSoftDelete.restore', $testiList->id) }}" method="POST">
                                     @csrf
@@ -52,7 +52,7 @@
                                     <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
                                 </form>
                                 </td>
-                                
+
                             </tr>
                             @endforeach
                         </tbody>

@@ -17,6 +17,7 @@
                 @csrf
                 <div class="containerForm">
                     <div class="form-group">
+                        <h1>Register Login</h1>
                         <label for="username">Username:</label>
                         <input type="text" class="form-control" name="username" id="username" placeholder="Enter Username" value="{{ old('username') }}">
                         @error('username')

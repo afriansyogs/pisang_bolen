@@ -1,7 +1,7 @@
-@extends('admin/dasbhoard_admin')
+@extends('admin/dashboard_admin')
 
 @section('content')
-<a href="{{ route('dasbhoard_admin.index') }}" class="btn btn-warning ms-3 border-2 border-black">
+<a href="{{ route('dashboard_admin.index') }}" class="btn btn-warning ms-3 border-2 border-black">
     <i class="fa-solid fa-arrow-left"></i>
 </a>
 
@@ -41,7 +41,7 @@
                             <button type="submit" class="btn btn-success"><i class="bi bi-box-arrow-left mx-1"></i>Restore</button>
                         </form>
 
-                        <form onsubmit="return confirm('Apakah Anda Yakin Menghapus secara permanen ?');" action="{{ route('dasbhoard_admin.destroy', $saranHistory->id) }}" method="POST" class="d-inline">
+                        <form onsubmit="return confirm('Apakah Anda Yakin Menghapus secara permanen ?');" action="{{ route('dashboard_admin.destroy', $saranHistory->id) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-outline-danger">

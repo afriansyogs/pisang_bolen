@@ -1,5 +1,5 @@
 {{-- @extends('Produk/Admin/Layout') --}}
-@extends('Admin/dasbhoard_admin')
+@extends('Admin/dashboard_admin')
 
 @section('content')
 

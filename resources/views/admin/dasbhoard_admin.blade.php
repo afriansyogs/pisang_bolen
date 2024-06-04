@@ -54,8 +54,8 @@
                 </div>
             </div>
             <ul class="sidebar_nav">
-                <li class="sidebar_item {{ \Route::is('dasbhoard_admin.index') ? 'active' : '' }}">
-                    <a href="{{ route('dasbhoard_admin.index') }}" class="sidebar_link">
+                <li class="sidebar_item {{ \Route::is('dashboard_admin.index') ? 'active' : '' }}">
+                    <a href="{{ route('dashboard_admin.index') }}" class="sidebar_link">
                         <i class="fa-solid fa-user"></i>
                         <span>Saran</span>
                     </a>

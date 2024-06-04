@@ -24,7 +24,7 @@ class AdminSessionController extends Controller
 
         if ($admin && $request->password == $admin->password) {
             Auth::guard('admin')->login($admin, true);
-            return redirect('/dasbhoard_admin')->with('success', 'You have Successfully Logged In');
+            return redirect('/dashboard_admin')->with('success', 'You have Successfully Logged In');
         } else {
             return redirect()->route('loginAdmin')->with('failed', 'Invalid Credentials');
         }
