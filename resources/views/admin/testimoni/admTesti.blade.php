@@ -10,7 +10,7 @@
 @endif
 
 <div class="text-black mt-5">
-    <h1 class="text-center text-black mt-3">Data Saran</h1>
+    <h1 class="text-center text-black mt-3">Data Testimoni</h1>
     <div class="d-flex justify-content-end me-3">
     <a href="{{ route('adminTesti.create') }}" class="btn btn-md btn-success mb-3">TAMBA</a>
         <a href="{{ route('dashboard_admin.onlytrash') }}" class="btn  btn-dark btn-sm ms-auto rounded-2">
