@@ -6,10 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-
 class Product extends Model
 {
-
     use HasFactory, SoftDeletes;
 
     protected $casts = [
@@ -33,6 +31,6 @@ class Product extends Model
     public function scopeSearch($query, $term)
     {
         return $query->where('variant_product', 'LIKE', "%{$term}%")
-                     ->orWhere('description_product', 'LIKE', "%{$term}%");
+            ->orWhere('description_product', 'LIKE', "%{$term}%");
     }
 }

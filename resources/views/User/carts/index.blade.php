@@ -1,10 +1,17 @@
 <x-navbar />
 
 <header>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="{{ asset('/assets/css/navbar.css') }}">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous"
+    />
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="{{ asset('/assets/css/navbar.css') }}" />
 </header>
 
 <style>
@@ -65,12 +72,20 @@
     @foreach($cart as $cartItem)
     <div class="cart-item row">
         <div class="col-md-2">
-            <img src="{{ $cartItem->product->image_url }}" alt="{{ $cartItem->product->variant_product }}">
+            @if($cartItem->product)
+                <img src="{{ asset('storage/images/' . $cartItem->product->foto_product) }}" alt="{{ $cartItem->product->variant_product }}" />
+            @else
+                <p>Gambar produk tidak tersedia</p>
+            @endif
         </div>
         <div class="col-md-6">
-            <p class="mb-1">{{ $cartItem->product->variant_product }}</p>
-            <p class="mb-1">Harga: Rp {{ number_format($cartItem->product->harga_product, 0, ',', '.') }}</p>
-            <p class="mb-1">Subtotal: Rp {{ number_format($cartItem->product->harga_product * $cartItem->qty, 0, ',', '.') }}</p>
+            @if($cartItem->product)
+                <p class="mb-1">{{ $cartItem->product->variant_product }}</p>
+                <p class="mb-1">Harga: Rp {{ number_format($cartItem->product->harga_product) }}</p>
+                <p class="mb-1">Subtotal: Rp {{ number_format($cartItem->product->harga_product * $cartItem->qty, 0, ',', '.') }}</p>
+            @else
+                <p>Detail produk tidak tersedia</p>
+            @endif
         </div>
         <div class="col-md-2">
             <form action="{{ route('cart.update', $cartItem->id) }}" method="POST">
@@ -78,9 +93,7 @@
                 @method('PUT')
                 <div class="form-group qtyForm">
                     <button type="button" class="col-sm-2 rounded-start bg-warning p-2 border border-0" onclick="qtyPlus('{{ $cartItem->id }}')">+</button>
-                    <input type="number" name="qty" id="qty{{ $cartItem->id }}"
-                        class="form-control formQty bg-transparent border-0" value="{{ $cartItem->qty }}" min="1" required
-                        onchange="this.form.submit()">
+                    <input type="number" name="qty" id="qty{{ $cartItem->id }}" class="form-control formQty bg-transparent border-0" value="{{ $cartItem->qty }}" min="1" required onchange="this.form.submit()" />
                     <button type="button" class="col-sm-2 rounded-end bg-warning p-2 border border-0" onclick="qtyMinus('{{ $cartItem->id }}')">-</button>
                 </div>
             </form>
@@ -96,18 +109,20 @@
     @endforeach
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script>
     function qtyMinus(itemId) {
-        let inputQty = document.getElementById('qty' + itemId);
+        let inputQty = document.getElementById("qty" + itemId);
         inputQty.stepDown();
-        inputQty.dispatchEvent(new Event('change'));
+        inputQty.dispatchEvent(new Event("change"));
     }
 
     function qtyPlus(itemId) {
-        let inputQty = document.getElementById('qty' + itemId);
+        let inputQty = document.getElementById("qty" + itemId);
         inputQty.stepUp();
-        inputQty.dispatchEvent(new Event('change'));
+        inputQty.dispatchEvent(new Event("change"));
     }
 </script>
