@@ -1,6 +1,9 @@
 
 
 <style>
+    body {
+        background-color: transparent;
+    }
     .link a, span {
         text-decoration: none;
         /* color: #d9ad02; */
