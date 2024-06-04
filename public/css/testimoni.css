@@ -21,12 +21,12 @@ h2{
 .content{
     background: #e6e5e5;
     width: 300px;
-    
     padding: 30px;
     text-align: center;
     border-radius: 30px;
     margin-top: 10%;
     margin-left: 12%;
+    margin-right: 12%;
     outline-style: solid;
     outline-color: #d9ad02;
     outline-width: 7px;
@@ -90,3 +90,4 @@ h2{
         padding: 30px 5px;
     }
 }
+
