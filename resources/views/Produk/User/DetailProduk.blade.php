@@ -3,6 +3,9 @@
 @section('content')
 
 <style>
+    body {
+        background-color: transparent;
+    }
     .link a, span {
         text-decoration: none;
         /* color: #d9ad02; */
@@ -77,9 +80,8 @@
         }
     }
 </style>
-
+<br><br>
 <div class="row">
-
 
     <div class="col-12 link">
         <a href="/">Home</a>
