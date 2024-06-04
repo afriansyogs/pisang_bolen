@@ -22,7 +22,7 @@
     }
 
     body {
-        background-color: white;
+        background-color: #f8f9fa;
     }
 
     .container_cart {
@@ -33,6 +33,8 @@
         padding: 15px;
         border: 1px solid #e3e3e3;
         border-radius: 10px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         margin-bottom: 20px;
     }
 
@@ -66,6 +68,29 @@
         font-size: 18px;
         font-weight: bold;
     }
+
+    .order-total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        border: 1px solid #e3e3e3;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
+
+    .order-total h1 {
+        margin: 0;
+        font-size: 24px;
+    }
+
+    .order-total button {
+        padding: 10px 20px;
+        font-size: 18px;
+        font-weight: bold;
+    }
 </style>
 
 <div class="container_cart container">
@@ -92,12 +117,11 @@
                 @csrf
                 @method('PUT')
                 <div class="form-group qtyForm">
-                <button type="button" class="col-sm-2 rounded-start bg-warning p-2 border border-0" onclick="qtyMinus('{{ $cartItem->id }}')">-</button>
+                    <button type="button" class="col-sm-2 rounded-start bg-warning p-2 border border-0" onclick="qtyMinus('{{ $cartItem->id }}')">-</button>
                     <input type="number" name="qty" id="qty{{ $cartItem->id }}"
                         class="form-control formQty bg-transparent border-0" value="{{ $cartItem->qty }}" min="1" required
                         onchange="this.form.submit()">
                     <button type="button" class="col-sm-2 rounded-end bg-warning p-2 border border-0" onclick="qtyPlus('{{ $cartItem->id }}')">+</button>
-
                 </div>
             </form>
         </div>
@@ -113,14 +137,14 @@
         $total += ($cartItem->product->harga_product * $cartItem->qty);
     @endphp
     @endforeach
-    <h1>total harga {{$total}}</h1>
-    <form action="{{ route('order.create') }}" method="GET">
-        <button type="submit">Order</button>
-    </form>
+
+    <div class="order-total">
+        <h1>Total Harga: Rp {{ number_format($total, 0, ',', '.') }}</h1>
+        <form action="{{ route('order.create') }}" method="GET">
+            <button type="submit" class="btn btn-outline-warning">Checkout</button>
+        </form>
+    </div>
 </div>
-
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script>
