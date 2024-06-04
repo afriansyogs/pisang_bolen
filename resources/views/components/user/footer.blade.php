@@ -16,16 +16,16 @@
                 <div class="ms-4 text-start text-white">
                     <div class="d-flex align-items-center my-2">
                         <i class="fa-solid fa-phone fa-xl me-2"></i>
-                        <p class="isi_contact mb-1 ms-3 fs-5">+62 123-4567-7890</p>
+                        <p class="isi_contact mb-1 ms-3 fs-5">+62 895-3830-72525</p>
                     </div>
                     <div class="d-flex align-items-center my-2">
                         <i class="fa-brands fa-whatsapp fa-2xl me-2"></i>
-                        <p class="isi_contact mb-1 ms-3 fs-5">+62 123-4567-7890</p>
+                        <p class="isi_contact mb-1 ms-3 fs-5">+62 895-3830-72525</p>
                     </div>
                     <div class="d-flex align-items-center my-2">
                         <i class="fa-regular fa-envelope fa-xl me-2"></i>
                         <p class="isi_contact mb-1 ms-4 fs-5">
-                            pisangBolen@gmail.com
+                            faihahmed12345@gmail.com
                         </p>
                     </div>
                     <div class="d-flex align-items-center my-2">

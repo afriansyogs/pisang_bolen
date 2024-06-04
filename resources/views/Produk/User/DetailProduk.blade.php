@@ -25,7 +25,7 @@
         padding: 1.3%;
         margin: auto;
         /* box-shadow: 0px 3px 8px #5c1d0d; */
-        display: grid;
+        display: contents;
         box-shadow: none;
         border: none;
     }
@@ -69,6 +69,18 @@
         .card .row .isi {
             margin: 0;
         }
+        .card .row .isi h2{
+            font-size: 25px;
+        }
+        .card .row .isi h5{
+            font-size: 20px;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+        .card .row .isi p{
+            font-size: 15px;
+            margin-bottom: 0 !important
+        }
         .card .row .foto {
             margin-bottom: 20px;
             padding: 0;
@@ -80,13 +92,13 @@
 </style>
 
 <x-navbar />
-
+<br><br>
 <div class="row">
     <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
 
-    <div class="container mt-3 mb-5 content_card">
+    <div class="container mt-3 mb-3 content_card">
         <div class="row g-0">
-        <div class="col-md-12 d-flex justify-content-center mt-3 mb-5">
+        <div class="col-md-12 d-flex justify-content-center mt-3 mb-3">
                 <div class="card w-50">
                     <div class="card-body">
                         <div class="row">
@@ -121,7 +133,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+        </div>
         </div>
     </div>
     </div>

@@ -1,9 +1,9 @@
 <head>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/produk.css">
 </head>
 
 <x-navbar />
-
+<br><br><br>
 <div class="row produk_body justify-content-center text-center">
 
     <div class="col-12">
@@ -16,7 +16,9 @@
     <div class="col-4">
         <a href="{{ route('Produk.show', $pdk->slug_link) }}" class="text-decoration-none text-dark">
         <div class="card my-4">
-            <img src="{{ asset('storage/images/' . $pdk->foto_product) }}" class="card-img-top" alt="Bolen Jonegoroan">
+            <div class="foto">
+                <img src="{{ asset('storage/images/' . $pdk->foto_product) }}" class="card-img-top" alt="Bolen Jonegoroan">
+            </div>
             <div class="card-body">
                 <h4 class="card-title"><strong>{{ $pdk->variant_product }}</strong></h4>
                 {{-- <p class="card-text">{{ $pdk->description_product }}</p> --}}
