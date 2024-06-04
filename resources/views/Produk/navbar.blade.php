@@ -37,8 +37,8 @@
        </button>
        <div class="collapse navbar-collapse" id="navbarNav">
            <ul class="navbar-nav fs-5 font-weight-bold border-dark mx-auto">
-               <li class="nav-item  mx-1 mb-2 {{ \Route::is('dasboard.index') ? 'active' : '' }}">
-                   <a class="nav-link" href="{{ route('dasboard.index') }}">Home</a>
+               <li class="nav-item  mx-1 mb-2 {{ \Route::is('dashboard.index') ? 'active' : '' }}">
+                   <a class="nav-link" href="{{ route('dashboard.index') }}">Home</a>
                </li>
                <li class="nav-item mx-1 mb-2">
                    <a class="nav-link" href="Cerita4/oncerita4.html">About</a>

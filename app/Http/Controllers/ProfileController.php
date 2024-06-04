@@ -44,6 +44,6 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('dasboard.index')->with('success', 'You have successfully logged out.');
+        return redirect()->route('dashboard.index')->with('success', 'You have successfully logged out.');
     }
 }

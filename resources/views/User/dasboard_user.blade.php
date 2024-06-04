@@ -14,7 +14,7 @@
 
     <!-- link css  -->
     <link rel="stylesheet" href="{{ asset('/assets/css/navbar.css') }}">
-    <link rel="stylesheet" href="{{ asset('/assets/css/dasboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/dashboard.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/footer.css') }}">
 
 </head>
@@ -22,12 +22,12 @@
 <body>
     <x-navbar />
 
-    <section class="dasboard w-100">
+    <section class="dashboard w-100">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="text text-white mt-5 ms-5 pt-5">
-                        
+
                     @if (session('success'))
                         <div id="closeAlert" class="alert alert-success alert-dismissible fade show text position-absolute end-0 z-2 me-5" role="alert">
                             <strong>{{ session('success') }}</strong>
@@ -43,7 +43,7 @@
                     @endif
 
 
-                        
+
                         <div class="content">
                             <h1 class="">BOLEN</h1>
                             <h1 class="">JONEGOROAN</h1>

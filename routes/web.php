@@ -7,7 +7,7 @@ use App\Http\Controllers\SaranController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\TestimoniController;
-use App\Http\Controllers\DasboardController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Profile;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\OrderController;
@@ -30,7 +30,7 @@ Route::get('/about', function () {
 
 // Route::resource('/', \App\Http\Controllers\DasboardController::class);
 
-Route::resource('/', \App\Http\Controllers\DasboardController::class)->names([
+Route::resource('/', \App\Http\Controllers\DashboardController::class)->names([
     'index' => 'dashboard.index',
 ]);
 

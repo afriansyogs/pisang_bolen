@@ -1,5 +1,5 @@
 <head>
-    <link rel="stylesheet" href="{{ asset('/assets/css/dasboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/dashboard.css') }}">
 </head>
 
 
