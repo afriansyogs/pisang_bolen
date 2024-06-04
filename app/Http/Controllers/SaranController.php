@@ -49,7 +49,7 @@ class SaranController extends Controller {
         return redirect()->route('dashboard_admin.index')->with('success', 'Data berhasil dihapus secara lembut.');
     }
 
-    public function onlyTrashSaran() :view {
+    public function onlyTrashSaran():view {
         $saranTrash = Saran::onlyTrashed()->latest()->get();
 
         return view('admin.saran.softDeleteSaran', compact('saranTrash'));

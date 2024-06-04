@@ -88,7 +88,8 @@
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="#" class="sidebar_link">
+                @csrf
+                <a href="{{ route('logoutAdmin') }}" class="sidebar_link">
                     {{-- <i class="fa-solid fa-user"></i> --}}
                     <i class="bi bi-person-fill-slash"></i>
                     <span>Logout</span>

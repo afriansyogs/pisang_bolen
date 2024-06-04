@@ -9,8 +9,8 @@ class DashboardController extends Controller
 {
     public function index(): View
     {
-        // $dasboard = Dasboard::latest()->get();
-        // return view('dasboard_user', compact('dasboard'));
+        // $dasboard = Dashboard::latest()->get();
+        // return view('dashboard_user', compact('dashboard'));
         return view('user/dashboard_user');
     }
 }

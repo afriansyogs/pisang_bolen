@@ -10,8 +10,8 @@ class HomeController extends Controller
 {
     // public function index(): View
     // {
-        
+
     //     $home = Home::latest()->get();
-    //     return view('dasboard_user', compact('home'));
+    //     return view('dashboard_user', compact('home'));
     // }
 }

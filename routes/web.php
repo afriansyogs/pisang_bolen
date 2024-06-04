@@ -28,11 +28,12 @@ Route::get('/about', function () {
     return view('user/about/index');
 });
 
-// Route::resource('/', \App\Http\Controllers\DasboardController::class);
+// Route::resource('/', \App\Http\Controllers\DashboardController::class);
 
 Route::resource('/', \App\Http\Controllers\DashboardController::class)->names([
     'index' => 'dashboard.index',
 ]);
+
 
 Route::resource('/dashboard_admin', \App\Http\Controllers\SaranController::class);
 Route::controller(SaranController::class)->group(function() {
@@ -40,7 +41,6 @@ Route::controller(SaranController::class)->group(function() {
     Route::delete('dashboard_admin/softdelete/{id}', 'softDelete')->name('dashboard_admin.softdelete');
     Route::put('/dashboard_admin/restore/{id}', 'restore')->name('dashboard_admin.restore');
 });
-
 
 Route::resource('/cart', \App\Http\Controllers\CartController::class);
 
@@ -73,12 +73,6 @@ Route::controller(ProdukController::class)->group(function () {
 // });
 
 
-
-// Middleware Admin
-// Route::middleware(['admin'])->group(function () {
-//     Route::get('/dashboard_admin', 'AdminSessionController@index')->name('dashboard_admin');
-// });
-
 // User Login, Register, Logout & Profile
 Route::get('/register', function() {return view('user.LoginRegisterLogoutProfile.registerUser');})->name('/register');
 Route::post('/register-proses', [SessionController::class, 'register_proses'])->name('register-proses');
@@ -91,13 +85,18 @@ Route::get('/profileView', [ProfileController::class, 'index'])->middleware('aut
 Route::post('/profile', [ProfileController::class, 'update'])->name('profile-update');
 Route::get('/logout', [ProfileController::class, 'logout'])->name('logout');
 
+// Middleware Admin
+Route::middleware(['admin'])->group(function() {
+    Route::resource('/dashboard_admin', SaranController::class);
+});
+
 // Admin Login, Register & Logout
 Route::get('registerAdmin', [AdminSessionController::class, 'registerAdmin'])->name('registerAdmin');
 Route::post('registerAdmin', [AdminSessionController::class, 'register_prosesAdmin'])->name('registerAdminProcess');
 
 Route::get('/loginAdmin', [AdminSessionController::class, 'index'])->name('loginAdmin');
 Route::post('/login-prosesAdmin', [AdminSessionController::class, 'login_prosesAdmin'])->name('login-prosesAdmin');
-Route::get('/logoutAdmin', [AdminSessionController::class, 'logout'])->name('logoutAdmin');
+Route::get('/logoutAdmin', [AdminSessionController::class, 'logoutAdmin'])->name('logoutAdmin');
 
 
 
