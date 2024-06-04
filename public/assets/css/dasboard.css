@@ -30,8 +30,30 @@ body {
 .content {
     margin-top: 15%;
 }
+i {
+    text-decoration: none;
+    color: white;
+}
 
-.section1 {
+.about_section {
     height: 100vh;
-    background-color: red;
+    background-image: url('../img/bg6.jpeg');
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+
+.text_about {
+    /* margin-top: %; */
+}
+
+.img_about {
+    margin-top: 5%;
+}
+
+@media only screen and (min-width: 769px) and (max-width: 990px) {
+    .content_img {
+    width: 60%;
+    margin-top: 9%;
+
+    }
 }

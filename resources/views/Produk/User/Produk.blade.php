@@ -1,9 +1,10 @@
-{{-- @extends('Produk/layout') --}}
-@extends('Produk/navbar')
+<head>
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
-@section('content')
-<br><br><br>
-<div class="row justify-content-center text-center">
+<x-navbar />
+
+<div class="row produk_body justify-content-center text-center">
 
     <div class="col-12">
         <div class="main-txt">
@@ -50,7 +51,7 @@
     </div> --}}
 
 
-</div><br>
+</div>
 
 
-@endsection
+

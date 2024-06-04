@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('sarans', function (Blueprint $table) {
             $table->id();
-            $table->string('name_user')->nullable(); // Memindahkan kolom sebelum foreign key
+            $table->string('name_user')->nullable(); 
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->text('saran')->nullable();

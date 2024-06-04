@@ -58,7 +58,7 @@
                             <label for="saran" class="ms-5 label_saran text-warning fs-5">Berikan Masukan Tentang Website ini </label>
                         </div>
                         <input type="text" class="input_saran w-75 py-1 px-1 mx-0 rounded bg-white" name="saran" id="saran" placeholder="Masukan Saran Anda" required disabled>
-                        <a href="{{ route('login') }}" class="btn button_saran border-1 border-black btn-md btn-warning mb-1 py-1 px-2 bg-warning rounded">Kirim</a>
+                        <a href="{{ route('login') }}" class="btn button_saran border-1 border-black btn-md btn-warning mb-1 py-1 px-2 bg-warning rounded fw-semibold">Kirim</a>
                     </div>
                 </form>
                 @endif
@@ -69,7 +69,9 @@
     <div class="text-center mt-2">
         <div class="text-center mt-2 d-inline-flex align-items-center icon-container text-white">
             <div class="rounded-circle bg-transparent border border-white mx-2 px-1 py-1">
-                <i class="fa-brands mx-1 fa-instagram fa-lg"></i>
+                <a href="https://www.instagram.com/bolen_jonegoroan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                    <i class="fa-brands mx-1 fa-instagram fa-lg"></i>
+                </a>
             </div>
             <div class="rounded-circle bg-transparent border border-white mx-2 px-1 py-1">
                 <i class="fa-brands mx-1 fa-tiktok fa-lg"></i>

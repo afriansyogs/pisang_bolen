@@ -14,7 +14,8 @@ class TestimoniController extends Controller
      * @return View
      */
     public function index(): View {
-        return view('user/testimoni/testimoni');
+        $testi = Testimoni::latest()->get();
+        return view('user/testimoni/testimoni', compact('testi'));
     }
     
 

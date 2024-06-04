@@ -21,6 +21,7 @@ return new class extends Migration
             $table->enum('status_publish', ['publish', 'draft']);
             $table->softDeletes()->nullable();
             $table->string('slug_link');
+            $table->softDeletes()->nullable();
             $table->timestamps();
             });
     }

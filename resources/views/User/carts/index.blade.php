@@ -69,6 +69,10 @@
 </style>
 
 <div class="container_cart container">
+    @php 
+        $total = 0;
+    @endphp
+    <h2>{{$cart->count()}} Barang Belum Di Checkout</h2>
     @foreach($cart as $cartItem)
     <div class="cart-item row">
         <div class="col-md-2">
@@ -79,22 +83,21 @@
             @endif
         </div>
         <div class="col-md-6">
-            @if($cartItem->product)
-                <p class="mb-1">{{ $cartItem->product->variant_product }}</p>
-                <p class="mb-1">Harga: Rp {{ number_format($cartItem->product->harga_product) }}</p>
-                <p class="mb-1">Subtotal: Rp {{ number_format($cartItem->product->harga_product * $cartItem->qty, 0, ',', '.') }}</p>
-            @else
-                <p>Detail produk tidak tersedia</p>
-            @endif
+            <p class="mb-1">{{ $cartItem->product->variant_product }}</p>
+            <p class="mb-1">Harga Satuan: Rp {{ number_format($cartItem->product->harga_product, 0, ',', '.') }}</p>
+            <p class="mb-1">Subtotal: Rp {{ number_format($cartItem->harga_product) }}</p>
         </div>
         <div class="col-md-2">
             <form action="{{ route('cart.update', $cartItem->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="form-group qtyForm">
-                    <button type="button" class="col-sm-2 rounded-start bg-warning p-2 border border-0" onclick="qtyPlus('{{ $cartItem->id }}')">+</button>
-                    <input type="number" name="qty" id="qty{{ $cartItem->id }}" class="form-control formQty bg-transparent border-0" value="{{ $cartItem->qty }}" min="1" required onchange="this.form.submit()" />
-                    <button type="button" class="col-sm-2 rounded-end bg-warning p-2 border border-0" onclick="qtyMinus('{{ $cartItem->id }}')">-</button>
+                <button type="button" class="col-sm-2 rounded-start bg-warning p-2 border border-0" onclick="qtyMinus('{{ $cartItem->id }}')">-</button>
+                    <input type="number" name="qty" id="qty{{ $cartItem->id }}"
+                        class="form-control formQty bg-transparent border-0" value="{{ $cartItem->qty }}" min="1" required
+                        onchange="this.form.submit()">
+                    <button type="button" class="col-sm-2 rounded-end bg-warning p-2 border border-0" onclick="qtyPlus('{{ $cartItem->id }}')">+</button>
+
                 </div>
             </form>
         </div>
@@ -106,7 +109,14 @@
             </form>
         </div>
     </div>
+    @php
+        $total += ($cartItem->product->harga_product * $cartItem->qty);
+    @endphp
     @endforeach
+    <h1>total harga {{$total}}</h1>
+    <form action="{{ route('order.create') }}" method="GET">
+        <button type="submit">Order</button>
+    </form>
 </div>
 
 

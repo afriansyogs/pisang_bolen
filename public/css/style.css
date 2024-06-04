@@ -89,7 +89,8 @@ nav {
 
 /* START PRODUK */
 .main-txt h1 {
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
+    margin-top: 2%;
     color: #442521;
 }
 .main-txt h1 span {

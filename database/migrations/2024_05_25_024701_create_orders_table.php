@@ -13,11 +13,18 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_cart')->constrained('carts')->onDelete('cascade');
-            $table->foreignId('id_payment')->constrained('payments')->onDelete('cascade');
-            $table->string('alamat_user');
-            $table->string('bukti_pembayaran');
+            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('id_payment');
+            $table->unsignedBigInteger('id_product');
+            $table->text('alamat');
+            $table->string('bukti_transaksi');
+            $table->integer('harga_product')->nullable();
+            $table->integer('qty')->nullable();
             $table->timestamps();
+    
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_payment')->references('id')->on('payments')->onDelete('cascade');
+            $table->foreign('id_product')->references('id')->on('products')->onDelete('cascade');
         });
     }
 

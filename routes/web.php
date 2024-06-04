@@ -10,6 +10,7 @@ use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\DasboardController;
 use App\Http\Controllers\Profile;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\OrderController;
 use App\Models\Saran;
 
 /*
@@ -23,9 +24,9 @@ use App\Models\Saran;
 |
 */
 
-// Route::get('/dasbhoard_admin', function () {
-//     return view('admin/dasbhoard_admin');
-// });
+Route::get('/about', function () {
+    return view('user/about/index');
+});
 
 // Route::resource('/', \App\Http\Controllers\DasboardController::class);
 
@@ -74,14 +75,11 @@ Route::controller(ProdukController::class)->group(function () {
 
 
 // User Login, Register, Logout & Profile
+Route::get('/register', function() {return view('user.LoginRegisterLogoutProfile.registerUser');})->name('/register');
+Route::post('/register-proses', [SessionController::class, 'register_proses'])->name('register-proses');
 
 Route::get('/login', [SessionController::class, 'index'])->name('login');
-Route::post('/login', [SessionController::class, 'login_proses'])->name('login-proses');
-
-Route::get('/register', function() {return view('user.LoginRegisterLogoutProfile.registerUser');})->name('/register');
-Route::post('/register', [SessionController::class, 'register_proses'])->name('register-proses');
-Route::post('/logout', [SessionController::class, 'logout'])->name('logout');
-
+Route::post('/login-proses', [SessionController::class, 'login_proses'])->name('login-proses');
 
 Route::resource('/profile', \App\Http\Controllers\ProfileController::class);
 Route::get('/profileView', [ProfileController::class, 'index'])->middleware('auth')->name('profile-show');
@@ -109,5 +107,9 @@ Route::controller(TestimoniController::class)->group(function() {
     Route::get('/history', 'onlyTrashTestimoni')->name('history.onlyTrashTestimoni');
     Route::delete('userSoftDelete/softdelete/{id}', 'softDelete')->name('userSoftDelete.softdelete');
     Route::put('/userSoftDelete/restore/{id}', 'restore')->name('userSoftDelete.restore');
+
+    Route::get('/order', [OrderController::class, 'create'])->name('order.create');
+    Route::post('/order', [OrderController::class, 'store'])->name('order.store');
+Route::resource('/order', \App\Http\Controllers\OrderController::class);
 
 });

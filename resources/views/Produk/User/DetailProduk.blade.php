@@ -1,6 +1,4 @@
-@extends('Produk/navbar')
 
-@section('content')
 
 <style>
     .link a, span {
@@ -78,21 +76,15 @@
     }
 </style>
 
+<x-navbar />
+
 <div class="row">
+    <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
 
-
-    <div class="col-12 link">
-        <a href="/">Home</a>
-        <span> | </span>
-        <a href="{{ route('Produk.index') }}">Product</a>
-        <span> | </span>
-        <a href="{{ route('Produk.show', $products->slug_link) }}" class="mt-2" value="detail-produk">{{ $products->variant_product }}</a>
-    </div>
-
-    <div class="container mt-3 mb-5">
+    <div class="container mt-3 mb-5 content_card">
         <div class="row g-0">
-            <div class="col-md-12">
-                <div class="card">
+        <div class="col-md-12 d-flex justify-content-center mt-3 mb-5">
+                <div class="card w-50">
                     <div class="card-body">
                         <div class="row">
                             {{-- <div class="col-md-12 mb-3">
@@ -111,9 +103,17 @@
                                     @csrf
                                     <input type="hidden" name="id_product" value="{{ $products->id }}">
                                     <input type="hidden" name="qty" value="1" min="1">
-                                    <button type="submit" class="btn btn-outline-dark mt-3"><i class="bi bi-cart-fill"></i> Add to Cart</button>
+                                    @auth
+                                        <button type="submit" class="btn btn-outline-dark mt-3">
+                                            <i class="bi bi-cart-fill"></i> Add to Cart
+                                        </button>
+                                    @endauth
+                                    @guest
+                                        <a href="{{ route('login') }}" class="btn btn-outline-dark mt-3">
+                                            <i class="bi bi-cart-fill"></i> Add to Cart
+                                        </a>
+                                    @endguest
                                 </form>
-
                             </div>
                         </div>
                     </div>
@@ -121,8 +121,7 @@
             </div>
         </div>
     </div>
-
+    </div>
 
 </div>
 
-@endsection
