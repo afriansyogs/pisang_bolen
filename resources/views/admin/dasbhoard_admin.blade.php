@@ -57,7 +57,7 @@
                 <li class="sidebar_item {{ \Route::is('dasbhoard_admin.index') ? 'active' : '' }}">
                     <a href="{{ route('dasbhoard_admin.index') }}" class="sidebar_link">
                         <i class="fa-solid fa-user"></i>
-                        <span>Profile</span>
+                        <span>Saran</span>
                     </a>
                 </li>
                 <li class="sidebar_item {{ \Route::is('adminTesti.admin') ? 'active' : '' }}">
@@ -73,11 +73,10 @@
                         <span>Product</span>
                     </a>
                 </li>
-                <li class="sidebar_item">
-                    <a href="#" class="sidebar_link">
-                        {{-- <i class="fa-solid fa-user"></i> --}}
-                        <i class="fa-solid fa-bell"></i>
-                        <span>Notification</span>
+                <li class="sidebar_item {{ \Route::is('payment.index') ? 'active' : '' }}">
+                    <a href="{{ route('payment.index') }}" class="sidebar_link">
+                        <i class="fa-solid fa-money-bill-1-wave"></i>
+                        <span>Payment</span>
                     </a>
                 </li>
                 <li class="sidebar_item">
