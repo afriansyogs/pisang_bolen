@@ -18,8 +18,7 @@ return new class extends Migration
             $table->text('description_product');
             $table->decimal('harga_product', 10, 3);
             $table->bigInteger('jumlah_product');
-            $table->enum('status_publish', ['publish', 'draft']);
-            $table->softDeletes()->nullable();
+            $table->enum('status_publish', ['publish', 'draft']);   
             $table->string('slug_link');
             $table->softDeletes()->nullable();
             $table->timestamps();

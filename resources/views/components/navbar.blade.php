@@ -29,8 +29,8 @@
                     <li class="nav-item mx-1 mb-2 {{ \Route::is('Produk.index') || \Route::is('Produk.show') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('Produk.index') }}">Menu</a>
                     </li>
-                    <li class="nav-item mx-1 mb-2 {{ \Route::is('userTesti.index') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('userTesti.index') }}">Testimoni</a>
+                    <li class="nav-item mx-1 mb-2 {{ \Route::is('user.user') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('user.user') }}">Testimoni</a>
                     </li>
                 </ul>
                 @if(Auth::check())
