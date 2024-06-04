@@ -75,9 +75,9 @@ Route::controller(ProdukController::class)->group(function () {
 
 
 // Middleware Admin
-Route::middleware(['admin'])->group(function () {
-    Route::get('/dashboard_admin', 'AdminSessionController@index')->name('dashboard_admin');
-});
+// Route::middleware(['admin'])->group(function () {
+//     Route::get('/dashboard_admin', 'AdminSessionController@index')->name('dashboard_admin');
+// });
 
 // User Login, Register, Logout & Profile
 Route::get('/register', function() {return view('user.LoginRegisterLogoutProfile.registerUser');})->name('/register');
