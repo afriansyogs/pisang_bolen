@@ -41,7 +41,7 @@
                             alt="Bolen Jonegoroan" style="width: 160px">
                     </td>
                     <td class="text-center">
-                        <a href="{{ route('payment.edit', $paymentList->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                        <a href="{{ route('payment.edit', $paymentList->id) }}" class="btn btn-outline-success mt-2"><i class="bi bi-pencil-square"></i></a>
                     </td>
                 </tr>
                 @endforeach

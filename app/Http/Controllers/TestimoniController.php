@@ -5,6 +5,7 @@ use App\Models\Testimoni;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TestimoniController extends Controller
 {
@@ -45,20 +46,18 @@ class TestimoniController extends Controller
     {
         //validate form
         $this->validate($request, [
-            'testi'     => 'required|min:5',
-            'name'     => 'required|min:5',
-            // 'content'   => 'required|min:10'
+            'testi'     => 'required',
+            
         ]);
 
         
         Testimoni::create([
-            'testi'     => $request->testi,
-            'name'     => $request->name,
-            // 'content'   => $request->content
+            'testi' => $request->testi,
+            'name' => Auth::user()->name,
         ]);
 
         //redirect to index
-        return redirect()->route('adminTesti.admin')->with(['successTesti' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('dashboard.index')->with(['successTesti' => 'Data Berhasil Disimpan!']);
     }
     
     public function user() {

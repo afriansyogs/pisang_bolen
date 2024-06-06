@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('bukti_transaksi');
             $table->integer('harga_product')->nullable();
             $table->integer('qty')->nullable();
+            $table->softDeletes()->nullable();
             $table->timestamps();
     
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');

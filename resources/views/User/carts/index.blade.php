@@ -109,8 +109,8 @@
         </div>
         <div class="col-md-6">
             <p class="mb-1">{{ $cartItem->product->variant_product }}</p>
-            <p class="mb-1">Harga Satuan: Rp {{ number_format($cartItem->product->harga_product, 0, ',', '.') }}</p>
-            <p class="mb-1">Subtotal: Rp {{ number_format($cartItem->harga_product) }}</p>
+            <p class="mb-1">Harga Satuan: Rp {{ number_format($cartItem->product->harga_product, 0, ',', '.') }}.000</p>
+            <p class="mb-1">Subtotal: Rp {{ number_format($cartItem->harga_product) }}.000</p>
         </div>
         <div class="col-md-2">
             <form action="{{ route('cart.update', $cartItem->id) }}" method="POST">
@@ -139,7 +139,7 @@
     @endforeach
 
     <div class="order-total">
-        <h1>Total Harga: Rp {{ number_format($total, 0, ',', '.') }}</h1>
+        <h1>Total Harga: Rp {{ number_format($total, 0, ',', '.') }}.000</h1>
         <form action="{{ route('order.create') }}" method="GET">
             <button type="submit" class="btn btn-outline-warning">Checkout</button>
         </form>

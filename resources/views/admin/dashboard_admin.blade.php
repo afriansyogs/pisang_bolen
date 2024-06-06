@@ -60,6 +60,12 @@
                         <span>Saran</span>
                     </a>
                 </li>
+                <li class="sidebar_item {{ \Route::is('userAdmin.index') ? 'active' : '' }}">
+                    <a href="{{ route('userAdmin.index') }}" class="sidebar_link">
+                        <i class="fa-regular fa-user"></i>  
+                        <span>User</span>
+                    </a>
+                </li>
                 <li class="sidebar_item {{ \Route::is('adminTesti.admin') ? 'active' : '' }}">
                     <a href="{{ route('adminTesti.admin') }}" class="sidebar_link">
                         {{-- <i class="fa-solid fa-user"></i> --}}

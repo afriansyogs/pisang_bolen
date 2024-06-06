@@ -104,7 +104,10 @@ button[type="submit"] {
                     <option value="{{ $payment->id }}" data-image="{{ asset('storage/payment/' . $payment->img) }}">{{ $payment->name_payment }}</option>
                 @endforeach
             </select>
-            <img id="payment-image" src="" alt="Gambar Metode Pembayaran">
+            <!-- <img class="" id="payment-image" src="" alt="Gambar Metode Pembayaran"> -->
+            <div class="d-flex justify-content-center align-items-center">
+                <img class="img-fluid" id="payment-image" src="" alt="Gambar Metode Pembayaran">
+            </div>
         </div>
 
         <div>
@@ -116,7 +119,7 @@ button[type="submit"] {
         @foreach($cart as $cartItem)
         <div class="product-details">
             <p><strong>Nama Produk:</strong> {{ $cartItem->product->variant_product }}</p>
-            <p><strong>Harga Produk:</strong> Rp {{ number_format($cartItem->harga_product, 0, ',', '.') }}</p>
+            <p><strong>Harga Produk:</strong> Rp {{ number_format($cartItem->harga_product, 0, ',', '.') }}.000</p>
             <p><strong>Jumlah:</strong> {{ $cartItem->qty }}</p>
         </div>
         @endforeach

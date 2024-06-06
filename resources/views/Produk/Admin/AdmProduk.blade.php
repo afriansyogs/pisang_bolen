@@ -23,13 +23,13 @@
         <table id="example" class="table table-striped" style="width:100%" border="1px solid black">
             <thead>
                 <tr>
-                    <th data-priority="1">No</th>
+                    <th data-priority="1" class="text-center col-lg-1">No</th>
                     <th>Foto Produk</th>
-                    <th data-priority="1">Variant Produk</th>
-                    <th>Deskripsi Produk</th>
-                    <th data-priority="1">Harga Produk</th>
-                    <th>Jumlah Produk</th>
-                    <th data-priority="1">Aksi</th>
+                    <th data-priority="1" class="text-center col-lg-2">Variant Produk</th>
+                    <th class="text-center col-lg-4">Deskripsi Produk</th>
+                    <th data-priority="1" class="text-center col-lg-1">Harga Produk</th>
+                    <th class="text-center col-lg-1">Jumlah Produk</th>
+                    <th data-priority="1" class="text-center col-lg-2">Aksi</th>
                 </tr>
             </thead>
 
@@ -39,10 +39,10 @@
                 <tr>
                     <td> {{ ++$no }} </td>
                     <td> <img src="{{ asset('storage/images/' . $pdk->foto_product) }}" class="card-img-top" alt="Bolen Jonegoroan" style="width: 160px"> </td>
-                    <td> {{ $pdk->variant_product }} </td>
-                    <td> {{ $pdk->description_product }} </td>
-                    <td> {{ $pdk->harga_product }} </td>
-                    <td> {{ $pdk->jumlah_product }} </td>
+                    <td class="text-center"> {{ $pdk->variant_product }} </td>
+                    <td class="text-start"> {{ $pdk->description_product }} </td>
+                    <td class="text-center">Rp {{ $pdk->harga_product }} </td>
+                    <td class="text-center"> {{ $pdk->jumlah_product }} </td>
                     <td>
                         <a href="{{route('Admin.edit', $pdk->slug_link)}}" value="edit" class="btn btn-outline-success mt-2"><i class="bi bi-pencil-square"></i></a>
                         <a href="{{route('Admin.hapus', $pdk->slug_link)}}" value="hapus" class="btn btn-outline-danger mt-2"><i class="bi bi-trash3"></i></a>
@@ -54,13 +54,13 @@
 
             <tfoot>
                 <tr>
-                    <th>No</th>
-                    <th>Foto Produk</th>
-                    <th>Variant Produk</th>
-                    <th>Deskripsi Produk</th>
-                    <th>Harga Produk</th>
-                    <th>Jumlah Produk</th>
-                    <th>Aksi</th>
+                    <th class="text-center">No</th>
+                    <th class="text-center">Foto Produk</th>
+                    <th class="text-center">Variant Produk</th>
+                    <th class="text-center">Deskripsi Produk</th>
+                    <th class="text-center">Harga Produk</th>
+                    <th class="text-center">Jumlah Produk</th>
+                    <th class="text-center">Aksi</th>
                 </tr>
             </tfoot>
         </table>

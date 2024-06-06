@@ -67,4 +67,30 @@ class OrderController extends Controller
         return redirect()->route('order.index')->with('success', 'Order berhasil dibuat.');
     }
     
+    public function destroy($id): RedirectResponse {
+        $orders = Order::withTrashed()->findOrFail($id);
+        $orders->forceDelete();
+        return redirect()->route('order.history')->with('success', 'Data berhasil dihapus secara permanen.');
+    }
+
+    public function softDelete($id) {
+        $orders = Order::findOrFail($id);
+        $orders->delete();
+
+        return redirect()->route('order.admin')->with('success', 'Data berhasil dihapus secara lembut.');
+    }
+
+    public function onlyTrashOrder():view {
+        $orders = Order::onlyTrashed()->latest()->get();
+
+        return view('admin.order.history', compact('orders'));
+    }
+
+    public function restore($id) {
+        $orders = Order::withTrashed()->findOrFail($id);
+        $orders->restore();
+
+        return redirect()->route('order.history')->with('success', 'Data berhasil dipulihkan.');
+    }
+
 }

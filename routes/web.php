@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SaranController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Profile;
@@ -104,7 +105,17 @@ Route::get('/logoutAdmin', [AdminSessionController::class, 'logoutAdmin'])->name
 
 
 
-    Route::get('/userList', [SessionController::class, 'dataUser'])->name('userList');
+//     Route::get('/userList', [SessionController::class, 'dataUser'])->name('userList');
+//     Route::get('onlytrash', [SessionController::class, 'onlyTrashUser'])->name('user.history');
+// Route::post('restore/{id}', [SessionController::class, 'restore'])->name('user.restore');
+// Route::delete('destroy/{id}', [SessionController::class, 'destroy'])->name('user.destroy');
+// Route::delete('softdelete/{id}', [SessionController::class, 'softDelete'])->name('user.softdelete');
+
+Route::get('/userList', [UserController::class, 'index'])->name('userAdmin.index');
+    Route::get('/userList/onlytrash', [UserController::class, 'onlyTrashUser'])->name('user.history');
+Route::post('/userList/restore/{id}', [UserController::class, 'restore'])->name('user.restore');
+Route::delete('/userList/destroy/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+Route::delete('/userList/softdelete/{id}', [UserController::class, 'softDelete'])->name('user.softdelete');
 
 
 Route::resource('/adminTesti', \App\Http\Controllers\TestimoniController::class);
@@ -120,6 +131,10 @@ Route::controller(TestimoniController::class)->group(function() {
     Route::post('/order', [OrderController::class, 'store'])->name('order.store');
     Route::get('/orderAdmin', [OrderController::class, 'admin'])->name('order.admin');
     Route::get('/orderAdmin/show/{id}', [OrderController::class, 'show'])->name('order.show');
-Route::resource('/order', \App\Http\Controllers\OrderController::class);
+    Route::resource('/order', \App\Http\Controllers\OrderController::class);
+    Route::get('onlytrash', [OrderController::class, 'onlyTrashOrder'])->name('order.history');
+    Route::post('restore/{id}', [OrderController::class, 'restore'])->name('order.restore');
+    Route::delete('destroy/{id}', [OrderController::class, 'destroy'])->name('order.destroy');
+    Route::delete('softdelete/{id}', [OrderController::class, 'softDelete'])->name('order.softdelete');
 
 });

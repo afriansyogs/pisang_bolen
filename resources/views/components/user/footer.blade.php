@@ -74,11 +74,15 @@
                 </a>
             </div>
             <div class="rounded-circle bg-transparent border border-white mx-2 px-1 py-1">
-                <i class="fa-brands mx-1 fa-tiktok fa-lg"></i>
+                <!-- <i class="fa-brands mx-1 fa-tiktok fa-lg"></i> -->
+                <a href="https://id.shp.ee/hbwBnQz">
+                <i class="fa-brands fa-shopify mx-1 fa-lg"></i>
+                    
+                </a>
             </div>
-            <div class="rounded-circle bg-transparent border border-white mx-2 px-1 py-1">
+            <!-- <div class="rounded-circle bg-transparent border border-white mx-2 px-1 py-1">
                 <i class="fa-brands mx-1 fa-x-twitter fa-lg"></i>
-            </div>
+            </div> -->
         </div>
     </div>
 </footer>

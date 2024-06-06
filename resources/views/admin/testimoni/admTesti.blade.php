@@ -36,9 +36,9 @@
                 @foreach ($testi as $no => $testiList )
                 <tr>
                     <td class="text-center">{{ ++$no }}</td>
-                    <td class="text-center">-</td>
+                    <td class="text-center">{{ $testiList->name }}</td>
                     <td class="text-center">{{ $testiList->testi }}</td>
-                    <td class="text-start">-</td>
+                    <td class="text-center">{{ $testiList->created_at }}</td>
                     <td class="text-center">
                         <form onsubmit="return confirm('Apakah Anda Yakin Ingin Memindahkan Ke Folder Sampah ?');" action="{{ route('userSoftDelete.softdelete', $testiList->id) }}" method="POST">
                             @csrf
