@@ -22,6 +22,11 @@ class OrderController extends Controller
         return view('user.orders.index', compact('orders', 'user'));
     }
 
+    public function admin(): View {
+        $orders = Order::latest()->get();
+        return view('admin.order.index', compact('orders'));
+    }
+
     public function create()
     {
         $user = auth()->user();
@@ -30,26 +35,36 @@ class OrderController extends Controller
         return view('user.orders.create', compact('user', 'payments', 'cart'));
     }
 
+    public function show($id): View
+    {
+        $orders = Order::findOrFail($id);
+        return view('admin.order.detail', compact('orders'));
+    }
+
     public function store(Request $request)
     {
         $user = Auth::user();
         $cartItems = Cart::where('id_user', $user->id)->get();
-
+    
         foreach ($cartItems as $cartItem) {
+            // Hitung harga produk berdasarkan qty
+            $hargaProduct = $cartItem->product->harga_product * $cartItem->qty;
+    
             Order::create([
                 'id_user' => $user->id,
                 'id_product' => $cartItem->id_product,
-                'harga_product' => $cartItem->product->harga_product, // Ubah disini
+                'harga_product' => $hargaProduct,
                 'qty' => $cartItem->qty,
                 'alamat' => $request->input('alamat'),
                 'id_payment' => $request->input('id_payment'),
                 'bukti_transaksi' => $request->file('bukti_transaksi')->store('bukti_transaksi', 'public'),
             ]);
         }
-
+    
         // Kosongkan keranjang setelah order
         Cart::where('id_user', $user->id)->delete();
-
+    
         return redirect()->route('order.index')->with('success', 'Order berhasil dibuat.');
     }
+    
 }

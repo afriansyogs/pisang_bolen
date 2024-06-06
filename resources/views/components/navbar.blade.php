@@ -23,8 +23,8 @@
                     <li class="nav-item mx-1 mb-2 {{ \Route::is('dashboard.index') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('dashboard.index') }}">Home</a>
                     </li>
-                    <li class="nav-item mx-1 mb-2">
-                        <a class="nav-link" href="Cerita4/oncerita4.html">About</a>
+                    <li class="nav-item mx-1 mb-2 {{ \Route::is('about.index') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('about.index') }}">About</a>
                     </li>
                     <li class="nav-item mx-1 mb-2 {{ \Route::is('Produk.index') || \Route::is('Produk.show') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('Produk.index') }}">Menu</a>

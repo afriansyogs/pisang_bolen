@@ -32,4 +32,9 @@ class Order extends Model
     {
         return $this->belongsTo(User::class, 'id_user');
     }
+
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class, 'id_payment');
+    }
 }

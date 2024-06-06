@@ -12,6 +12,8 @@
     <!-- link font awasome -->
     <script src="https://kit.fontawesome.com/f9189b0d8d.js" crossorigin="anonymous"></script>
 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <!-- link css  -->
     <link rel="stylesheet" href="{{ asset('/assets/css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/dashboard.css') }}">
@@ -59,13 +61,19 @@
             </div>
         </div>
     </section>
+    <div class="main">
+            @yield('content')
+        </div>
     <!-- <section class="section1 w-full"></section> -->
     @component('components.user.footer')
     @endcomponent
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="{{ asset('assets/js/alert.js') }}"></script>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+  AOS.init();
+</script>
 </body>
 
 </html>

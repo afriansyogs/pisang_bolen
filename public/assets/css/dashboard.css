@@ -37,17 +37,16 @@ i {
 
 .about_section {
     height: 100vh;
-    background-image: url('../img/bg6.jpeg');
+    background-image: url('../img/Rectangle\ 342.png');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.text_about {
-    /* margin-top: %; */
-}
-
 .img_about {
-    margin-top: 5%;
+    margin-top: 15%;
+    filter: drop-shadow(10px 25px 8px rgba(0, 0, 0, 0.711));
+    cursor: pointer;
+    width: 90%;
 }
 
 @media only screen and (min-width: 769px) and (max-width: 990px) {

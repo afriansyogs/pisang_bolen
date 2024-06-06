@@ -12,6 +12,7 @@ body {
     background-color: #f8f9fa;
 }
 
+
 .container_order {
     margin-top: 5%;
     padding: 20px;
@@ -72,6 +73,16 @@ button[type="submit"] {
     font-weight: bold;
     cursor: pointer;
 }
+    .container_order {
+        margin-top: 5%;
+    }
+
+    #payment-image {
+        display: none;
+        margin-top: 20px;
+        max-width: 100%;
+    }
+
 </style>
 
 <div class="container_order container">
@@ -88,10 +99,12 @@ button[type="submit"] {
         <div>
             <label for="id_payment">Metode Pembayaran:</label>
             <select name="id_payment" id="id_payment" required>
+                <option value="" selected disabled>Pilih Metode Pembayaran</option>
                 @foreach($payments as $payment)
-                <option value="{{ $payment->id }}">{{ $payment->name_payment }}</option>
+                    <option value="{{ $payment->id }}" data-image="{{ asset('storage/payment/' . $payment->img) }}">{{ $payment->name_payment }}</option>
                 @endforeach
             </select>
+            <img id="payment-image" src="" alt="Gambar Metode Pembayaran">
         </div>
 
         <div>
@@ -103,7 +116,7 @@ button[type="submit"] {
         @foreach($cart as $cartItem)
         <div class="product-details">
             <p><strong>Nama Produk:</strong> {{ $cartItem->product->variant_product }}</p>
-            <p><strong>Harga Produk:</strong> Rp {{ number_format($cartItem->product->harga_product, 0, ',', '.') }}</p>
+            <p><strong>Harga Produk:</strong> Rp {{ number_format($cartItem->harga_product, 0, ',', '.') }}</p>
             <p><strong>Jumlah:</strong> {{ $cartItem->qty }}</p>
         </div>
         @endforeach
@@ -113,5 +126,25 @@ button[type="submit"] {
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const paymentSelect = document.getElementById('id_payment');
+        const paymentImage = document.getElementById('payment-image');
+
+        paymentSelect.addEventListener('change', function () {
+            const selectedOption = paymentSelect.options[paymentSelect.selectedIndex];
+            const imageUrl = selectedOption.getAttribute('data-image');
+            
+            if (selectedOption.value && imageUrl) {
+                paymentImage.src = imageUrl;
+                paymentImage.style.display = 'block';
+            } else {
+                paymentImage.style.display = 'none';
+            }
+        });
+    });
 </script>

@@ -56,7 +56,7 @@
             <ul class="sidebar_nav">
                 <li class="sidebar_item {{ \Route::is('dashboard_admin.index') ? 'active' : '' }}">
                     <a href="{{ route('dashboard_admin.index') }}" class="sidebar_link">
-                        <i class="fa-solid fa-user"></i>
+                        <i class="fa-solid fa-comment"></i>
                         <span>Saran</span>
                     </a>
                 </li>
@@ -79,11 +79,10 @@
                         <span>Payment</span>
                     </a>
                 </li>
-                <li class="sidebar_item">
-                    <a href="#" class="sidebar_link">
-                        {{-- <i class="fa-solid fa-user"></i> --}}
-                        <i class="bi bi-gear-fill"></i>
-                        <span>Setting</span>
+                <li class="sidebar_item {{ \Route::is('order.admin') ? 'active' : '' }}">
+                    <a href="{{ route('order.admin') }}" class="sidebar_link">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                        <span>Order</span>
                     </a>
                 </li>
             </ul>

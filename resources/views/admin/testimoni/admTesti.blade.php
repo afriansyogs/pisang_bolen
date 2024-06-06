@@ -12,8 +12,8 @@
 <div class="text-black mt-5">
     <h1 class="text-center text-black mt-3">Data Testimoni</h1>
     <div class="d-flex justify-content-end me-3">
-    <a href="{{ route('adminTesti.create') }}" class="btn btn-md btn-success mb-3">TAMBA</a>
-        <a href="{{ route('dashboard_admin.onlytrash') }}" class="btn  btn-dark btn-sm ms-auto rounded-2">
+    <!-- <a href="{{ route('adminTesti.create') }}" class="btn btn-md btn-success mb-3">TAMBA</a> -->
+        <a href="{{ route('history.onlyTrashTestimoni') }}" class="btn  btn-dark btn-sm ms-auto rounded-2">
             <div class=" mx-2">
                 <span class="fw-bolder fs-5">History</span>
                 <i class="fa-solid fa-clock-rotate-left fa-lg ms-1 "></i>

@@ -16,7 +16,8 @@
             border: 1px solid #ccc;
             padding: 10px;
             display: flex;
-            align-items: center; /* Pusatkan konten secara vertikal */
+            align-items: center;
+            /* Pusatkan konten secara vertikal */
         }
 
         .order-item .content {
@@ -30,8 +31,9 @@
 
         .order-item img {
             max-width: 100%;
-            height: auto; 
+            height: auto;
         }
+
         hr {
             margin: 20px 0;
         }
@@ -45,8 +47,7 @@
         <div class="order-item">
             <div class="content">
                 <div class="image-container">
-                    <img src="{{ asset('storage/images/' . $order->product->foto_product) }}"
-                        alt="{{ $order->product->variant_product }}" />
+                    <img src="{{ asset('storage/images/' . $order->product->foto_product) }}" alt="{{ $order->product->variant_product }}" />
                 </div>
                 <div class="text-container">
                     <h2>{{ $order->product->variant_product }}</h2>
@@ -58,10 +59,10 @@
                     <p>Nama User: {{ $user->name }}</p>
                     <p>No HP: {{ $user->number }}</p>
                     <p>Bukti Transaksi:</p>
-                    <img src="{{ asset('storage/' . $order->bukti_transaksi) }}" alt="Bukti Transaksi"
-                        class="img-fluid" style="max-width: 100%; height: auto;">
+                    <img src="{{ asset('storage/' . $order->bukti_transaksi) }}" alt="Bukti Transaksi" class="img-fluid" style="max-width: 100%; height: auto;">
                 </div>
             </div>
+
         </div>
         <hr>
         @endforeach

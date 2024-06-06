@@ -1,45 +1,53 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <script>
-            $('#example').DataTable();
-        </script>
-        <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        @foreach ($users as $user)
-        <table id="example" class="table table-striped" style="width:100%">
+@extends('admin/dashboard_admin')
+
+@section('content')
+<!-- alert  -->
+@if (session('success'))
+<div id="closeAlert" class="alert alert-success alert-dismissible fade show text position-absolute end-0 z-2 me-5" role="alert">
+    <strong>Data Berhasil Dihapus!</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
+
+<div class="text-black mt-5">
+    <h1 class="text-center text-black mt-3">Data User</h1>
+    <div class="d-flex justify-content-end me-3">
+        <a href="{{ route('dashboard_admin.onlytrash') }}" class="btn  btn-dark btn-sm ms-auto rounded-2">
+            <div class=" mx-2">
+                <span class="fw-bolder fs-5">History</span>
+                <i class="fa-solid fa-clock-rotate-left fa-lg ms-1 "></i>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-12">
+        <table id="example" class="table table-striped" style="width:100%" border="1px solid black">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Number</th>
-                    <th>Email</th>
-                    <th>Umur</th>
-                    <th>hobby</th>
+                    <th data-priority="1" class="text-center">No</th>
+                    <th data-priority="1" class="text-center">Nama User</th>
+                    <th data-priority="1" class="text-center">email</th>
+                    <th data-priority="1" class="text-center">No Telp</th>
+                    <th data-priority="1" class="text-center">Alamat</th>
+                    <th data-priority="1" class="text-center">Aksi</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach ($users as $no => $userList )
                 <tr>
-                    <td class="mb-0">{{ $user->name }}</td>
-                    <td class="mb-0">{{ $user->number }}</td>
-                    <td class="mb-0">{{ $user->email }}</td>
+                    <td class="text-center">{{ ++$no }}</td>
+                    <td class="text-center">{{ $userList->name }}</td>
+                    <td class="text-center">{{ $userList->email }}</td>
+                    <td class="text-center">{{ $userList->number }}</td>
+                    <td class="text-center">{{ $userList->alamat }}</td>
+                    <td class="text-center">
+                        
+                    </td>
                 </tr>
+                @endforeach
             </tbody>
-            <tfoot>
-                <tr>
-                    <th>Name</th>
-                    <th>Number</th>
-                    <th>Email</th>
-                </tr>
-            </tfoot>
         </table>
-        
-        @endforeach
-    </body>
-    </html>
+    </div>
+</div>
+
+@endsection

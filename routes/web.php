@@ -24,9 +24,11 @@ use App\Models\Saran;
 |
 */
 
-Route::get('/about', function () {
-    return view('user/about/index');
-});
+// Route::get('/about', function () {
+//     return view('user/about/index');
+// });
+Route::get('/about', function() {return view('user.about.index');})->name('about.index');
+
 
 // Route::resource('/', \App\Http\Controllers\DashboardController::class);
 
@@ -34,9 +36,11 @@ Route::resource('/', \App\Http\Controllers\DashboardController::class)->names([
     'index' => 'dashboard.index',
 ]);
 
-
-Route::resource('/dashboard_admin', \App\Http\Controllers\SaranController::class);
+// Route::resource('/dashboard_admin', \App\Http\Controllers\SaranController::class);
 Route::controller(SaranController::class)->group(function() {
+    Route::get('/dashboard_admin', 'index')->name('dashboard_admin.index');
+    Route::post('/dashboard_admin', 'store')->name('dashboard_admin.store');
+    Route::delete('/dashboard_admin/{id}', 'destroy')->name('dashboard_admin.destroy');
     Route::get('/dashboard_admin/onlytrash', 'onlyTrashSaran')->name('dashboard_admin.onlytrash');
     Route::delete('dashboard_admin/softdelete/{id}', 'softDelete')->name('dashboard_admin.softdelete');
     Route::put('/dashboard_admin/restore/{id}', 'restore')->name('dashboard_admin.restore');
@@ -114,6 +118,8 @@ Route::controller(TestimoniController::class)->group(function() {
 
     Route::get('/order', [OrderController::class, 'create'])->name('order.create');
     Route::post('/order', [OrderController::class, 'store'])->name('order.store');
+    Route::get('/orderAdmin', [OrderController::class, 'admin'])->name('order.admin');
+    Route::get('/orderAdmin/show/{id}', [OrderController::class, 'show'])->name('order.show');
 Route::resource('/order', \App\Http\Controllers\OrderController::class);
 
 });
