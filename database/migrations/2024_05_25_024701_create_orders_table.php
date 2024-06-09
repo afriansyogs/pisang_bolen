@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('harga_product')->nullable();
             $table->integer('qty')->nullable();
             $table->softDeletes()->nullable();
+            $table->string('status')->default('konfirmasi pesanan');
             $table->timestamps();
     
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');

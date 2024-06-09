@@ -12,22 +12,22 @@
         }
 
         .afterOrder {
-            background-color: gainsboro; 
-            padding: 20px; 
+            background-color: gainsboro;
+            padding: 20px;
         }
 
         .order-item {
             border: 1px solid #ccc;
             padding: 20px;
             margin-bottom: 20px;
-            border-radius: 8px; 
-            background-color: #fff; 
+            border-radius: 8px;
+            background-color: #fff;
         }
 
         .order-item img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px; 
+            border-radius: 8px;
         }
 
         .order-item h2 {
@@ -39,7 +39,7 @@
         }
 
         .order-item .btn {
-            margin-top: 10px; 
+            margin-top: 10px;
         }
 
         hr {
@@ -54,11 +54,11 @@
         <div class="container content_afterOrder">
             <h1 class="text-center fw-bold">DAFTAR ORDERAN</h1>
             @foreach($orders as $order)
-            <div class="order-item row"> 
+            <div class="order-item row">
                 <div class="col-md-3 "> <!-- Perubahan: Menambahkan kelas d-flex dan align-items-center -->
                     <img src="{{ asset('storage/images/' . $order->product->foto_product) }}" alt="{{ $order->product->variant_product }}" class="img-fluid" />
                 </div>
-                <div class="col-md-4"> 
+                <div class="col-md-4">
                     <h2>{{ $order->product->variant_product }}</h2>
                     <p>Deskripsi: {{ $order->product->description_product }}</p>
                     <p>Harga: {{ $order->product->harga_product }}</p>
@@ -69,18 +69,46 @@
                     <p>No HP: {{ $user->number }}</p>
                 </div>
                 <div class="col-md-3">
-                <h3 class="fw-bold text-center">Bukti Transaksi:</h3>
+                    <h3 class="fw-bold text-center">Bukti Transaksi:</h3>
                     <img src="{{ asset('storage/' . $order->bukti_transaksi) }}" alt="Bukti Transaksi" class="img-fluid" style="width: 100%" height="auto">
                 </div>
                 <div class="col-md-2 d-flex align-items-center justify-content-center">
-                    <a href="{{ route('adminTesti.create') }}" class="btn btn-success text-center py-2">Beri Testimoni</a>
+                    @if($order->status == 'konfirmasi pesanan')
+                    <div class="d-flex align-items-center">
+                        <i class="fa-solid fa-clock"></i>
+                        <div class="ms-3 fw-bold">Menunggu Konfirmasi</div>
+                    </div>
+                    @endif
+                    @if($order->status == 'diproses')
+                    <div class="d-flex align-items-center">
+                        <i class="fa-solid fa-arrows-rotate mt-1"></i>
+                        <div class="ms-3 fw-bold">Pesanan Diproses</div>
+                    </div>
+                    @endif
+                    @if($order->status == 'pesanan sedang diantar')
+                    <div class="d-flex align-items-center">
+                        <i class="fa-solid fa-truck-fast mt-1"></i>
+                        <div class="ms-3 fw-bold">Pesanan Diantar</div>
+                    </div>
+                    @endif
+                    @if($order->status == 'pesanan diterima menunggu konfirmasi user')
+                        <form action="{{ route('orders.update-status', $order->id) }}" method="POST" class="d-inline">
+                            @csrf
+                            <input type="hidden" name="status" value="pesanan selesai">
+                            <button type="submit" class="btn btn-light border-primary border-3 fw-bold">Konfirmasi Pesanan Diterima</button>
+                        </form>
+                        @endif
+                        @if($order->status == 'pesanan selesai')
+                            <a href="{{ route('adminTesti.create') }}" class="btn btn-secondary text-center py-2">Beri Testimoni</a>
+                        @endif
+                    <!-- <a href="{{ route('adminTesti.create') }}" class="btn btn-success text-center py-2">Beri Testimoni</a> -->
                 </div>
             </div>
             <hr>
             @endforeach
         </div>
     </section>
-    
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

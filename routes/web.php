@@ -9,9 +9,11 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\DashboardController;
+// use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\Profile;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\RegionController;
 use App\Models\Saran;
 
 /*
@@ -136,5 +138,21 @@ Route::controller(TestimoniController::class)->group(function() {
     Route::post('restore/{id}', [OrderController::class, 'restore'])->name('order.restore');
     Route::delete('destroy/{id}', [OrderController::class, 'destroy'])->name('order.destroy');
     Route::delete('softdelete/{id}', [OrderController::class, 'softDelete'])->name('order.softdelete');
+    Route::post('/orders/{id}/update-status', [OrderController::class, 'updateStatus'])->name('orders.update-status');
+    Route::get('/bukti_transaksi', [OrderController::class, 'showBuktiTransaksi'])->name('bukti-transaksi');
+
+    Route::controller(RegionController::class)->group(function() {
+        Route::get('/region', 'index')->name('region.index');
+        Route::get('/region/create', 'create')->name('region.create');
+        Route::post('/region', 'store')->name('region.store');
+        Route::delete('/region/{id}', 'destroy')->name('region.destroy');
+        Route::get('/region/onlytrash', 'onlyTrashRegion')->name('region.onlytrash');
+        Route::delete('region/softdelete/{id}', 'softDelete')->name('region.softdelete');
+        Route::put('/region/restore/{id}', 'restore')->name('region.restore');
+        Route::get('/get_provinces', 'getProvinces')->name('getProvinces');
+        Route::post('/get-cities', 'getCities')->name('getCities');
+    });
+
+    // Route::get('/dashboardAdmin', [DashboardAdminController::class, 'index'])->name('dashboardAdmin.index');
 
 });

@@ -91,6 +91,12 @@
                         <span>Order</span>
                     </a>
                 </li>
+                <li class="sidebar_item {{ \Route::is('region.index') ? 'active' : '' }}">
+                    <a href="{{ route('region.index') }}" class="sidebar_link">
+                    <i class="fa-solid fa-truck-fast"></i>
+                        <span>Biaya Ongkir</span>
+                    </a>
+                </li>
             </ul>
             <div class="sidebar-footer">
                 @csrf

@@ -18,6 +18,7 @@ class Order extends Model
         'alamat',
         'id_payment',
         'bukti_transaksi',
+        'status',
     ];
     
     public function cart() {
