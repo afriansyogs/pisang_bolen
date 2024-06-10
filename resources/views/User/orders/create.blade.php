@@ -212,7 +212,7 @@
 
         // Mengambil dan menampilkan provinsi
         $.get("{{ route('getProvinces') }}", function(data) {
-            $('#provinsi').append(data.map(provinsi => `<option value="${provinsi.provinsi}">${provinsi.provinsi}</option>`));
+            $('#provinsi').append(data.map(provinsi => <option value="${provinsi.provinsi}">${provinsi.provinsi}</option>));
         });
 
         // Mengambil dan menampilkan kota berdasarkan provinsi yang dipilih
@@ -222,6 +222,22 @@
             if(provinsi) {
                 $.post("{{ route('getCities') }}", { provinsi: provinsi, _token: '{{ csrf_token() }}' }, function(data) {
                     $('#kota').empty().append('<option value="">Pilih Kota</option>');
-                    $('#kota').append(data.map(kota => `<option value="${kota.kota}" data-ongkir="${kota.ongkir}">${kota.kota}</option>`));
+                    $('#kota').append(data.map(kota => <option value="${kota.kota}" data-ongkir="${kota.ongkir}">${kota.kota}</option>));
+                });
+            } else {
+                $('#kota').empty().append('<option value="">Pilih Kota</option>');
+            }
+        });
 
-                    
+        $('#kota').change(function() {
+            const selectedOption = $(this).find('option:selected');
+            const ongkir = parseInt(selectedOption.data('ongkir')) || 0;
+            let totalHarga = ongkir;
+            ongkirElement.textContent = new Intl.NumberFormat('id-ID').format(ongkir) + '.000';
+            @foreach($cart as $cartItem)
+                totalHarga += {{ $cartItem->product->harga_product }} * {{ $cartItem->qty }};
+            @endforeach
+            totalHargaElement.textContent = new Intl.NumberFormat('id-ID').format(totalHarga) + '.000';
+        });
+    });
+</script>
