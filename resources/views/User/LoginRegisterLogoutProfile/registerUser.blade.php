@@ -52,11 +52,15 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="password">Confirm Password:</label>
-                        <input type="password" class="form-control" name="password_confirmation" id="password" placeholder="Confirmation Password">
+                        <label for="password_confirmation">Confirm Password:</label>
+                        <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password">
                         @error('password_confirmation')
                             <small>{{ $message }}</small>
                         @enderror
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="showPassword">
+                        <label class="form-check-label" for="showPassword">Show Password</label>
                     </div>
                 </div>
                 <div class="tombol1">
@@ -69,21 +73,34 @@
         </div>
       </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if ($message = Session::get('failed'))
+         <script>
+            Swal.fire('{{ $message }}');
+        </script>
+    @endif
+
+    <script>
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+
+        document.getElementById('showPassword').addEventListener('change', function() {
+            var passwordField = document.getElementById('password');
+            var confirmPasswordField = document.getElementById('password_confirmation');
+            if (this.checked) {
+                passwordField.type = 'text';
+                confirmPasswordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+                confirmPasswordField.type = 'password';
+            }
+        });
+    </script>
   </body>
 </html>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-@if ($message = Session::get('failed'))
-     <script>
-        Swal.fire('{{ $message }}');
-    </script>
-@endif
-
-<script>
-    function isNumberKey(evt) {
-        var charCode = (evt.which) ? evt.which : evt.keyCode;
-        if (charCode > 31 && (charCode < 48 || charCode > 57))
-            return false;
-        return true;
-    }
-</script>

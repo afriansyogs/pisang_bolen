@@ -46,11 +46,15 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="password">Confirm Password:</label>
-                        <input type="password" class="form-control" name="password_confirmation" id="password" placeholder="Confirmation Password">
+                        <label for="password_confirmation">Confirm Password:</label>
+                        <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password">
                         @error('password_confirmation')
                             <small>{{ $message }}</small>
                         @enderror
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="showPassword">
+                        <label class="form-check-label" for="showPassword">Show Password</label>
                     </div>
                 </div>
                 <div class="tombol1">
@@ -80,4 +84,16 @@
             return false;
         return true;
     }
+
+    document.getElementById('showPassword').addEventListener('change', function() {
+        var passwordField = document.getElementById('password');
+        var confirmPasswordField = document.getElementById('password_confirmation');
+        if (this.checked) {
+            passwordField.type = 'text';
+            confirmPasswordField.type = 'text';
+        } else {
+            passwordField.type = 'password';
+            confirmPasswordField.type = 'password';
+        }
+    });
 </script>

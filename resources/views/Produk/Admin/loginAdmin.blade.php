@@ -38,6 +38,10 @@
                             <small>{{ $message }}</small>
                         @enderror
                     </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="showPassword">
+                        <label class="form-check-label" for="showPassword">Show Password</label>
+                    </div>
                 </div>
                 <div class="tombol1">
                     <button type="submit" class="tombolLogin">LOGIN</button>
@@ -61,3 +65,14 @@
         Swal.fire('{{ $message }}');
     </script>
 @endif
+
+<script>
+    document.getElementById('showPassword').addEventListener('change', function() {
+        var passwordField = document.getElementById('password');
+        if (this.checked) {
+            passwordField.type = 'text';
+        } else {
+            passwordField.type = 'password';
+        }
+    });
+</script>

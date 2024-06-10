@@ -30,6 +30,10 @@
                             <small>{{ $message }}</small>
                         @enderror
                     </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="showPassword">
+                        <label class="form-check-label" for="showPassword">Show Password</label>
+                    </div>
                 </div>
                 <div class="tombol1">
                     <button type="submit" class="tombolLogin">LOGIN</button>
@@ -41,18 +45,30 @@
         </div>
       </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if ($message = Session::get('failed'))
+         <script>
+            Swal.fire('{{ $message }}');
+        </script>
+    @endif
+
+    @if ($message = Session::get('success'))
+         <script>
+            Swal.fire('{{ $message }}');
+        </script>
+    @endif
+
+    <script>
+      document.getElementById('showPassword').addEventListener('change', function() {
+          var passwordField = document.getElementById('password');
+          if (this.checked) {
+              passwordField.type = 'text';
+          } else {
+              passwordField.type = 'password';
+          }
+      });
+    </script>
   </body>
 </html>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-@if ($message = Session::get('failed'))
-     <script>
-        Swal.fire('{{ $message }}');
-    </script>
-@endif
-
-@if ($message = Session::get('success'))
-     <script>
-        Swal.fire('{{ $message }}');
-    </script>
-@endif
