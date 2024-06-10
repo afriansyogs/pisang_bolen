@@ -13,30 +13,37 @@
     }
 
     .container_order {
-        margin-top: 5%;
-        padding: 20px;
+        margin-top: 100px; /* Adjusted value to push content further below the navbar */
+        padding: 40px; /* Increased padding */
         background-color: white;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 1000px; /* Set a maximum width for larger form */
+        width: 90%; /* Set width to 90% for better responsiveness */
+        margin-left: auto;
+        margin-right: auto;
     }
 
     h2, h3 {
         margin-bottom: 20px;
+        font-size: 24px; /* Increased font size */
     }
 
     form div {
-        margin-bottom: 15px;
+        margin-bottom: 20px; /* Increased spacing between form elements */
     }
 
     label {
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: 10px; /* Increased space below label */
         font-weight: bold;
+        font-size: 16px; /* Increased font size */
     }
 
     input[type="text"], select, input[type="file"] {
         width: 100%;
-        padding: 10px;
+        padding: 15px; /* Increased padding */
+        font-size: 16px; /* Increased font size */
         border: 1px solid #ced4da;
         border-radius: 5px;
     }
@@ -49,7 +56,7 @@
 
     .product-details {
         margin-bottom: 20px;
-        padding: 15px;
+        padding: 20px; /* Increased padding */
         border: 1px solid #e3e3e3;
         border-radius: 5px;
         background-color: #fdfdfd;
@@ -57,25 +64,55 @@
 
     .product-details p {
         margin: 0;
+        font-size: 16px; /* Increased font size */
     }
 
     button[type="submit"] {
         display: block;
         width: 100%;
-        padding: 10px;
-        font-size: 16px;
+        padding: 15px; /* Increased padding */
+        font-size: 18px; /* Increased font size */
         font-weight: bold;
         cursor: pointer;
-    }
-
-    .container_order {
-        margin-top: 5%;
     }
 
     #payment-image {
         display: none;
         margin-top: 20px;
         max-width: 100%;
+    }
+
+    /* Media query for mobile devices */
+    @media (max-width: 767px) {
+        .container_order {
+            margin-top: 80px;
+            padding: 20px;
+            width: 100%; /* Ensures full width on mobile */
+        }
+
+        .product-details {
+            padding: 15px;
+        }
+
+        button[type="submit"] {
+            padding: 15px;
+        }
+
+        h2, h3 {
+            font-size: 20px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        input[type="text"], select, input[type="file"] {
+            padding: 10px;
+        }
+
+        .product-details p {
+            font-size: 14px;
+        }
     }
 </style>
 
@@ -186,21 +223,5 @@
                 $.post("{{ route('getCities') }}", { provinsi: provinsi, _token: '{{ csrf_token() }}' }, function(data) {
                     $('#kota').empty().append('<option value="">Pilih Kota</option>');
                     $('#kota').append(data.map(kota => `<option value="${kota.kota}" data-ongkir="${kota.ongkir}">${kota.kota}</option>`));
-                });
-            } else {
-                $('#kota').empty().append('<option value="">Pilih Kota</option>');
-            }
-        });
 
-        $('#kota').change(function() {
-            const selectedOption = $(this).find('option:selected');
-            const ongkir = parseInt(selectedOption.data('ongkir')) || 0;
-            let totalHarga = ongkir;
-            ongkirElement.textContent = new Intl.NumberFormat('id-ID').format(ongkir) + '.000';
-            @foreach($cart as $cartItem)
-                totalHarga += {{ $cartItem->product->harga_product }} * {{ $cartItem->qty }};
-            @endforeach
-            totalHargaElement.textContent = new Intl.NumberFormat('id-ID').format(totalHarga) + '.000';
-        });
-    });
-</script>
+                    
