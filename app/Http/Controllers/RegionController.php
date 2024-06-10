@@ -23,13 +23,13 @@ class RegionController extends Controller
     public function store(Request $request) {
         $this->validate($request, [
             'provinsi' => 'required',
-            'kote'     => 'required',
+            'kota'     => 'required',
             'ongkir'   => 'required'
         ]);
 
         Region::create([
             'provinsi' => $request->provinsi,
-            'kote'     => $request->kote,
+            'kota'     => $request->kota,
             'ongkir'   => $request->ongkir
         ]);
 
