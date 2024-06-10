@@ -10,6 +10,7 @@ h2{
     text-align: center;
 }
 
+
 .isi{
     background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(/img/produk.jpg);
     background-repeat: no-repeat;
@@ -74,10 +75,10 @@ h2{
 
 @media (max-width: 991px){
     .testi{
-        margin-top: 10%;
+        text-align: center;
     }
     .isi{
-        margin-top: 10%;
+        margin-top: 30%;
     }
     h1{
         margin-top: 20%;

@@ -22,6 +22,7 @@
         <div class="testi">
             <h1>TESTIMONIAL</h1>    
         </div>
+        <center>
         <div class="container-2">
             <div class="owl-carousel owl-theme">
                 @foreach ($testi as $user)
@@ -41,6 +42,7 @@
             <br>
             <br>
         </div>
+    </center>
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
