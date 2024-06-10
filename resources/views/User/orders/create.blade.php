@@ -13,7 +13,7 @@
     }
 
     .container_order {
-        margin-top: 5%;
+        margin-top: 100px; /* Adjusted value to push content further below the navbar */
         padding: 20px;
         background-color: white;
         border-radius: 10px;
@@ -68,14 +68,42 @@
         cursor: pointer;
     }
 
-    .container_order {
-        margin-top: 5%;
-    }
-
     #payment-image {
         display: none;
         margin-top: 20px;
         max-width: 100%;
+    }
+
+    /* Media query for mobile devices */
+    @media (max-width: 767px) {
+        .container_order {
+            margin-top: 80px;
+            padding: 15px;
+        }
+
+        .product-details {
+            padding: 10px;
+        }
+
+        button[type="submit"] {
+            padding: 15px;
+        }
+
+        h2, h3 {
+            font-size: 18px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        input[type="text"], select, input[type="file"] {
+            padding: 8px;
+        }
+
+        .product-details p {
+            font-size: 14px;
+        }
     }
 </style>
 
