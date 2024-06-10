@@ -1,12 +1,7 @@
 <x-navbar />
 
 <header>
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-        crossorigin="anonymous"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
@@ -26,7 +21,7 @@
     }
 
     .container_cart {
-        margin-top: 5%;
+        margin-top: 100px; /* Adjusted value to push content further below the navbar */
     }
 
     .cart-item {
@@ -90,6 +85,66 @@
         padding: 10px 20px;
         font-size: 18px;
         font-weight: bold;
+    }
+    
+    /* Media query for mobile devices */
+    @media (max-width: 767px) {
+        .cart-item {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .cart-item img {
+            margin: 0 auto 15px;
+        }
+
+        .cart-item .col-md-2,
+        .cart-item .col-md-6,
+        .cart-item .col-md-2,
+        .cart-item .col-md-2 {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .order-total {
+            flex-direction: column;
+        }
+
+        .order-total h1 {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .order-total button {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 991px) {
+        .cart-item .col-md-2,
+        .cart-item .col-md-6,
+        .cart-item .col-md-2,
+        .cart-item .col-md-2 {
+            width: 50%;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .order-total {
+            flex-direction: column;
+        }
+
+        .order-total h1 {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .order-total button {
+            width: 100%;
+            text-align: center;
+        }
     }
 </style>
 
