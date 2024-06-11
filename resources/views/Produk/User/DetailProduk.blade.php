@@ -104,41 +104,41 @@
 
     <div class="container mt-3 mb-3 content_card">
         <div class="row g-0">
-        <div class="col-md-12 d-flex justify-content-center mt-3 mb-3">
-                <div class="card w-50">
-                    <div class="card-body">
-                        <div class="row">
-                            {{-- <div class="col-md-12 mb-3">
-                                <h2 class="card-title text-center fw-bold">{{ $products->variant_product }}</h2>
-                            </div> --}}
-                            <div class="foto col-md-6">
-                                <img src="{{ asset('storage/images/' . $products->foto_product) }}" class="card-img-top" alt="Bolen Jonegoroan">
-                            </div>
-                            <div class="isi col-md-6 p-4 justify-content-center">
-                                <h2 class="card-title fw-bold mb-4">{{ $products->variant_product }}</h2>
-                                <p class="card-text mb-4">{{ $products->description_product }}</p>
-                                <hr>
-                                <h5 class="card-text mt-4 mb-3">{{ $products->harga_product }}</h5>
+        <div class="col-lg-12 d-flex justify-content-center mt-3 mb-3">
+            <div class="card w-50">
+                <div class="card-body">
+                    <div class="row">
+                        {{-- <div class="col-md-12 mb-3">
+                            <h2 class="card-title text-center fw-bold">{{ $products->variant_product }}</h2>
+                        </div> --}}
+                        <div class="foto col-lg-6">
+                            <img src="{{ asset('storage/images/' . $products->foto_product) }}" class="card-img-top" alt="Bolen Jonegoroan">
+                        </div>
+                        <div class="isi col-lg-6 p-4 justify-content-center">
+                            <h2 class="card-title fw-bold mb-4">{{ $products->variant_product }}</h2>
+                            <p class="card-text mb-4">{{ $products->description_product }}</p>
+                            <hr>
+                            <h5 class="card-text mt-4 mb-3">{{ $products->harga_product }}</h5>
 
-                                <form action="{{ route('cart.store') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="id_product" value="{{ $products->id }}">
-                                    <input type="hidden" name="qty" value="1" min="1">
-                                    @auth
-                                        <button type="submit" class="btn btn-outline-dark mt-3">
-                                            <i class="bi bi-cart-fill"></i> Add to Cart
-                                        </button>
-                                    @endauth
-                                    @guest
-                                        <a href="{{ route('login') }}" class="btn btn-outline-dark mt-3">
-                                            <i class="bi bi-cart-fill"></i> Add to Cart
-                                        </a>
-                                    @endguest
-                                </form>
-                            </div>
+                            <form action="{{ route('cart.store') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="id_product" value="{{ $products->id }}">
+                                <input type="hidden" name="qty" value="1" min="1">
+                                @auth
+                                    <button type="submit" class="btn btn-outline-dark mt-3">
+                                        <i class="bi bi-cart-fill"></i> Add to Cart
+                                    </button>
+                                @endauth
+                                @guest
+                                    <a href="{{ route('login') }}" class="btn btn-outline-dark mt-3">
+                                        <i class="bi bi-cart-fill"></i> Add to Cart
+                                    </a>
+                                @endguest
+                            </form>
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
         </div>
     </div>
