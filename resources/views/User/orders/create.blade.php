@@ -108,19 +108,19 @@
 </style>
 
 <div class="container_order container">
-    <h2>Buat Order</h2>
+    <h1 class="fw-semibold text-center">Buat Order</h1>
 
     <form action="{{ route('order.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div>
-            <label for="alamat">Alamat:</label>
+            <label for="alamat" class="fs-4">Alamat:</label>
             <input type="text" name="alamat" id="alamat" value="{{ $user->alamat }}" required>
         </div>
 
         <!-- Dropdown Provinsi -->
         <div>
-            <label for="provinsi">Provinsi:</label>
+            <label for="provinsi" class="fs-4">Provinsi:</label>
             <select id="provinsi" name="provinsi" required>
                 <option value="">Pilih Provinsi</option>
             </select>
@@ -128,14 +128,14 @@
 
         <!-- Dropdown Kota -->
         <div>
-            <label for="kota">Kota:</label>
+            <label for="kota" class="fs-4">Kota:</label>
             <select id="kota" name="kota" disabled required>
                 <option value="">Pilih Kota</option>
             </select>
         </div>
 
         <div>
-            <label for="id_payment">Metode Pembayaran:</label>
+            <label for="id_payment" class="fs-5">Metode Pembayaran:</label>
             <select name="id_payment" id="id_payment" required>
                 <option value="" selected disabled>Pilih Metode Pembayaran</option>
                 @foreach($payments as $payment)
@@ -148,17 +148,17 @@
         </div>
 
         <div>
-            <label for="bukti_transaksi">Bukti Transaksi:</label>
+            <label for="bukti_transaksi" class="fs-4">Bukti Transaksi:</label>
             <input type="file" name="bukti_transaksi" id="bukti_transaksi" required>
         </div>
 
-        <h3>Detail Produk</h3>
+        <h3 class="text-center fw-bold">Detail Produk</h3>
         @foreach($cart as $cartItem)
         <div class="product-details">
-            <p><strong>Nama Produk:</strong> {{ $cartItem->product->variant_product }}</p>
-            <p><strong>Harga 1 Produk:</strong> Rp {{ number_format($cartItem->product->harga_product, 0, ',', '.') }}.000</p>
-            <p><strong>Total Harga Produk:</strong> Rp {{ number_format($cartItem->product->harga_product * $cartItem->qty, 0, ',', '.') }}.000</p>
-            <p><strong>Jumlah:</strong> {{ $cartItem->qty }}</p>
+            <h4><strong>Nama Produk:</strong> {{ $cartItem->product->variant_product }}</h4>
+            <h4><strong>Harga 1 Produk:</strong> Rp {{ number_format($cartItem->product->harga_product, 0, ',', '.') }}.000</h4>
+            <h4><strong>Total Harga Produk:</strong> Rp {{ number_format($cartItem->product->harga_product * $cartItem->qty, 0, ',', '.') }}.000</h4>
+            <h4><strong>Jumlah:</strong> {{ $cartItem->qty }}</h4>
         </div>
         @endforeach
 

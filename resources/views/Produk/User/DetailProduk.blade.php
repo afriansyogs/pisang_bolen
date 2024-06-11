@@ -115,10 +115,10 @@
                             <img src="{{ asset('storage/images/' . $products->foto_product) }}" class="card-img-top" alt="Bolen Jonegoroan">
                         </div>
                         <div class="isi col-lg-6 p-4 justify-content-center">
-                            <h2 class="card-title fw-bold mb-4">{{ $products->variant_product }}</h2>
-                            <p class="card-text mb-4">{{ $products->description_product }}</p>
+                            <h1 class="card-title fw-bold mb-4 text-center">{{ $products->variant_product }}</h1>
+                            <h4 class="card-text mb-4">{{ $products->description_product }}</h4>
                             <hr>
-                            <h5 class="card-text mt-4 mb-3">{{ $products->harga_product }}</h5>
+                            <h3 class="card-text mt-4 mb-3 fw-bold fs-2">RP {{ $products->harga_product }}</h3>
 
                             <form action="{{ route('cart.store') }}" method="POST">
                                 @csrf

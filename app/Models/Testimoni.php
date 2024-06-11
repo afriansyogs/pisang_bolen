@@ -14,4 +14,9 @@ class Testimoni extends Model
         'testi', 
         'name'
     ];
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
 }

@@ -15,7 +15,7 @@
             <div class="nav_img ms-1">
                 <img src="{{ asset('assets/img/logo_bolen.png') }}" class="nav_first_img" alt="Logo">
             </div>
-            <button class="navbar-toggler border-2 border-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler border-2 border-black" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">

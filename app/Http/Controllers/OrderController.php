@@ -35,6 +35,36 @@ class OrderController extends Controller
         return view('admin.order.index', compact('orders'));
     }
 
+    public function confirmedOrders(): View
+    {
+        $orders = Order::where('status', 'konfirmasi pesanan')->latest()->get();
+        return view('admin.order.confirmedOrders', compact('orders'));
+    }
+
+    public function processedOrders(): View
+    {
+        $orders = Order::where('status', 'diproses')->latest()->get();
+        return view('admin.order.processedOrders', compact('orders'));
+    }
+
+    public function deliveringOrders(): View
+    {
+        $orders = Order::where('status', 'pesanan sedang diantar')->latest()->get();
+        return view('admin.order.deliveringOrders', compact('orders'));
+    }
+
+    public function receivedWaitingConfirmationOrders(): View
+    {
+        $orders = Order::where('status', 'pesanan diterima menunggu konfirmasi user')->latest()->get();
+        return view('admin.order.receivedWaitingConfirmationOrders', compact('orders'));
+    }
+
+    public function confirmedOrdersAgain(): View
+    {
+        $orders = Order::where('status', 'pesanan selesai')->latest()->get();
+        return view('admin.order.confirmedOrdersAgain', compact('orders'));
+    }
+
     public function create()
     {
         $user = auth()->user();

@@ -12,42 +12,40 @@
 <div class="text-black mt-5">
     <h1 class="text-center text-black mt-3">Data Order</h1>
     <div class="d-flex justify-content-end me-3">
-        <a href="{{ route('order.history') }}" class="btn btn-dark btn-sm ms-auto rounded-2">
+        <a href="{{ route('order.history') }}" class="btn btn-dark btn-sm ms-auto rounded-2 mb-3">
             <div class="mx-2">
                 <span class="fw-bolder fs-5">History</span>
                 <i class="fa-solid fa-clock-rotate-left fa-lg ms-1 "></i>
             </div>
         </a>
-
     </div>
 
-    <div class="d-flex justify-content-start ms-3">
-        <a href="{{ route('admin.orders.confirmed') }}" class="btn btn-dark btn-sm ms-2 rounded-2">
-            <div class="mx-2 d-flex align-items-center">
+    <div class="d-flex flex-column flex-md-row justify-content-start ms-3 mt-3 mt-md-0">
+        <a href="{{ route('admin.orders.confirmed') }}" class="btn btn-primary btn-sm ms-0 ms-md-2 mb-2 mb-md-0 rounded-2 w-100 w-md-auto">
+            <div class="mx-2 d-flex align-items-center justify-content-center">
                 <span class="fw-semibold">Pesanan Baru</span>
-                <!-- <i class="fa-solid fa-check fa-lg ms-1"></i> -->
             </div>
         </a>
-        <a href="{{ route('admin.orders.processed') }}" class="btn btn-dark btn-sm ms-2 rounded-2">
-            <div class="mx-2 d-flex align-items-center">
+        <a href="{{ route('admin.orders.processed') }}" class="btn btn-warning btn-sm ms-0 ms-md-2 mb-2 mb-md-0 rounded-2 w-100 w-md-auto">
+            <div class="mx-2 d-flex align-items-center justify-content-center">
                 <span class="fw-semibold">Diproses</span>
                 <i class="fa-solid fa-cogs fa-lg ms-1"></i>
             </div>
         </a>
-        <a href="{{ route('admin.orders.delivering') }}" class="btn btn-dark btn-sm ms-2 rounded-2">
-            <div class="mx-2 d-flex align-items-center">
+        <a href="{{ route('admin.orders.delivering') }}" class="btn btn-info btn-sm ms-0 ms-md-2 mb-2 mb-md-0 rounded-2 w-100 w-md-auto">
+            <div class="mx-2 d-flex align-items-center justify-content-center">
                 <span class="fw-semibold">Sedang Diantar</span>
                 <i class="fa-solid fa-truck fa-lg ms-1"></i>
             </div>
         </a>
-        <a href="{{ route('admin.orders.received-waiting-confirmation') }}" class="btn btn-dark btn-sm ms-2 rounded-2">
-            <div class="mx-2 d-flex align-items-center">
+        <a href="{{ route('admin.orders.received-waiting-confirmation') }}" class="btn btn-danger btn-sm ms-0 ms-md-2 mb-2 mb-md-0 rounded-2 w-100 w-md-auto">
+            <div class="mx-2 d-flex align-items-center justify-content-center">
                 <span class="fw-semibold">Menunggu Konfirmasi</span>
                 <i class="fa-solid fa-hourglass-half fa-lg ms-1"></i>
             </div>
         </a>
-        <a href="{{ route('admin.orders.confirmed-again') }}" class="btn btn-dark btn-sm ms-2 rounded-2">
-            <div class="mx-2 d-flex align-items-center">
+        <a href="{{ route('admin.orders.confirmed-again') }}" class="btn btn-success btn-sm ms-0 ms-md-2 mb-2 mb-md-0 rounded-2 w-100 w-md-auto">
+            <div class="mx-2 d-flex align-items-center justify-content-center">
                 <span class="fw-semibold">Pesanan Selesai</span>
                 <i class="fa-solid fa-check-double fa-lg ms-1"></i>
             </div>
@@ -65,7 +63,7 @@
                     <th data-priority="1" class="text-center">Total Harga</th>
                     <th data-priority="1" class="text-center col-2">Alamat</th>
                     <th data-priority="1" class="text-center col-1">Bukti Transfer</th>
-                    <th data-priority="1" class="text-center col-2  ">Status</th>
+                    <th data-priority="1" class="text-center col-2">Status</th>
                     <th data-priority="1" class="text-center col-2">Aksi</th>
                 </tr>
             </thead>
@@ -107,11 +105,11 @@
                         @endif
 
                         @if($orderList->status == 'pesanan diterima menunggu konfirmasi user')
-                        <!-- <button type="submit" class="btn btn-success">Pesanan Selesai</button> -->
-                        <div class="fw-bold text-danger">Menunggu Konfirmasi User</div>
+                            <!-- <button type="submit" class="btn btn-success">Pesanan Selesai</button> -->
+                            <div class="fw-bold text-danger">Menunggu Konfirmasi User</div>
                         @endif
                         @if($orderList->status == 'pesanan selesai')
-                        <div class="fw-bold text-primary">Pesanan Selesai</div>
+                            <div class="fw-bold text-primary">Pesanan Selesai</div>
                         @endif
                     </td>
                     <td class="text-center">
@@ -125,7 +123,7 @@
                                 <i class="bi bi-trash3"></i>
                             </button>
                         </form>
-
+                        
                     </td>
                 </tr>
                 @endforeach

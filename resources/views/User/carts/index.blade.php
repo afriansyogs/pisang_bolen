@@ -17,7 +17,7 @@
     }
 
     body {
-        background-color: #f8f9fa;
+        background-color: #DDE6ED;
     }
 
     .container_cart {
@@ -152,7 +152,7 @@
     @php 
         $total = 0;
     @endphp
-    <h2>{{$cart->count()}} Barang Belum Di Checkout</h2>
+    <h1>{{$cart->count()}} Barang Belum Di Checkout</h1>
     @foreach($cart as $cartItem)
     <div class="cart-item row">
         <div class="col-md-2">
@@ -163,9 +163,9 @@
             @endif
         </div>
         <div class="col-md-6">
-            <p class="mb-1">{{ $cartItem->product->variant_product }}</p>
-            <p class="mb-1">Harga Satuan: Rp {{ number_format($cartItem->product->harga_product, 0, ',', '.') }}.000</p>
-            <p class="mb-1">Subtotal: Rp {{ number_format($cartItem->harga_product) }}.000</p>
+            <h1 class="mb-1">{{ $cartItem->product->variant_product }}</h1>
+            <h4 class="mb-1">Harga Satuan: Rp {{ number_format($cartItem->product->harga_product, 0, ',', '.') }}.000</h4>
+            <h4 class="mb-1">Subtotal: Rp {{ number_format($cartItem->harga_product) }}.000</h4>
         </div>
         <div class="col-md-2">
             <form action="{{ route('cart.update', $cartItem->id) }}" method="POST">

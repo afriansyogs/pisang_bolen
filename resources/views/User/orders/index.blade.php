@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .content_afterOrder {
-            margin-top: 10px; /* Adjust this value to move the content upwards */
+            margin-top: 80px; /* Adjust this value to move the content upwards */
             min-height: calc(100vh - 80px); /* Adjust based on the new margin-top value */
             display: flex;
             flex-direction: column;

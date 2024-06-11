@@ -76,4 +76,30 @@ class PaymentController extends Controller
 
         return redirect()->route('payment.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
+
+    public function destroy($id): RedirectResponse {
+        $payment = Payment::withTrashed()->findOrFail($id);
+        $payment->forceDelete();
+        return redirect()->route('payment.onlytrash')->with('success', 'Data berhasil dihapus secara permanen.');
+    }
+
+    public function softDelete($id) {
+        $payment = Payment::findOrFail($id);
+        $payment->delete();
+
+        return redirect()->route('payment.index')->with('success', 'Data berhasil dihapus secara lembut.');
+    }
+
+    public function onlyTrashPayment():view {
+        $paymentTrash = Payment::onlyTrashed()->latest()->get();
+
+        return view('admin.payment.history', compact('paymentTrash'));
+    }
+
+    public function restore($id) {
+        $payment = Payment::withTrashed()->findOrFail($id);
+        $payment->restore();
+
+        return redirect()->route('payment.onlytrash')->with('success', 'Data berhasil dipulihkan.');
+    }
 }

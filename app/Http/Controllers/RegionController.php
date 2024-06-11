@@ -36,6 +36,32 @@ class RegionController extends Controller
         return redirect()->route('region.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
+    public function edit($id): View
+    {
+        $region = Region::findOrFail($id);
+
+        return view('admin.region.regionEdit', compact('region'));
+    }
+
+    public function update(Request $request, $id): RedirectResponse {
+    $this->validate($request, [
+        'provinsi' => 'required',
+        'kota' => 'required',
+        'ongkir' => 'required',
+    ]);
+
+    $region = Region::findOrFail($id);
+
+    $region->update([
+        'provinsi' => $request->provinsi,
+        'kota' => $request->kota,
+        'ongkir' => $request->ongkir,
+    ]);
+
+    return redirect()->route('region.index')->with('success', 'Payment updated successfully.');
+}
+
+
     public function softDelete($id) {
         $region = Region::findOrFail($id);
         $region->delete();

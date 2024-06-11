@@ -8,6 +8,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TestimoniController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\DashboardController;
 // use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\Profile;
@@ -51,7 +52,15 @@ Route::controller(SaranController::class)->group(function() {
 
 Route::resource('/cart', \App\Http\Controllers\CartController::class);
 
-Route::resource('/payment', \App\Http\Controllers\PaymentController::class);
+Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
+Route::get('/payment/create', [PaymentController::class, 'create'])->name('payment.create');
+Route::post('/payment/store', [PaymentController::class, 'store'])->name('payment.store');
+Route::get('/payment/edit/{id}', [PaymentController::class, 'edit'])->name('payment.edit');
+Route::put('/payment/update/{id}', [PaymentController::class, 'update'])->name('payment.update');
+Route::delete('/payment/soft-delete/{id}', [PaymentController::class, 'softDelete'])->name('payment.softdelete');
+Route::delete('/payment/destroy/{id}', [PaymentController::class, 'destroy'])->name('payment.destroy');
+Route::get('/payment/only-trash', [PaymentController::class, 'onlyTrashPayment'])->name('payment.onlytrash');
+Route::put('/payment/restore/{id}', [PaymentController::class, 'restore'])->name('payment.restore');
 
 
 Route::controller(ProdukController::class)->group(function() {
@@ -141,10 +150,19 @@ Route::controller(TestimoniController::class)->group(function() {
     Route::post('/orders/{id}/update-status', [OrderController::class, 'updateStatus'])->name('orders.update-status');
     Route::get('/bukti_transaksi', [OrderController::class, 'showBuktiTransaksi'])->name('bukti-transaksi');
 
+    
+Route::get('/admin/orders/confirmed', [OrderController::class, 'confirmedOrders'])->name('admin.orders.confirmed');
+Route::get('/admin/orders/processed', [OrderController::class, 'processedOrders'])->name('admin.orders.processed');
+Route::get('/admin/orders/delivering', [OrderController::class, 'deliveringOrders'])->name('admin.orders.delivering');
+Route::get('/admin/orders/received-waiting-confirmation', [OrderController::class, 'receivedWaitingConfirmationOrders'])->name('admin.orders.received-waiting-confirmation');
+Route::get('/admin/orders/confirmed-again', [OrderController::class, 'confirmedOrdersAgain'])->name('admin.orders.confirmed-again');
+
     Route::controller(RegionController::class)->group(function() {
         Route::get('/region', 'index')->name('region.index');
         Route::get('/region/create', 'create')->name('region.create');
         Route::post('/region', 'store')->name('region.store');
+        Route::get('/region/edit/{id}', 'edit')->name('region.edit');
+    Route::put('/region/update/{id}', 'update')->name('region.update');
         Route::delete('/region/{id}', 'destroy')->name('region.destroy');
         Route::get('/region/onlytrash', 'onlyTrashRegion')->name('region.onlytrash');
         Route::delete('region/softdelete/{id}', 'softDelete')->name('region.softdelete');

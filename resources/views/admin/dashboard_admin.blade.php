@@ -85,8 +85,8 @@
                         <span>Payment</span>
                     </a>
                 </li>
-                <li class="sidebar_item {{ \Route::is('order.admin') ? 'active' : '' }}">
-                    <a href="{{ route('order.admin') }}" class="sidebar_link">
+                <li class="sidebar_item {{ \Route::is('admin.orders.confirmed') ? 'active' : '' }}">
+                    <a href="{{ route('admin.orders.confirmed') }}" class="sidebar_link">
                     <i class="fa-solid fa-boxes-stacked"></i>
                         <span>Order</span>
                     </a>
